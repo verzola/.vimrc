@@ -1,0 +1,2 @@
+# .vimrc
+Meu .vimrc personalizado
