@@ -63,8 +63,6 @@ nnoremap <C-H> <C-W><C-H>
 " ; vale como ;
 nnoremap ; :
 
-" Teste 2
-
 " Mappings do Fugitive
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
@@ -89,10 +87,12 @@ let mapleader = ","
 " Habilita airline
 let g:airline#extensions#tabline#enabled = 1
 " Escolhe tema do airline
-let g:airline_theme='powerlineish'
+let g:airline_theme = 'powerlineish'
 " Habilita neocomplete ao inicializar
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplcache_enable_at_startup = 1
+" Mostra arquivos escondidos
+let NERDTreeShowHidden = 1
 
 " Mostra linhas
 set nu
@@ -172,3 +172,6 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
     echo 'Enabled autocomplete'
 endfunction
+
+" Abre NerdTree ao inicializar
+autocmd vimenter * NERDTree
