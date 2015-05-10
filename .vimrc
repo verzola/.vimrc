@@ -14,7 +14,9 @@ Plugin 'Lokaltog/vim-easymotion'
 " Goto file
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+" Barra de modo
 Plugin 'bling/vim-airline'
+" Abas na barra lateral
 Plugin 'jistr/vim-nerdtree-tabs'
 " Múltiplos cursores
 Plugin 'terryma/vim-multiple-cursors'
@@ -28,6 +30,8 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin para Git
 Plugin 'tpope/vim-fugitive'
+" Comandos assíncronos
+Plugin 'tpope/vim-dispatch'
 
 " Vundle
 call vundle#end()
@@ -59,22 +63,26 @@ nnoremap <C-H> <C-W><C-H>
 " ; vale como ;
 nnoremap ; :
 
+" Teste 2
+
 " Mappings do Fugitive
-nmap <space>ga :Git add %:p<CR><CR>
-nmap <space>gs :Gstatus<CR>
-nmap <space>gc :Gcommit -v -q<CR>
-nmap <space>gt :Gcommit -v -q %:p<CR>
-nmap <space>gd :Gdiff<CR>
-nmap <space>ge :Gedit<CR>
-nmap <space>gr :Gread<CR>
-nmap <space>gw :Gwrite<CR><CR>
-nmap <space>gl :silent! Glog<CR>:bot copen<CR>
-nmap <space>gp :Ggrep<Space>
-nmap <space>gm :Gmove<Space>
-nmap <space>gb :Git branch<Space>
-nmap <space>go :Git checkout<Space>
-nmap <space>gps :Dispatch! git push<CR>
-nmap <space>gpl :Dispatch! git pull<CR>
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>gbl :Gblame<CR>
+nnoremap <space>gwb :Gbrowse<CR>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
 
 " Redefine tecla leader
 let mapleader = ","
