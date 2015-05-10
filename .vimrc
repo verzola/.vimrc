@@ -38,6 +38,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
 " Surrounds
 Plugin 'tpope/vim-surround'
+" Git gutter
+Plugin 'airblade/vim-gitgutter'
 
 " Vundle
 call vundle#end()
@@ -62,11 +64,11 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
 
-" Navegação por splits
-noremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " ; vale como ;
 nnoremap ; :
@@ -92,6 +94,7 @@ nnoremap <space>gpl :Gpull<CR>
 
 " Redefine tecla leader
 let mapleader = ","
+let g:mapleader=","
 " Habilita airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -112,6 +115,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Sintaxe colorida
+syntax enable
 " Mostra linhas
 set nu
 " Sempre barra de status 
@@ -198,3 +203,6 @@ endfunction
 
 " Abre NerdTree ao inicializar
 autocmd vimenter * NERDTree
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
