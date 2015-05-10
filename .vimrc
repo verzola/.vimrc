@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 " Goto file
 Plugin 'kien/ctrlp.vim'
+" Tagbar
 Plugin 'majutsushi/tagbar'
 " Barra de modo
 Plugin 'bling/vim-airline'
@@ -20,6 +21,7 @@ Plugin 'bling/vim-airline'
 Plugin 'jistr/vim-nerdtree-tabs'
 " Múltiplos cursores
 Plugin 'terryma/vim-multiple-cursors'
+" Integração do PHP com Vim
 Plugin 'spf13/PIV'
 " Autocomplete
 Plugin 'Shougo/neocomplete.vim'
@@ -32,6 +34,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 " Comandos assíncronos
 Plugin 'tpope/vim-dispatch'
+" Checa sintaxe
+Plugin 'scrooloose/syntastic'
+" Surrounds
+Plugin 'tpope/vim-surround'
 
 " Vundle
 call vundle#end()
@@ -40,7 +46,6 @@ filetype plugin indent on
 " Colorscheme
 colorscheme itg_flat
 
-" Mappings
 " Liga e desliga marcação da busca
 nnoremap <F3> :set hlsearch!<CR>
 " Mostra os buffers
@@ -51,15 +56,18 @@ nmap <F8> :TagbarToggle<CR>
 map <C-e> <plug>NERDTreeTabsToggle<CR>
 " Salva como sudo
 cmap w!! w !sudo tee % >/dev/null
+
 " Alias para erros de digitação
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
+
 " Navegação por splits
 noremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 " ; vale como ;
 nnoremap ; :
 
@@ -79,13 +87,15 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>gbl :Gblame<CR>
 nnoremap <space>gwb :Gbrowse<CR>
 nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gps :Dispatch! git push<CR>
-nnoremap <space>gpl :Dispatch! git pull<CR>
+nnoremap <space>gps :Gpush<CR>
+nnoremap <space>gpl :Gpull<CR>
 
 " Redefine tecla leader
 let mapleader = ","
 " Habilita airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " Escolhe tema do airline
 let g:airline_theme = 'powerlineish'
 " Habilita neocomplete ao inicializar
@@ -93,6 +103,14 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplcache_enable_at_startup = 1
 " Mostra arquivos escondidos
 let NERDTreeShowHidden = 1
+" Fecha NerdTree quando abrir um arquivo
+let NERDTreeQuitOnOpen = 1
+
+" Configuração do syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Mostra linhas
 set nu
@@ -152,6 +170,11 @@ set nobackup
 set noswapfile
 set nowritebackup
 set noundofile
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 
 if exists("g:ctrl_user_command")
       unlet g:ctrlp_user_command
