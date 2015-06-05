@@ -17,15 +17,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 " Barra de modo
 Plugin 'bling/vim-airline'
-" Abas na barra lateral
-Plugin 'jistr/vim-nerdtree-tabs'
 " Múltiplos cursores
 Plugin 'terryma/vim-multiple-cursors'
 " Integração do PHP com Vim
 Plugin 'spf13/PIV'
-" Autocomplete
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neocomplcache.vim'
 " Fecha tags automaticamente
 Plugin 'Townk/vim-autoclose'
 " Plugin para comentários
@@ -52,10 +47,8 @@ colorscheme itg_flat
 nnoremap <F3> :set hlsearch!<CR>
 " Mostra os buffers
 nnoremap <F5> :buffers<CR>:buffer<Space>Q
-" Abre o tagbar
-nmap <F8> :TagbarToggle<CR>
 " Abre o NerdTreeTabs
-map <C-e> <plug>NERDTreeTabsToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 " Salva como sudo
 cmap w!! w !sudo tee % >/dev/null
 
@@ -132,9 +125,7 @@ set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-
 " Undos
-set undofile
 set undolevels=1000
-set undoreload=1000
 set tabpagemax=15
 set noshowmode
 set cursorline
@@ -174,12 +165,10 @@ set pastetoggle=<F13>
 set nobackup
 set noswapfile
 set nowritebackup
-set noundofile
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 
 if exists("g:ctrl_user_command")
       unlet g:ctrlp_user_command
@@ -190,19 +179,5 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Correção para multiple cursors e neocomplete
-function! Multiple_cursors_before()
-    exe 'NeoCompleteLock'
-    echo 'Disabled autocomplete'
-endfunction
-
-function! Multiple_cursors_after()
-    exe 'NeoCompleteUnlock'
-    echo 'Enabled autocomplete'
-endfunction
-
-" Abre NerdTree ao inicializar
-autocmd vimenter * NERDTree
-
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]g <Plug>GitGutterNextHunk
+nmap [g <Plug>GitGutterPrevHunk
