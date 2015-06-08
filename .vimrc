@@ -87,7 +87,7 @@ nnoremap <space>gpl :Gpull<CR>
 
 " Redefine tecla leader
 let mapleader = ","
-let g:mapleader=","
+let g:mapleader = ","
 " Habilita airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -101,6 +101,8 @@ let g:neocomplcache_enable_at_startup = 1
 let NERDTreeShowHidden = 1
 " Fecha NerdTree quando abrir um arquivo
 let NERDTreeQuitOnOpen = 1
+" Remove simbolos bizarros do NerdTree
+let g:NERDTreeDirArrows=0
 
 " Configuração do syntastic
 let g:syntastic_always_populate_loc_list = 1
