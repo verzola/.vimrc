@@ -100,6 +100,7 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+
 " Fix para autoclose para poder apertar
 " esc só uma vez para ir para modo comando
 let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
@@ -107,6 +108,11 @@ let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 " Redefine tecla leader
 let mapleader = ","
 let g:mapleader = ","
+
+" Atalho para sair e salvar
+nmap ,w :x<CR>
+" Atalho para sair
+nmap ,q :q!<CR>
 
 " ; vale como ;
 nnoremap ; :
@@ -148,6 +154,9 @@ endif
     let g:airline#extensions#tabline#enabled = 1
 
 " Syntastic
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     " Checa sintaxe ao abrir
@@ -156,6 +165,7 @@ endif
     let g:syntastic_check_on_wq = 0
 
 " Fugitive
+    " add
     nnoremap <space>ga :Git add %:p<CR><CR>
     " status
     nnoremap <space>gs :Gstatus<CR>
