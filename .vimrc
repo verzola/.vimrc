@@ -107,12 +107,9 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Atalho para sair e salvar
-nmap ,w :x<CR>
+nmap ,x :x<CR> 
 " Atalho para sair
 nmap ,q :q!<CR>
-
-" ; vale como ;
-nnoremap ; :
 
 " Atalho para navegar entre splits
 nnoremap <C-h> <C-w>h
