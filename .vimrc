@@ -5,17 +5,17 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins
+" Vundle
 Plugin 'gmarik/Vundle.vim'
 " Barra lateral
 Plugin 'scrooloose/nerdtree'
 " Movimentação rápida
 Plugin 'Lokaltog/vim-easymotion'
-" Goto file
+" CTRL+P (Goto file)
 Plugin 'kien/ctrlp.vim'
 " Tagbar
 Plugin 'majutsushi/tagbar'
-" Barra de modo
+" Barra de status
 Plugin 'bling/vim-airline'
 " Múltiplos cursores
 Plugin 'terryma/vim-multiple-cursors'
@@ -27,8 +27,6 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin para Git
 Plugin 'tpope/vim-fugitive'
-" Comandos assíncronos
-Plugin 'tpope/vim-dispatch'
 " Checa sintaxe
 Plugin 'scrooloose/syntastic'
 " Surrounds
@@ -57,7 +55,7 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
 
-" Splits
+" Alias para splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -97,8 +95,6 @@ let g:airline_theme = 'powerlineish'
 " Habilita neocomplete ao inicializar
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplcache_enable_at_startup = 1
-" Mostra arquivos escondidos
-let NERDTreeShowHidden = 1
 " Fecha NerdTree quando abrir um arquivo
 let NERDTreeQuitOnOpen = 1
 " Remove simbolos bizarros do NerdTree
@@ -171,10 +167,6 @@ set nowritebackup
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-if exists("g:ctrl_user_command")
-      unlet g:ctrlp_user_command
-endif
 
 " Lembra da linha dos arquivos
 if has("autocmd")
