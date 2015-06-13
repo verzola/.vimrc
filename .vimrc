@@ -100,11 +100,6 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-
-" Fix para autoclose para poder apertar
-" esc só uma vez para ir para modo comando
-let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
-
 " Redefine tecla leader
 let mapleader = ","
 let g:mapleader = ","
@@ -199,4 +194,19 @@ endif
     nnoremap <space>gm :Gmove<Space>
     " browse
     nnoremap <space>gwb :Gbrowse<CR>
+
+    " Correção para multiplos cursores e neocomplete
+    function! Multiple_cursors_before()
+        exe 'NeoCompleteLock'
+        echo 'Disabled autocomplete'
+    endfunction
+
+    function! Multiple_cursors_after()
+        exe 'NeoCompleteUnlock'
+        echo 'Enabled autocomplete'
+    endfunction
+
+    " Correção para autoclose para poder apertar
+    " esc só uma vez para ir para modo comando
+    let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 
