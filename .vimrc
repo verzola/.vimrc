@@ -33,7 +33,7 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'airblade/vim-gitgutter'
     " Autocomplete
     Plugin 'Shougo/neocomplete.vim'
-
+    Plugin 'jistr/vim-nerdtree-tabs'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -42,6 +42,8 @@ filetype plugin indent on
 colorscheme itg_flat
 " Sintaxe com cores
 syntax enable
+
+
 " Mostra linhas
 set nu
 " Sempre mostra abarra de status
@@ -136,9 +138,10 @@ endif
 
 " NerdTree
     " Atalho para abrir
-    map <C-e> :NERDTreeToggle<CR>
+    "map <C-e> :NERDTreeToggle<CR>
+    map <C-e> <plug>NERDTreeTabsToggle<CR>
     " Fecha quando abrir um arquivo
-    let NERDTreeQuitOnOpen = 1
+    let NERDTreeQuitOnOpen = 0
     " Simplifica exibição da árvore de diretórios
     let g:NERDTreeDirArrows=0
 
