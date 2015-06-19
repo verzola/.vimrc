@@ -42,8 +42,6 @@ filetype plugin indent on
 colorscheme itg_flat
 " Sintaxe com cores
 syntax enable
-
-
 " Mostra linhas
 set nu
 " Sempre mostra abarra de status
@@ -106,10 +104,17 @@ set softtabstop=4
 let mapleader = ","
 let g:mapleader = ","
 
-" Atalho para sair e salvar
-nmap ,x :x<CR> 
+" Alias para erros de digitação
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev WQ wq
+
+" Atalho para salvar
+nmap ,w :w<CR>
 " Atalho para sair
 nmap ,q :q!<CR>
+" Atalho para sair e salvar
+nmap ,x :x<CR> 
 
 " Atalho para navegar entre splits
 nnoremap <C-h> <C-w>h
@@ -209,4 +214,3 @@ endif
     " Correção para autoclose para poder apertar
     " esc só uma vez para ir para modo comando
     let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
-
