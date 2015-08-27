@@ -9,31 +9,25 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
     " Barra lateral
     Plugin 'scrooloose/nerdtree'
-    " Movimentação rápida
-    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'jistr/vim-nerdtree-tabs'
     " CTRL+P (Goto file)
     Plugin 'kien/ctrlp.vim'
     " Barra de status
     Plugin 'bling/vim-airline'
-    " Múltiplos cursores
-    Plugin 'terryma/vim-multiple-cursors'
     " Integração do PHP com Vim
     Plugin 'spf13/PIV'
     " Fecha delimitadores automaticamente
     Plugin 'Townk/vim-autoclose'
     " Comentários rápidos
     Plugin 'scrooloose/nerdcommenter'
-    " Integração com Git:w
+    " Integração com Git
     Plugin 'tpope/vim-fugitive'
     " Checador de sintaxe
     Plugin 'scrooloose/syntastic'
-    " Delimitadores
-    Plugin 'tpope/vim-surround'
     " Git Gutter
     Plugin 'airblade/vim-gitgutter'
     " Autocomplete
     Plugin 'Shougo/neocomplete.vim'
-    Plugin 'jistr/vim-nerdtree-tabs'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -199,17 +193,6 @@ endif
     nnoremap <space>gm :Gmove<Space>
     " browse
     nnoremap <space>gwb :Gbrowse<CR>
-
-    " Correção para multiplos cursores e neocomplete
-    function! Multiple_cursors_before()
-        exe 'NeoCompleteLock'
-        echo 'Disabled autocomplete'
-    endfunction
-
-    function! Multiple_cursors_after()
-        exe 'NeoCompleteUnlock'
-        echo 'Enabled autocomplete'
-    endfunction
 
     " Correção para autoclose para poder apertar
     " esc só uma vez para ir para modo comando
