@@ -28,6 +28,8 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'airblade/vim-gitgutter'
     " Autocomplete
     Plugin 'Shougo/neocomplete.vim'
+    " Emmet
+    Plugin 'mattn/emmet-vim'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -94,6 +96,8 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+set foldlevelstart=20
+
 " Redefine tecla leader
 let mapleader = ","
 let g:mapleader = ","
@@ -148,15 +152,15 @@ endif
     let g:airline#extensions#tabline#enabled = 1
 
 " Syntastic
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    " Checa sintaxe ao abrir
-    let g:syntastic_check_on_open = 1
-    " Checa sintaxe ao wq
-    let g:syntastic_check_on_wq = 0
+"    set statusline+=%#warningmsg#
+"    set statusline+=%{SyntasticStatuslineFlag()}
+"    set statusline+=%*
+"    let g:syntastic_always_populate_loc_list = 1
+"    let g:syntastic_auto_loc_list = 1
+"    " Checa sintaxe ao abrir
+"    let g:syntastic_check_on_open = 0
+"    " Checa sintaxe ao wq
+"    let g:syntastic_check_on_wq = 0
 
 " Fugitive
     " add
@@ -197,3 +201,7 @@ endif
     " Correção para autoclose para poder apertar
     " esc só uma vez para ir para modo comando
     let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+
+    " Usa a listagem de arquivos do git que é muito mais rápida de indexar
+    let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
