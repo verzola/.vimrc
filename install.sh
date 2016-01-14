@@ -19,6 +19,11 @@ git clone https://github.com/verzola/.vimrc.git ~/git/vimrc
 # Cria link simbólico do .vimrc
 ln -s ~/git/vimrc/.vimrc ~/.vimrc
 
+# Cria a pasta colors do vim se não tiver
+if [ ! -d ~/.vim/colors ];then
+    mkdir ~/.vim/colors
+fi
+
 # Entra na pasta de temas
 cd ~/.vim/colors
 
