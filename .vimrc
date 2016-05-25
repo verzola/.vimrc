@@ -14,6 +14,8 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'kien/ctrlp.vim'
     " Barra de status
     Plugin 'bling/vim-airline'
+    " Temas
+    Plugin 'vim-airline/vim-airline-themes'
     " Integração do PHP com Vim
     Plugin 'spf13/PIV'
     " Fecha delimitadores automaticamente
@@ -108,11 +110,20 @@ cnoreabbrev Q q
 cnoreabbrev WQ wq
 
 " Atalho para salvar
-nmap ,w :w<CR>
+nmap <Leader>w :w<CR>
 " Atalho para sair
-nmap ,q :q!<CR>
+nmap <Leader>q :q!<CR>
 " Atalho para sair e salvar
-nmap ,x :x<CR> 
+nmap <Leader>x :x<CR>
+
+nmap <Leader>ev :tabedit $MYVIMRC<CR>
+
+nmap <Leader><space> :nohlsearch
+
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+augroup END
 
 " Atalho para navegar entre splits
 nnoremap <C-h> <C-w>h
