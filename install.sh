@@ -32,7 +32,9 @@ echo -e "\e[42m✓\e[49m"
 cd ~/.vim/colors
 
 echo -e "\e[44mBaixando tema itg_flat...\e[49m"
-download https://raw.githubusercontent.com/cdmedia/itg_flat_vim/master/colors/itg_flat.vim
+if [ ! -f ~/.vim/colors/itg_flat.vim ]; then
+  download https://raw.githubusercontent.com/cdmedia/itg_flat_vim/master/colors/itg_flat.vim
+fi
 echo -e "\e[42m✓\e[49m"
 
 echo -e "\e[44mInstalando plugins...\e[49m"
