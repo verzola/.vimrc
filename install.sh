@@ -10,16 +10,16 @@ download() {
     fi
 }
 
-# Instala o Vundle
+echo -e "\e[42mInstalando o Vundle...\e[49m"
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Baixa o .vimrc
+echo -e "\e[42mBaixando configuração...\e[49m"
 git clone https://github.com/verzola/.vimrc.git ~/git/vimrc
 
-# Cria link simbólico do .vimrc
+echo -e "\e[42mCriando link simbólico para configuração...\e[49m"
 ln -s ~/git/vimrc/.vimrc ~/.vimrc
 
-# Cria a pasta colors do vim se não tiver
+echo -e "\e[42mCriando pasta de temas...\e[49m"
 if [ ! -d ~/.vim/colors ];then
     mkdir ~/.vim/colors
 fi
@@ -27,11 +27,8 @@ fi
 # Entra na pasta de temas
 cd ~/.vim/colors
 
-# Baixa o colorscheme itg_flat
+echo -e "\e[42mBaixando tema itg_flat...\e[49m"
 download https://raw.githubusercontent.com/cdmedia/itg_flat_vim/master/colors/itg_flat.vim
 
-# Instala os plugins
+echo -e "\e[42mInstalando plugins...\e[49m"
 vim +PluginInstall +qall
-
-# Limpa o console
-clear
