@@ -149,8 +149,7 @@ endif
 
 " NerdTree
     " Atalho para abrir
-    "map <C-e> :NERDTreeToggle<CR>
-    map <C-e> <plug>NERDTreeTabsToggle<CR>
+    map <C-e> :NERDTreeToggle<CR>
     " Fecha quando abrir um arquivo
     let NERDTreeQuitOnOpen = 0
     " Simplifica exibição da árvore de diretórios
