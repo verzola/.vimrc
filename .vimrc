@@ -9,17 +9,14 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
     " Barra lateral
     Plugin 'scrooloose/nerdtree'
-    Plugin 'jistr/vim-nerdtree-tabs'
     " CTRL+P (Goto file)
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
     " Barra de status
     Plugin 'bling/vim-airline'
     " Temas
     Plugin 'vim-airline/vim-airline-themes'
     " Integração do PHP com Vim
     Plugin 'spf13/PIV'
-    " Fecha delimitadores automaticamente
-    Plugin 'Townk/vim-autoclose'
     " Comentários rápidos
     Plugin 'scrooloose/nerdcommenter'
     " Integração com Git
@@ -32,6 +29,8 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'Shougo/neocomplete.vim'
     " Emmet
     Plugin 'mattn/emmet-vim'
+    " DevIcons
+    Plugin 'ryanoasis/vim-devicons'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -97,8 +96,8 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-
-set foldlevelstart=20
+set nofoldenable
+set encoding=utf8
 
 " Redefine tecla leader
 let mapleader = ","
@@ -115,11 +114,12 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 " Atalho para sair e salvar
 nmap <Leader>x :x<CR>
-
+" Editar o vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
+" Desabilita highlight de pesquisa
+nmap <Leader><space> :nohlsearch<CR>
 
-nmap <Leader><space> :nohlsearch
-
+" Auto source vimrc on save
 augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
@@ -162,17 +162,6 @@ endif
     " Habilita
     let g:airline#extensions#tabline#enabled = 1
 
-" Syntastic
-"    set statusline+=%#warningmsg#
-"    set statusline+=%{SyntasticStatuslineFlag()}
-"    set statusline+=%*
-"    let g:syntastic_always_populate_loc_list = 1
-"    let g:syntastic_auto_loc_list = 1
-"    " Checa sintaxe ao abrir
-"    let g:syntastic_check_on_open = 0
-"    " Checa sintaxe ao wq
-"    let g:syntastic_check_on_wq = 0
-
 " Fugitive
     " add
     nnoremap <space>ga :Git add %:p<CR><CR>
@@ -208,10 +197,6 @@ endif
     nnoremap <space>gm :Gmove<Space>
     " browse
     nnoremap <space>gwb :Gbrowse<CR>
-
-    " Correção para autoclose para poder apertar
-    " esc só uma vez para ir para modo comando
-    let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
 
     " Usa a listagem de arquivos do git que é muito mais rápida de indexar
     let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
