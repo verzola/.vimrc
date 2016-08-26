@@ -7,21 +7,21 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-    " Barra lateral
+    " Sidebar to browse project files
     Plugin 'scrooloose/nerdtree'
     " CTRL+P (Goto file)
     Plugin 'ctrlpvim/ctrlp.vim'
-    " Barra de status
+    " Status bar
     Plugin 'bling/vim-airline'
-    " Temas
+    " Themes for status bar
     Plugin 'vim-airline/vim-airline-themes'
-    " Integração do PHP com Vim
+    " Integration with PHP
     Plugin 'spf13/PIV'
-    " Comentários rápidos
+    " Fast comments
     Plugin 'scrooloose/nerdcommenter'
-    " Integração com Git
+    " Integration with Git
     Plugin 'tpope/vim-fugitive'
-    " Checador de sintaxe
+    " Syntax checker
     Plugin 'scrooloose/syntastic'
     " Git Gutter
     Plugin 'airblade/vim-gitgutter'
@@ -37,128 +37,132 @@ filetype plugin indent on
 
 " Colorscheme
 colorscheme itg_flat
-" Sintaxe com cores
+" Colored syntax
 syntax enable
-" Mostra linhas
+" Show line numbers
 set nu
-" Sempre mostra abarra de status
+" Always show status bar
 set laststatus=2
-" Habilita mouse
+" Toggle mouse on
 set mouse=a
-" Esconde mouse quando digitar
+" Hide mouse when typing
 set mousehide
-" Tamanho do histórico de comandos
+" Size of command history
 set history=1000
-" Tamanho do histórico de Undos
+" Size of undo history
 set undolevels=1000
-" Pesquisa incremental
+" Incremental search
 set incsearch
-" Pesquisa sublinhada
+" Highlight search
 set hlsearch
-" Pesquisa case-insensitive
+" Ignore case in search
 set ignorecase
-" Case inteligente
+" Intelligent case in search
 set smartcase
-" Indentação automática
+" Auto indent
 set autoindent
-" Cria split pra direita
+" Create vertical split on the right
 set splitright
-" Cria split pra baixo
+" Create horizontal split below
 set splitbelow
-" Atalho para modo de colar
+" Shortcut for paste mode
 set pastetoggle=<F12>
-" Desabilita backup
+" Disable backup file
 set nobackup
 set nowritebackup
-" Desabilita swap
+" Disable swap file
 set noswapfile
-" Deixa o cursor ir além do final da linha
+" Allow cursor to go to end of line
 set virtualedit=onemore
-" Remove exibição padrão de status
+" Remove default statusbar
 set noshowmode
-" Sublinha linha do cursor
+" Hightlight current line
 set cursorline
-" Mostra comandos sendo executados
+" Show commands being executed
 set showcmd
-" Corrige backspace
+" Fix backspace
 set backspace=indent,eol,start
-" Mostra delimitador equivalente
+" Show matching delimitator
 set showmatch
-" Autocomplete para comandos
+" Autocomplete for commands
 set wildmenu
 set wildmode=list:longest,full
-" Mosta espaço em branco
+" Show whitespace
 set list
-set listchars=tab:â€º\ ,trail:â€¢,extends:#,nbsp:.
-" Espaço em vez de tab
+set listchars=tab:Ã¢â‚¬Âº\ ,trail:Ã¢â‚¬Â¢,extends:#,nbsp:.
+" Spaces instead of tab
 set expandtab
-" 4 espaços no tab
+" 4 spaces on tab
 set shiftwidth=4
+
 set tabstop=4
+
 set softtabstop=4
+
 set nofoldenable
+" Set encoding to UTF-8
 set encoding=utf8
 
-" Redefine tecla leader
+" Redefine leader key
 let mapleader = ","
 let g:mapleader = ","
 
-" Alias para erros de digitação
+" Alias for typos
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
 
-" Atalho para salvar
+" Shortcut to write
 nmap <Leader>w :w<CR>
-" Atalho para sair
+" Shortcut to quit
 nmap <Leader>q :q!<CR>
-" Atalho para sair e salvar
+" Shortcut to write and quit
 nmap <Leader>x :x<CR>
-" Editar o vimrc
+" Shortcut to edit my .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
-" Desabilita highlight de pesquisa
+" Shortcut to disable highlight search
 nmap <Leader><space> :nohlsearch<CR>
 
-" Auto source vimrc on save
+" Auto-source .vimrc on save
 augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
 
-" Atalho para navegar entre splits
+" Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Toggle de sublinhado da busca
+" Toggle highlight search
 nnoremap <F3> :set hlsearch!<CR>
 
-" Salva como sudo
+" Write as sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" Lembra da linha dos arquivos
+" Remember line of files
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " NeoComplete
-    " Habilita neocomplete ao inicializar
+    " Enable neocomplete on startup
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplcache_enable_at_startup = 1
 
 " NerdTree
-    " Atalho para abrir
+    " Shortcut to open nerdtree
     map <C-e> :NERDTreeToggle<CR>
-    " Fecha quando abrir um arquivo
+    " Close nerdtree on file open
     let NERDTreeQuitOnOpen = 0
-    " Simplifica exibição da árvore de diretórios
+    " Simplify the directory tree arrows
     let g:NERDTreeDirArrows=0
 
 " Airline
-    " Tema
+    " Theme
     let g:airline_theme = 'powerlineish'
-    " Habilita
+    " Enable
     let g:airline#extensions#tabline#enabled = 1
 
 " Fugitive
@@ -197,6 +201,6 @@ endif
     " browse
     nnoremap <space>gwb :Gbrowse<CR>
 
-    " Usa a listagem de arquivos do git que é muito mais rápida de indexar
+    " Use git file index that is faster than default's
     let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
