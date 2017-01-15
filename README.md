@@ -1,5 +1,5 @@
 # .vimrc
-My custom .vimrc
+my custom .vimrc
 
 ## auto install
 ```sh
