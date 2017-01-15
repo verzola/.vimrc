@@ -6,7 +6,7 @@ my custom .vimrc
 $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | sh
 ```
 
-## included plugins
+## whats included?
 - scrooloose/nerdtree
 - jistr/vim-nerdtree-tabs
 - kien/ctrlp.vim
