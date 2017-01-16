@@ -1,7 +1,7 @@
 # .vimrc
 my custom vimrc & 1 cmd auto installer
 
-## auto install
+## install
 ```sh
 $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | sh
 ```
