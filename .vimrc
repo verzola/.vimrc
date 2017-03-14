@@ -9,6 +9,8 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
     " Barra lateral
     Plugin 'scrooloose/nerdtree'
+    " NerdTreeTabs
+    Plugin 'jistr/vim-nerdtree-tabs'
     " CTRL+P (Goto file)
     Plugin 'ctrlpvim/ctrlp.vim'
     " Barra de status
@@ -21,8 +23,6 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'scrooloose/nerdcommenter'
     " Integração com Git
     Plugin 'tpope/vim-fugitive'
-    " Checador de sintaxe
-    Plugin 'scrooloose/syntastic'
     " Git Gutter
     Plugin 'airblade/vim-gitgutter'
     " Autocomplete
@@ -31,6 +31,12 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'mattn/emmet-vim'
     " DevIcons
     Plugin 'ryanoasis/vim-devicons'
+    " PHP Vim
+    Plugin 'StanAngeloff/php.vim'
+    " Colorscheme ITG_FLAT
+    Plugin 'cdmedia/itg_flat_vim'
+    " Editorconfig
+    Plugin 'editorconfig/editorconfig-vim'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -87,18 +93,18 @@ set showmatch
 " Autocomplete para comandos
 set wildmenu
 set wildmode=list:longest,full
-" Mosta espaço em branco
+" Mostra espaço em branco
 set list
 set listchars=tab:â€º\ ,trail:â€¢,extends:#,nbsp:.
-" Espaço em vez de tab
-set expandtab
-" 4 espaços no tab
-set shiftwidth=4
+" 4 espaços em vez de tab
+filetype plugin indent on
+" show existing tab with 4 spaces width
 set tabstop=4
-set softtabstop=4
-set nofoldenable
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 set encoding=utf8
-
 " Redefine tecla leader
 let mapleader = ","
 let g:mapleader = ","
@@ -118,6 +124,9 @@ nmap <Leader>x :x<CR>
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 " Desabilita highlight de pesquisa
 nmap <Leader><space> :nohlsearch<CR>
+
+map vp :exec "w !vpaste ft=".&ft<CR>
+vmap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
 
 " Auto source vimrc on save
 augroup autosourcing
@@ -149,7 +158,8 @@ endif
 
 " NerdTree
     " Atalho para abrir
-    map <C-e> :NERDTreeToggle<CR>
+    "map <C-e> :NERDTreeToggle<CR>
+    map <C-e> <plug>NERDTreeTabsToggle<CR>
     " Fecha quando abrir um arquivo
     let NERDTreeQuitOnOpen = 0
     " Simplifica exibição da árvore de diretórios
@@ -197,6 +207,10 @@ endif
     " browse
     nnoremap <space>gwb :Gbrowse<CR>
 
-    " Usa a listagem de arquivos do git que é muito mais rápida de indexar
-    let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Usa a listagem de arquivos do git que é muito mais rápida de indexar
+let g:ctrlp_user_command = ['.git/', 'git ls-files --cached --others  --exclude-standard %s']
 
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
