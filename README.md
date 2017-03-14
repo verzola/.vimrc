@@ -1,12 +1,12 @@
-# Vim
-Meu .vimrc personalizado
+# .vimrc
+my custom vimrc & 1 cmd auto installer
 
-## Instalador automático
+## install
 ```sh
 $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | sh
 ```
 
-## Pacotes incluídos
+## whats included?
 - scrooloose/nerdtree
 - jistr/vim-nerdtree-tabs
 - kien/ctrlp.vim
