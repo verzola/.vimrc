@@ -9,8 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
     " Sidebar to browse project files
     Plugin 'scrooloose/nerdtree'
-    " NerdTreeTabs
-    Plugin 'jistr/vim-nerdtree-tabs'
     " CTRL+P (Goto file)
     Plugin 'ctrlpvim/ctrlp.vim'
     " Status bar
@@ -19,24 +17,20 @@ Plugin 'gmarik/Vundle.vim'
     Plugin 'vim-airline/vim-airline-themes'
     " Integration with PHP
     Plugin 'spf13/PIV'
-    " Fast comments
-    Plugin 'scrooloose/nerdcommenter'
     " Integration with Git
     Plugin 'tpope/vim-fugitive'
     " Git Gutter
     Plugin 'airblade/vim-gitgutter'
-    " Autocomplete
-    Plugin 'Shougo/neocomplete.vim'
     " Emmet
     Plugin 'mattn/emmet-vim'
     " DevIcons
     Plugin 'ryanoasis/vim-devicons'
-    " PHP Vim
-    Plugin 'StanAngeloff/php.vim'
     " Colorscheme ITG_FLAT
     Plugin 'cdmedia/itg_flat_vim'
-    " Editorconfig
-    Plugin 'editorconfig/editorconfig-vim'
+    " Python
+    Plugin 'davidhalter/jedi-vim'
+    " Autocomplete engine
+    Plugin 'Valloric/YouCompleteMe'
 " Vundle
 call vundle#end()
 filetype plugin indent on
@@ -158,8 +152,7 @@ endif
 
 " NerdTree
     " Atalho para abrir
-    "map <C-e> :NERDTreeToggle<CR>
-    map <C-e> <plug>NERDTreeTabsToggle<CR>
+    map <C-e> :NERDTreeToggle<CR>
     " Fecha quando abrir um arquivo
     let NERDTreeQuitOnOpen = 0
     " Simplify the directory tree arrows
