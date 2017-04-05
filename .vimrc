@@ -12,8 +12,7 @@ Plugin 'gmarik/Vundle.vim'
     " CTRL+P (Goto file)
     Plugin 'ctrlpvim/ctrlp.vim'
     " Status bar
-    Plugin 'bling/vim-airline'
-    " Themes for status bar
+    Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     " Integration with PHP
     Plugin 'spf13/PIV'
@@ -163,6 +162,8 @@ endif
     let g:airline_theme = 'powerlineish'
     " Enable
     let g:airline#extensions#tabline#enabled = 1
+    " Powerline fonts
+    let g:airline_powerline_fonts = 1
 
 " Fugitive
     " add
