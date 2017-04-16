@@ -15,10 +15,14 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 
 ### maps & shortcuts
 - ctrl+e -> toggle nerdtree
-- ctrl+p -> go to file
-- ctrl+n -> select next (multiple cursors)
 - gt -> next tab
 - gT -> prev tab
+- ctrl+p -> go to file
+- ctrl+n -> select next (multiple cursors)
+- ctrl + h -> go a split left
+- ctrl + l -> go a split right
+- ctrl + j -> go a split below
+- ctrl + k -> go a split upper
 - leader key -> ,
 - leader+w -> save
 - leader+q -> quit
@@ -27,20 +31,16 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 - leader+sv -> source vimrc
 - leader+p -> toggle paste mode
 - leader+h -> toggle search highlight
-- ctrl + h -> go a split left
-- ctrl + l -> go a split right
-- ctrl + j -> go a split below
-- ctrl + k -> go a split upper
-- <leader>ga -> git add
-- <leader>gs -> git status
-- <leader>gc -> git commit
-- <leader>gd -> git diff
-- <leader>gp -> git push
-- <leader>gu -> git pull
-- <leader>gb -> git branch
-- <leader>gbl -> git blame
-- <leader>go -> git checkout
-- <leader>gl -> git log
+- leader+ga -> git add
+- leader+gs -> git status
+- leader+gc -> git commit
+- leader+gd -> git diff
+- leader+gp -> git push
+- leader+gu -> git pull
+- leader+gb -> git branch
+- leader+gbl -> git blame
+- leader+go -> git checkout
+- leader+gl -> git log
 
 ### plugins
 - VundleVim/Vundle.vim
