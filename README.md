@@ -4,6 +4,7 @@ my vimrc and 1 cmd auto installer
 ![Image of my vim](https://raw.githubusercontent.com/verzola/.vimrc/master/vimux.png)
 
 ## pre-requirements
+- git
 - vim
 
 ## suggestions
