@@ -143,17 +143,17 @@ cnoreabbrev X x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
-nmap <leader>w :w<CR>
+nnoremap <leader>w :w<CR>
 " Shortcut to quit
-nmap <leader>q :q!<CR>
+nnoremap <leader>q :q!<CR>
 " Shortcut to write and quit
-nmap <leader>x :x<CR>
+nnoremap <leader>x :x<CR>
 " Shortcut to edit my .vimrc
-nmap <leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
-nmap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
-nmap <leader>h :set hlsearch! hlsearch?<CR>
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
