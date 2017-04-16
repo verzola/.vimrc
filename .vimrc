@@ -36,7 +36,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'davidhalter/jedi-vim'
 " Surround
 Plugin 'tpope/vim-surround'
-" JS integration
+" :Gbrowse<CR>JS integration
 Plugin 'pangloss/vim-javascript'
 " Multiple cursors sublime like
 Plugin 'terryma/vim-multiple-cursors'
@@ -143,17 +143,17 @@ cnoreabbrev X x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
-nmap <Leader>w :w<CR>
+nmap <leader>w :w<CR>
 " Shortcut to quit
-nmap <Leader>q :q!<CR>
+nmap <leader>q :q!<CR>
 " Shortcut to write and quit
-nmap <Leader>x :x<CR>
+nmap <leader>x :x<CR>
 " Shortcut to edit my .vimrc
-nmap <Leader>ev :tabedit $MYVIMRC<CR>
+nmap <leader>ev :tabedit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
-nmap <Leader>sv :source $MYVIMRC<CR>
+nmap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
-nmap <Leader>h :set hlsearch! hlsearch?<CR>
+nmap <leader>h :set hlsearch! hlsearch?<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
