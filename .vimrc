@@ -1,39 +1,54 @@
-" Vundle
-set nocompatible
-filetype off
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""  verzola's vimrc  """"""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
+" Vundle itself
+Plugin 'VundleVim/Vundle.vim'
+" Sidebar to browse project files
+Plugin 'scrooloose/nerdtree'
+" CTRL+P (Goto file)
+Plugin 'ctrlpvim/ctrlp.vim'
+" Status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Integration with Git
+Plugin 'tpope/vim-fugitive'
+" Git Gutter
+Plugin 'airblade/vim-gitgutter'
+" Integration with PHP
+Plugin 'spf13/PIV'
+" Emmet
+Plugin 'mattn/emmet-vim'
+" DevIcons
+Plugin 'ryanoasis/vim-devicons'
+" Colorscheme ITG_FLAT
+Plugin 'cdmedia/itg_flat_vim'
+" Python
+Plugin 'davidhalter/jedi-vim'
+" Surround
+Plugin 'tpope/vim-surround'
+" Move around easily
+Plugin 'easymotion/vim-easymotion'
+" JS integration
+Plugin 'pangloss/vim-javascript'
+" Multiple cursors sublime like
+Plugin 'terryma/vim-multiple-cursors'
+" JSX integration
+Plugin 'mxw/vim-jsx'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" Plugins
-    " Sidebar to browse project files
-    Plugin 'scrooloose/nerdtree'
-    " CTRL+P (Goto file)
-    Plugin 'ctrlpvim/ctrlp.vim'
-    " Status bar
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    " Integration with PHP
-    Plugin 'spf13/PIV'
-    " Integration with Git
-    Plugin 'tpope/vim-fugitive'
-    " Git Gutter
-    Plugin 'airblade/vim-gitgutter'
-    " Emmet
-    Plugin 'mattn/emmet-vim'
-    " DevIcons
-    Plugin 'ryanoasis/vim-devicons'
-    " Colorscheme ITG_FLAT
-    Plugin 'cdmedia/itg_flat_vim'
-    " Python
-    Plugin 'davidhalter/jedi-vim'
-    " Autocomplete engine
-    Plugin 'Valloric/YouCompleteMe'
-" Vundle
-call vundle#end()
-filetype plugin indent on
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colorscheme
 colorscheme itg_flat
 " Colored syntax
@@ -86,11 +101,9 @@ set showmatch
 " Autocomplete for commands
 set wildmenu
 set wildmode=list:longest,full
-" Mostra espaço em branco
+" Show trailing spaces
 set list
 set listchars=tab:â€º\ ,trail:â€¢,extends:#,nbsp:.
-" 4 espaços em vez de tab
-filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -98,15 +111,35 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 set encoding=utf8
-" Redefine tecla leader
+" Redefines leader key
 let mapleader = ","
 let g:mapleader = ","
+" Remove everything from gui except vim
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugin Settings
+" Shortcut to open NerdTree
+map <C-e> :NERDTreeToggle<CR>
+" Autoclose when open file
+let NERDTreeQuitOnOpen = 0
+" Simplify the directory tree arrows
+let g:NERDTreeDirArrows=1
+" Airline theme
+let g:airline_theme = 'powerlineish'
+" Powerline fonts on airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " Alias for typos
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
 nmap <Leader>w :w<CR>
 " Shortcut to quit
@@ -117,94 +150,42 @@ nmap <Leader>x :x<CR>
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
 " Shortcut to disable highlight search
 nmap <Leader><space> :nohlsearch<CR>
-
 map vp :exec "w !vpaste ft=".&ft<CR>
 vmap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
+" Shortcut to navigate between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Toggle highlight search
+nnoremap <F3> :set hlsearch!<CR>
+" Write as sudo
+cmap w!! w !sudo tee % >/dev/null
+" Fugitive mappings
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gps :Gpush<CR>
+nnoremap <leader>gpl :Gpull<CR>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gwb :Gbrowse<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Auto source vimrc on save
 augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
 
-" Shortcut to navigate between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Toggle highlight search
-nnoremap <F3> :set hlsearch!<CR>
-
-" Write as sudo
-cmap w!! w !sudo tee % >/dev/null
-
-" Remember line of files
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" NeoComplete
-    " Enable neocomplete on startup
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplcache_enable_at_startup = 1
-
-" NerdTree
-    " Atalho para abrir
-    map <C-e> :NERDTreeToggle<CR>
-    " Fecha quando abrir um arquivo
-    let NERDTreeQuitOnOpen = 0
-    " Simplify the directory tree arrows
-    let g:NERDTreeDirArrows=0
-
-" Airline
-    " Theme
-    let g:airline_theme = 'powerlineish'
-    " Enable
-    let g:airline#extensions#tabline#enabled = 1
-    " Powerline fonts
-    let g:airline_powerline_fonts = 1
-
-" Fugitive
-    " add
-    nnoremap <space>ga :Git add %:p<CR><CR>
-    " status
-    nnoremap <space>gs :Gstatus<CR>
-    " commit
-    nnoremap <space>gc :Gcommit -v -q<CR>
-    " commit
-    nnoremap <space>gt :Gcommit -v -q %:p<CR>
-    " diff
-    nnoremap <space>gd :Gdiff<CR>
-    " edit
-    nnoremap <space>ge :Gedit<CR>
-    " push
-    nnoremap <space>gps :Gpush<CR>
-    " pull
-    nnoremap <space>gpl :Gpull<CR>
-    " branch
-    nnoremap <space>gb :Git branch<Space>
-    " blame
-    nnoremap <space>gbl :Gblame<CR>
-    " checkout
-    nnoremap <space>go :Git checkout<Space>
-    " read
-    nnoremap <space>gr :Gread<CR>
-    " write
-    nnoremap <space>gw :Gwrite<CR><CR>
-    " ?
-    nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-    " grep
-    nnoremap <space>gp :Ggrep<Space>
-    " move
-    nnoremap <space>gm :Gmove<Space>
-    " browse
-    nnoremap <space>gwb :Gbrowse<CR>
-
-    " Use git file index that is faster than default's
-    let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
+" Remember last line on file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
