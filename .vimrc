@@ -122,7 +122,7 @@ let hlstate=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugin Settings
 " Shortcut to open NerdTree
-map <leader>e :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 " Autoclose when open file
 let NERDTreeQuitOnOpen = 0
 " Simplify the directory tree arrows
@@ -131,7 +131,7 @@ let g:NERDTreeDirArrows=1
 let g:airline_theme = 'powerlineish'
 " Powerline fonts on airline
 let g:airline_powerline_fonts = 1
-" ?
+" enable tabs
 let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
@@ -167,18 +167,12 @@ nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
 nnoremap <space>gt :Gcommit -v -q %:p<CR>
 nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>ge :Gedit<CR>
-nnoremap <space>gps :Gpush<CR>
-nnoremap <space>gpl :Gpull<CR>
+nnoremap <space>gp :Gpush<CR>
+nnoremap <space>gu :Gpull<CR>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>gbl :Gblame<CR>
 nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR><CR>
 nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <space>gp :Ggrep<Space>
-nnoremap <space>gm :Gmove<Space>
-nnoremap <space>gwb :Gbrowse<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file

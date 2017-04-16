@@ -14,13 +14,13 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 - :w!! to save as sudo
 
 ### maps & shortcuts
+- ctrl+e -> toggle nerdtree
 - leader key -> ,
 - leader+w -> save
 - leader+q -> quit
 - leader+x -> save&quit
 - leader+ev -> edit vimrc
 - leader+sv -> source vimrc
-- leader+e -> toggle nerdtree
 - leader+p -> toggle paste mode
 - leader+h -> toggle search highlight
 - ctrl + h -> go a split left
@@ -31,18 +31,12 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 - <space>gs -> git status
 - <space>gc -> git commit
 - <space>gd -> git diff
-- <space>ge -> git edit
-- <space>gps -> git push
-- <space>gpl -> git pull
+- <space>gp -> git push
+- <space>gu -> git pull
 - <space>gb -> git branch
 - <space>gbl -> git blame
 - <space>go -> git checkout
-- <space>gr -> git read
-- <space>gw -> git write
-- <space>gl -> gitlog
-- <space>gp -> git grep
-- <space>gm -> git move
-- <space>gwb -> git browse
+- <space>gl -> git log
 
 ### plugins
 - VundleVim/Vundle.vim
