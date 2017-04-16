@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""  verzola's vimrc  """"""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -162,17 +162,17 @@ nnoremap <C-l> <C-w>l
 " Write as sudo
 cmap w!! w !sudo tee % >/dev/null
 " Fugitive mappings
-nnoremap <space>ga :Git add %:p<CR><CR>
-nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>gc :Gcommit -v -q<CR>
-nnoremap <space>gt :Gcommit -v -q %:p<CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>gp :Gpush<CR>
-nnoremap <space>gu :Gpull<CR>
-nnoremap <space>gb :Git branch<Space>
-nnoremap <space>gbl :Gblame<CR>
-nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gu :Gpull<CR>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file

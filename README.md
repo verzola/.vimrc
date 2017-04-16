@@ -15,6 +15,10 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 
 ### maps & shortcuts
 - ctrl+e -> toggle nerdtree
+- ctrl+p -> go to file
+- ctrl+n -> select next (multiple cursors)
+- gt -> next tab
+- gT -> prev tab
 - leader key -> ,
 - leader+w -> save
 - leader+q -> quit
