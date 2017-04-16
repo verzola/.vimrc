@@ -3,15 +3,30 @@ my vimrc and 1 cmd auto installer
 
 ![Image of my vim](https://raw.githubusercontent.com/verzola/.vimrc/master/vimux.png)
 
+## pre-requirements
+- vim
+
+## suggestions
+- https://github.com/verzola/.tmux
+- https://github.com/ryanoasis/nerd-fonts
+
 ## install
+this script installs Vundle, clone this repo and creates a symbolic link in ~/.vimrc to ~/git/vimrc/.vimrc
 ```sh
 $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | sh
 ```
 
 ## features
-- abbreviations for typo in commands (:W, :Q, :X)
+- vundle to manage plugins
+- nice sensible defaults
+- almost every line has a comment
+- organized in sections (plugins, settings, plugin settings, abbreviations, mappings & auto commands)
+- php, python, js & jsx integration
+- git integration
 - fast shortcuts with leader key
 - :w!! to save as sudo
+- 4 spaces indentation
+- abbreviations for typo in commands (:W, :Q, :X)
 
 ### maps & shortcuts
 - ctrl+e -> toggle nerdtree

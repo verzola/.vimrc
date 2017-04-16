@@ -134,13 +134,6 @@ let g:airline_powerline_fonts = 1
 " enable tabs
 let g:airline#extensions#tabline#enabled = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-" Alias for typos
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev WQ wq
-cnoreabbrev X x
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
 nnoremap <leader>w :w<CR>
@@ -177,3 +170,11 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
+" Alias for typos
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev WQ wq
+cnoreabbrev X x
+
