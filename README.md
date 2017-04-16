@@ -14,7 +14,7 @@ my vimrc and 1 cmd auto installer
 ## install
 this script installs Vundle, clone this repo and creates a symbolic link in ~/.vimrc to ~/git/vimrc/.vimrc
 ```sh
-$ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | sh
+$ curl -L https://goo.gl/10StQU | sh
 ```
 
 ## features
