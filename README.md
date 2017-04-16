@@ -31,16 +31,16 @@ $ curl -L https://raw.githubusercontent.com/verzola/.vimrc/master/install.sh | s
 - ctrl + l -> go a split right
 - ctrl + j -> go a split below
 - ctrl + k -> go a split upper
-- <space>ga -> git add
-- <space>gs -> git status
-- <space>gc -> git commit
-- <space>gd -> git diff
-- <space>gp -> git push
-- <space>gu -> git pull
-- <space>gb -> git branch
-- <space>gbl -> git blame
-- <space>go -> git checkout
-- <space>gl -> git log
+- <leader>ga -> git add
+- <leader>gs -> git status
+- <leader>gc -> git commit
+- <leader>gd -> git diff
+- <leader>gp -> git push
+- <leader>gu -> git pull
+- <leader>gb -> git branch
+- <leader>gbl -> git blame
+- <leader>go -> git checkout
+- <leader>gl -> git log
 
 ### plugins
 - VundleVim/Vundle.vim
