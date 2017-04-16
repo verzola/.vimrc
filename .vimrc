@@ -17,10 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'cdmedia/itg_flat_vim'
 " Sidebar to browse files
 Plugin 'scrooloose/nerdtree'
-" DevIcons
-Plugin 'ryanoasis/vim-devicons'
-" CTRL+P (Goto file)
-Plugin 'ctrlpvim/ctrlp.vim'
 " Status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -30,18 +26,22 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 " Integration with PHP
 Plugin 'spf13/PIV'
-" Emmet
-Plugin 'mattn/emmet-vim'
 " Python
 Plugin 'davidhalter/jedi-vim'
 " Surround
 Plugin 'tpope/vim-surround'
-" :Gbrowse<CR>JS integration
+" Emmet
+Plugin 'mattn/emmet-vim'
+" JS integration
 Plugin 'pangloss/vim-javascript'
-" Multiple cursors sublime like
-Plugin 'terryma/vim-multiple-cursors'
 " JSX integration
 Plugin 'mxw/vim-jsx'
+" CTRL+P (Goto file)
+Plugin 'ctrlpvim/ctrlp.vim'
+" Multiple cursors sublime like
+Plugin 'terryma/vim-multiple-cursors'
+" DevIcons
+Plugin 'ryanoasis/vim-devicons'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()            " required
 filetype plugin indent on    " required
