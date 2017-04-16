@@ -78,7 +78,7 @@ set splitright
 " Create horizontal split on the bottom
 set splitbelow
 " Shortcut for paste mode
-set pastetoggle=<F12>
+set pastetoggle=<leader>p
 " Disable backup file
 set nobackup
 set nowritebackup
@@ -117,10 +117,12 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+" disable hlsearch
+let hlstate=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugin Settings
 " Shortcut to open NerdTree
-map <C-e> :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 " Autoclose when open file
 let NERDTreeQuitOnOpen = 0
 " Simplify the directory tree arrows
@@ -137,6 +139,7 @@ let g:airline#extensions#tabline#enabled = 1
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
+cnoreabbrev X x
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
@@ -150,16 +153,12 @@ nmap <Leader>ev :tabedit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
 nmap <Leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
-nmap <Leader><space> :nohlsearch<CR>
-map vp :exec "w !vpaste ft=".&ft<CR>
-vmap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
+nmap <Leader>h :set hlsearch! hlsearch?<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" Toggle highlight search
-nnoremap <F3> :set hlsearch!<CR>
 " Write as sudo
 cmap w!! w !sudo tee % >/dev/null
 " Fugitive mappings
