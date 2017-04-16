@@ -13,8 +13,12 @@ call vundle#begin()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 " Vundle itself
 Plugin 'VundleVim/Vundle.vim'
-" Sidebar to browse project files
+" Colorscheme
+Plugin 'cdmedia/itg_flat_vim'
+" Sidebar to browse files
 Plugin 'scrooloose/nerdtree'
+" DevIcons
+Plugin 'ryanoasis/vim-devicons'
 " CTRL+P (Goto file)
 Plugin 'ctrlpvim/ctrlp.vim'
 " Status bar
@@ -28,16 +32,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'spf13/PIV'
 " Emmet
 Plugin 'mattn/emmet-vim'
-" DevIcons
-Plugin 'ryanoasis/vim-devicons'
-" Colorscheme ITG_FLAT
-Plugin 'cdmedia/itg_flat_vim'
 " Python
 Plugin 'davidhalter/jedi-vim'
 " Surround
 Plugin 'tpope/vim-surround'
-" Move around easily
-Plugin 'easymotion/vim-easymotion'
 " JS integration
 Plugin 'pangloss/vim-javascript'
 " Multiple cursors sublime like
@@ -54,7 +52,7 @@ colorscheme itg_flat
 " Colored syntax
 syntax enable
 " Show line numbers
-set nu
+set number
 " Always show status bar
 set laststatus=2
 " Toggle mouse on
@@ -77,7 +75,7 @@ set smartcase
 set autoindent
 " Create vertical split on the right
 set splitright
-" Create horizontal split below
+" Create horizontal split on the bottom
 set splitbelow
 " Shortcut for paste mode
 set pastetoggle=<F12>
@@ -131,6 +129,7 @@ let g:NERDTreeDirArrows=1
 let g:airline_theme = 'powerlineish'
 " Powerline fonts on airline
 let g:airline_powerline_fonts = 1
+" ?
 let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
@@ -148,6 +147,8 @@ nmap <Leader>q :q!<CR>
 nmap <Leader>x :x<CR>
 " Shortcut to edit my .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<CR>
+" Shortcut to source my .vimrc
+nmap <Leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
 nmap <Leader><space> :nohlsearch<CR>
 map vp :exec "w !vpaste ft=".&ft<CR>
@@ -162,30 +163,24 @@ nnoremap <F3> :set hlsearch!<CR>
 " Write as sudo
 cmap w!! w !sudo tee % >/dev/null
 " Fugitive mappings
-nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gps :Gpush<CR>
-nnoremap <leader>gpl :Gpull<CR>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>gbl :Gblame<CR>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR><CR>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Ggrep<Space>
-nnoremap <leader>gm :Gmove<Space>
-nnoremap <leader>gwb :Gbrowse<CR>
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gps :Gpush<CR>
+nnoremap <space>gpl :Gpull<CR>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>gbl :Gblame<CR>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gwb :Gbrowse<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
-" Auto source vimrc on save
-augroup autosourcing
-    autocmd!
-    autocmd BufWritePost .vimrc source %
-augroup END
-
 " Remember last line on file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
