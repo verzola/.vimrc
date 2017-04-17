@@ -10,7 +10,7 @@ if [ ! -d ~/git/vimrc/ ]; then
     git clone https://github.com/verzola/.vimrc.git ~/git/vimrc
 else
     cd ~/git/vimrc
-    git pull
+    git pull origin master
     cd ~
 fi
 echo "✓"
