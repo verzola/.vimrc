@@ -20,7 +20,7 @@ $ curl -L https://goo.gl/10StQU | bash
 ## features
 - vundle to manage plugins
 - nice sensible defaults
-- almost every line has a comment
+- detailed comments on almost every line of vimrc
 - organized in sections (plugins, settings, plugin settings, abbreviations, mappings & auto commands)
 - php integration
 - git integration
