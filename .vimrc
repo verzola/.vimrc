@@ -168,7 +168,13 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+" shortcut to fast exit insert mode
 inoremap jk <esc>
+" remove arrow keys to force to use hjkl
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
