@@ -24,24 +24,20 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 " Git Gutter
 Plugin 'airblade/vim-gitgutter'
-" Integration with PHP
-Plugin 'spf13/PIV'
-" Python
-Plugin 'davidhalter/jedi-vim'
 " Surround
 Plugin 'tpope/vim-surround'
 " Emmet
 Plugin 'mattn/emmet-vim'
-" JS integration
-Plugin 'pangloss/vim-javascript'
-" JSX integration
-Plugin 'mxw/vim-jsx'
 " CTRL+P (Goto file)
 Plugin 'ctrlpvim/ctrlp.vim'
 " Multiple cursors sublime like
 Plugin 'terryma/vim-multiple-cursors'
 " DevIcons
 Plugin 'ryanoasis/vim-devicons'
+" Repeat plugin maps
+Plugin 'tpope/vim-repeat'
+" PHP integration
+Plugin 'StanAngeloff/php.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()            " required
 filetype plugin indent on    " required
