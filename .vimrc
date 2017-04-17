@@ -38,6 +38,10 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-repeat'
 " PHP integration
 Plugin 'StanAngeloff/php.vim'
+" Fast comment
+Plugin 'scrooloose/nerdcommenter'
+" Fast move
+Plugin 'easymotion/vim-easymotion'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -143,6 +147,8 @@ nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
+" Install plugins
+nnoremap <leader>pi :PluginInstall<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
