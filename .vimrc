@@ -168,6 +168,7 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+inoremap jk <esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
@@ -178,6 +179,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
+iabbrev @@ verzola@gmail.com
+
 " Alias for typos
 cnoreabbrev W w
 cnoreabbrev Q q
