@@ -173,6 +173,10 @@ nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 " Remember last line on file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Auto open nerdtree if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " Alias for typos
 cnoreabbrev W w
