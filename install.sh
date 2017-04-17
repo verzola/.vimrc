@@ -1,19 +1,22 @@
-echo -e "Installing Vundle..."
-if [ ! -d "~/.vim/bundle/Vundle.vim/" ]; then
+#!/bin/bash
+echo "Installing Vundle..."
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
-echo -e "✓"
+echo "✓"
 
-echo -e "Downloading vimrc..."
-if [ ! -d "~/git/vimrc/" ]; then
+echo "Downloading vimrc..."
+if [ ! -d ~/git/vimrc/ ]; then
     git clone https://github.com/verzola/.vimrc.git ~/git/vimrc
 fi
-echo -e "✓"
+echo "✓"
 
-echo -e "Linking vimrc..."
-ln -s ~/git/vimrc/.vimrc ~/.vimrc
-echo -e "✓"
+echo "Linking vimrc..."
+if [ ! -L ~/.vimrc ]; then
+    ln -s ~/git/vimrc/.vimrc ~/.vimrc
+fi
+echo "✓"
 
-echo -e "Installing plugins..."
+echo "Installing plugins..."
 vim +PluginInstall +qall
-echo -e "✓"
+echo "✓"
