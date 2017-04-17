@@ -78,7 +78,7 @@ set splitright
 " Create horizontal split on the bottom
 set splitbelow
 " Shortcut for paste mode
-set pastetoggle=<leader>p
+set pastetoggle=<leader>pm
 " Disable backup file
 set nobackup
 set nowritebackup
