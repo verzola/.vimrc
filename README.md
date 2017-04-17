@@ -47,6 +47,7 @@ $ curl -L https://goo.gl/10StQU | bash
 - leader+sv -> source vimrc
 - leader+p -> toggle paste mode
 - leader+h -> toggle search highlight
+- leader+pi -> plugin install
 - leader+ga -> git add
 - leader+gs -> git status
 - leader+gc -> git commit
