@@ -3,13 +3,13 @@ my vimrc and 1 cmd auto installer
 
 ![Image of my vim](https://raw.githubusercontent.com/verzola/.vimrc/master/vimux.png)
 
-## pre-requirements
+## requirements
 - git
 - vim
 
-## suggestions
-- https://github.com/verzola/.tmux
-- https://github.com/ryanoasis/nerd-fonts
+## recommended
+- https://github.com/ryanoasis/nerd-fonts -> icons on nerdtree and arrows on airline
+- https://github.com/verzola/.tmux -> plays nice together
 
 ## install
 this script installs Vundle, clone this repo and creates a symbolic link in ~/.vimrc to ~/git/vimrc/.vimrc
