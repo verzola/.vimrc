@@ -30,35 +30,36 @@ $ curl -L https://goo.gl/10StQU | bash
 - abbreviations for typo in commands (:W, :Q, :X)
 - remove arrows to force use of hjkl
 
-### maps & shortcuts
-| Shortcut | Meaning |
-|----------|---------|
-| ctrl+e   | toggle nerdtree |
-|ctrl+e | toggle nerdtree |
-|gt | next tab |
-|gT | prev tab |
-|ctrl+p | go to file |
-|ctrl+n | select next (multiple cursors) |
-|ctrl + h | go a split left |
-|ctrl + l | go a split right |
-|ctrl + j | go a split below |
-|ctrl + k | go a split upper |
-| , | leader key |
-|leader+w | save |
-|leader+q | quit |
-|leader+x | save&quit |
-|leader+ev | edit vimrc |
-|leader+sv | source vimrc |
-|leader+pm | toggle paste mode |
-|leader+h | toggle search highlight |
-|leader+pi | plugin install |
-|leader+ga | git add |
-|leader+gs | git status |
-|leader+gc | git commit |
-|leader+gd | git diff |
-|leader+gp | git push |
-|leader+gu | git pull |
-|leader+gb | git branch |
-|leader+gbl | git blame |
-|leader+go | git checkout |
-|leader+gl | git log |
+### shortcuts
+| Shortcut  |     Meaning     |
+|-----------|-----------------|
+| ctrl+e    | toggle nerdtree |
+| ctrl+e    | toggle nerdtree |
+| gt        | next tab        |
+| gT        | prev tab        |
+| ctrl+p    | go to file      |
+| ctrl+n    | multiple cursors|
+| ctrl + h  | go a split left |
+| ctrl + l  | go a split right|
+| ctrl + j  | go a split below|
+| ctrl + k  | go a split upper|
+| ,         | leader key      |
+| leader+w  | save            |
+| leader+q  | quit            |
+| leader+x  | save&quit       |
+| leader+ev | edit vimrc      |
+| leader+sv | source vimrc    |
+| leader+pm | toggle paste mode |
+| leader+h  | toggle search highlight |
+| leader+pi | plugin install  |
+| leader+nb | bookmark in nerdtree |
+| leader+ga | git add         |
+| leader+gs | git status      |
+| leader+gc | git commit      |
+| leader+gd | git diff        |
+| leader+gp | git push        |
+| leader+gu | git pull        |
+| leader+gb | git branch      |
+| leader+gbl| git blame       |
+| leader+go | git checkout    |
+| leader+gl | git log         |
