@@ -83,3 +83,5 @@ $ curl -L https://goo.gl/10StQU | bash
 - StanAngeloff/php.vim
 - easymotion/vim-easymotion
 
+# contributing
+if you find a problem or have a suggestion, please open an issue.
