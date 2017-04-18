@@ -30,7 +30,7 @@ $ curl -L https://goo.gl/10StQU | bash
 - abbreviations for typo in commands (:W, :Q, :X)
 - remove arrows to force use of hjkl
 
-### shortcuts
+## shortcuts
 | Shortcut  |     Meaning     |
 |-----------|-----------------|
 | ctrl+e    | toggle nerdtree |
@@ -64,7 +64,7 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+go | git checkout    |
 | leader+gl | git log         |
 
-# plugins
+## plugins
 - VundleVim/Vundle.vim
 - cdmedia/itg_flat_vim
 - scrooloose/nerdtree
@@ -83,5 +83,5 @@ $ curl -L https://goo.gl/10StQU | bash
 - StanAngeloff/php.vim
 - easymotion/vim-easymotion
 
-# contributing
+## contributing
 if you find a problem or have a suggestion, please open an issue.
