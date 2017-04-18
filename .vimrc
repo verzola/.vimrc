@@ -144,7 +144,7 @@ nnoremap <leader>q :q!<CR>
 " Shortcut to write and quit
 nnoremap <leader>x :x<CR>
 " Shortcut to edit my .vimrc
-nnoremap <leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search

@@ -63,3 +63,23 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+gbl| git blame       |
 | leader+go | git checkout    |
 | leader+gl | git log         |
+
+# plugins
+- VundleVim/Vundle.vim
+- cdmedia/itg_flat_vim
+- scrooloose/nerdtree
+- scrooloose/nerdcommenter
+- jistr/vim-nerdtree-tabs
+- vim-airline/vim-airline
+- vim-airline/vim-airline-themes
+- tpope/vim-fugitive
+- tpope/vim-surround
+- airblade/vim-gitgutter
+- mattn/emmet-vim
+- ctrlpvim/ctrlp.vim
+- terryma/vim-multiple-cursors
+- ryanoasis/vim-devicons
+- tpope/vim-repeat
+- StanAngeloff/php.vim
+- easymotion/vim-easymotion
+
