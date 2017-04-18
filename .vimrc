@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'cdmedia/itg_flat_vim'
 " Sidebar to browse files
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 " Status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -122,7 +123,8 @@ let hlstate=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugin Settings
 " Shortcut to open NerdTree
-map <C-e> :NERDTreeToggle<CR>
+"map <C-e> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeMirrorToggle<CR>
 " Autoclose when open file
 let NERDTreeQuitOnOpen = 0
 " Simplify the directory tree arrows
@@ -149,6 +151,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " Install plugins
 nnoremap <leader>pi :PluginInstall<CR>
+nnoremap <leader>nb :Bookmark<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
