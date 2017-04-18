@@ -151,6 +151,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " Install plugins
 nnoremap <leader>pi :PluginInstall<CR>
+" Bookmark in nerdtree
 nnoremap <leader>nb :Bookmark<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
@@ -186,6 +187,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Auto open nerdtree if no file specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Auto close nerdtree if it is the only left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev @@ verzola@gmail.com

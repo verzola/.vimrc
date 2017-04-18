@@ -28,6 +28,7 @@ $ curl -L https://goo.gl/10StQU | bash
 - :w!! to save as sudo
 - 4 spaces indentation
 - abbreviations for typo in commands (:W, :Q, :X)
+- remove arrows to force use of hjkl
 
 ### maps & shortcuts
 - ctrl+e -> toggle nerdtree
