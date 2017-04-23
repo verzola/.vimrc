@@ -10,134 +10,79 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
-" Vundle itself
-Plugin 'VundleVim/Vundle.vim'
-" Colorscheme
-Plugin 'cdmedia/itg_flat_vim'
-" Sidebar to browse files
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-" Status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Integration with Git
-Plugin 'tpope/vim-fugitive'
-" Git Gutter
-Plugin 'airblade/vim-gitgutter'
-" Surround
-Plugin 'tpope/vim-surround'
-" Emmet
-Plugin 'mattn/emmet-vim'
-" CTRL+P (Goto file)
-Plugin 'ctrlpvim/ctrlp.vim'
-" Multiple cursors sublime like
-Plugin 'terryma/vim-multiple-cursors'
-" DevIcons
-Plugin 'ryanoasis/vim-devicons'
-" Repeat plugin maps
-Plugin 'tpope/vim-repeat'
-" PHP integration
-Plugin 'StanAngeloff/php.vim'
-" Fast comment
-Plugin 'scrooloose/nerdcommenter'
-" Fast move
-Plugin 'easymotion/vim-easymotion'
+Plugin 'VundleVim/Vundle.vim' " Vundle itself
+Plugin 'cdmedia/itg_flat_vim' " Colorscheme
+Plugin 'scrooloose/nerdtree' " Sidebar to browse files
+Plugin 'jistr/vim-nerdtree-tabs' " Independent nerdtree
+Plugin 'vim-airline/vim-airline' " Status bar
+Plugin 'vim-airline/vim-airline-themes' " Status bar themes
+Plugin 'tpope/vim-fugitive' " Integration with Git
+Plugin 'airblade/vim-gitgutter' " Git Gutter
+Plugin 'tpope/vim-surround' " Surround
+Plugin 'mattn/emmet-vim' " Emmet
+Plugin 'ctrlpvim/ctrlp.vim' " CTRL+P (Goto file)
+Plugin 'terryma/vim-multiple-cursors' " Multiple cursors sublime like
+Plugin 'ryanoasis/vim-devicons' " DevIcons
+Plugin 'tpope/vim-repeat' " Repeat plugin maps
+Plugin 'StanAngeloff/php.vim' " PHP integration
+Plugin 'scrooloose/nerdcommenter' " Fast commenter
+Plugin 'easymotion/vim-easymotion' " Fast move
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-" Colorscheme
-colorscheme itg_flat
-" Colored syntax
-syntax enable
-" Show line numbers
-set number
-" Always show status bar
-set laststatus=2
-" Toggle mouse on
-set mouse=a
-" Hide mouse when typing
-set mousehide
-" Size of command history
-set history=1000
-" Size of undo history
-set undolevels=1000
-" Incremental search
-set incsearch
-" Highlight search
-set hlsearch
-" Ignore case in search
-set ignorecase
-" Intelligent case in search
-set smartcase
-" Auto indent
-set autoindent
-" Create vertical split on the right
-set splitright
-" Create horizontal split on the bottom
-set splitbelow
+colorscheme itg_flat            " Colorscheme
+syntax enable                   " Colored syntax
+set number                      " Show line numbers
+set laststatus=2                " Always show status bar
+set mouse=a                     " Toggle mouse on
+set mousehide                   " Hide mouse when typing
+set history=1000                " Size of command history
+set undolevels=1000             " Size of undo history
+set incsearch                   " Incremental search
+set hlsearch                    " Highlight search
+set ignorecase                  " Ignore case in search
+set smartcase                   " Intelligent case in search
+set autoindent                  " Auto indent
+set splitright                  " Create vertical split on the right
+set splitbelow                  " Create horizontal split on the bottom
 " Shortcut for paste mode
 set pastetoggle=<leader>pm
-" Disable backup file
-set nobackup
-set nowritebackup
-" Disable swap file
-set noswapfile
-" Allow cursor to go to end of line
-set virtualedit=onemore
-" Remove default statusbar
-set noshowmode
-" Hightlight current line
-set cursorline
-" Show commands being executed
-set showcmd
-" Fix backspace
-set backspace=indent,eol,start
-" Show matching delimitator
-set showmatch
-" Autocomplete for commands
-set wildmenu
-set wildmode=list:longest,full
-" Show trailing spaces
-set list
+set nobackup                    " Disable backup file 
+set nowritebackup               " Disable backup file
+set noswapfile                  " Disable swap file
+set virtualedit=onemore         " Allow cursor to go to end of line
+set noshowmode                  " Remove default statusbar
+set cursorline                  " Hightlight current line
+set showcmd                     " Show commands being executed
+set backspace=indent,eol,start  " Fix backspace
+set showmatch                   " Show matching delimitator
+set wildmenu                    " Autocomplete for commands
+set wildmode=list:longest,full  " Autocomplete for commands
+set list                        " Show trailing spaces
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
+set tabstop=4                   " show existing tab with 4 spaces width
+set shiftwidth=4                " when indenting with '>', use 4 spaces width
+set expandtab                   " On pressing tab, insert 4 spaces
 set encoding=utf8
-" Redefines leader key
-let mapleader = ","
-let g:mapleader = ","
-" Remove everything from gui except vim
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-" disable hlsearch
-let hlstate=0
-
+let mapleader = ","             " Redefines leader key
+let g:mapleader = ","           " Redefines leader key
+set guioptions-=m               " Remove menu bar
+set guioptions-=T               " Remove toolbar
+set guioptions-=r               " Remove right-hand scroll bar
+set guioptions-=L               " Remove left-hand scroll bar
+let hlstate=0                   " Disable hlsearch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugin Settings
+let NERDTreeQuitOnOpen = 0                    " Autoclose when open file
+let g:NERDTreeDirArrows=1                     " Simplify the directory tree arrows
+let g:airline_theme = 'powerlineish'          " Airline theme
+let g:airline_powerline_fonts = 1             " Powerline fonts on airline
+let g:airline#extensions#tabline#enabled = 1  " Enable tabs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to open NerdTree
 "map <C-e> :NERDTreeToggle<CR>
 map <C-e> :NERDTreeMirrorToggle<CR>
-" Autoclose when open file
-let NERDTreeQuitOnOpen = 0
-" Simplify the directory tree arrows
-let g:NERDTreeDirArrows=1
-" Airline theme
-let g:airline_theme = 'powerlineish'
-" Powerline fonts on airline
-let g:airline_powerline_fonts = 1
-" enable tabs
-let g:airline#extensions#tabline#enabled = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to write
 nnoremap <leader>w :w<CR>
 " Shortcut to quit
@@ -180,7 +125,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -191,7 +135,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Auto close nerdtree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev @@ verzola@gmail.com
 
@@ -200,5 +143,4 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev WQ wq
 cnoreabbrev X x
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
