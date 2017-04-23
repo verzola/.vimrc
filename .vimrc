@@ -6,9 +6,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 set nocompatible                              " be iMproved, required
 filetype off                                  " required
-
 set rtp+=~/.vim/bundle/Vundle.vim             " set the runtime path to include Vundle and initialize
-call vundle#begin()
+call vundle#begin()                           " initialize Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
 Plugin 'cdmedia/itg_flat_vim'                 " Colorscheme
@@ -135,8 +134,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Auto close nerdtree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
+" insert abbreviations
 iabbrev @@ verzola@gmail.com
 
+" command abbreviations
 cnoreabbrev W w     " typo alias for write
 cnoreabbrev Q q     " typo alias for quit
 cnoreabbrev WQ wq   " typo alias for write and quit
