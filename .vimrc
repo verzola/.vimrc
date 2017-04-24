@@ -26,7 +26,6 @@ Plugin 'ryanoasis/vim-devicons'               " DevIcons
 Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
 Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
-Plugin 'tmux-plugins/vim-tmux-focus-events'   " FocusLost for terminal
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -135,6 +134,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " Install plugins
 nnoremap <leader>pi :PluginInstall<CR>
+nnoremap <leader>pc :PluginClean<CR>
 " Bookmark in nerdtree
 nnoremap <leader>nb :Bookmark<CR>
 " Shortcut to navigate between splits
