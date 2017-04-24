@@ -185,7 +185,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " insert abbreviations
 iabbrev @@ verzola@gmail.com
 iabbrev :tick: ✔
+iabbrev [OK] ✔
 iabbrev :cross: ✘
+iabbrev [x] ✘
 " command abbreviations
 cnoreabbrev W w
 cnoreabbrev Q q
