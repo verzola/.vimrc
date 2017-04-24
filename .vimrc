@@ -63,7 +63,7 @@ set nobackup                                  " Disable backup file
 set noerrorbells                              " No bell sound
 set noshowmode                                " Remove default statusbar
 set noswapfile                                " Disable swap file
-set notimeout                                 " ?
+set timeout                                   " ?
 set nowrap                                    " Don't wrap lines
 set nowritebackup                             " Disable backup file
 set nrformats-=octal                          " ?
@@ -80,13 +80,15 @@ set smarttab                                  " ?
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
 set tabstop=4                                 " show existing tab with 4 spaces width
-set timeoutlen=10                             " Lower timeout length
+set timeoutlen=500                            " Lower timeout length
+set ttimeoutlen=100                           " Lower ttimeout length
 set title                                     " Automatically set screen title
 set ttimeout                                  " ?
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
+set ttyfast                                   " ?
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
