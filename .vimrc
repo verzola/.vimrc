@@ -134,6 +134,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " Install plugins
 nnoremap <leader>pi :PluginInstall<CR>
+" Clean removed plugins
 nnoremap <leader>pc :PluginClean<CR>
 " Bookmark in nerdtree
 nnoremap <leader>nb :Bookmark<CR>
