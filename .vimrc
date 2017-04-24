@@ -165,8 +165,15 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Trip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" Reselect last selection
-nnoremap <leader>v V`]
+" Copy and paste to system clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+vmap <leader>p "+p
+vmap <leader>P "+P
+nmap <leader>p "+p
+nmap <leader>P "+P
+" Select what you've just pasted
+noremap gV `[v`]
 " Shortcut to fast exit insert mode
 inoremap jk <esc>
 " Write as sudo
@@ -194,4 +201,3 @@ cnoreabbrev Q q
 cnoreabbrev WQ wq
 cnoreabbrev X x
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
-

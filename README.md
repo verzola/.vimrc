@@ -63,14 +63,18 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+gbl| git blame               |
 | leader+go | git checkout            |
 | leader+gl | git log                 |
-| leader+v  | git log                 |
 | leader+W  | trim whitespaces        |
 | leader+nb | bookmarm in nerdtree    |
 | leader+nf | find in nerdtree        |
 | leader+pi | plugin install          |
+| leader+y  | copy visual selection to system clipboard |
+| leader+d  | delete visual selection & copy to system clipboard |
+| leader+p  | paste from system clipboard |
+| leader+P  | paste from system clipboard |
 | jk        | leave insert mode       |
 | space     | center screen           |
 | Y         | yank line               |
+| gV        | visual select pasted    |
 
 ## plugins
 - VundleVim/Vundle.vim
