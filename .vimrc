@@ -12,19 +12,19 @@ call vundle#begin()                           " initialize Vundle
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
 Plugin 'cdmedia/itg_flat_vim'                 " Colorscheme
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
+Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'jistr/vim-nerdtree-tabs'              " Independent nerdtree
 Plugin 'vim-airline/vim-airline'              " Status bar
 Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
 Plugin 'tpope/vim-fugitive'                   " Integration with Git
-Plugin 'airblade/vim-gitgutter'               " Git Gutter
 Plugin 'tpope/vim-surround'                   " Surround
+Plugin 'airblade/vim-gitgutter'               " Git Gutter
 Plugin 'mattn/emmet-vim'                      " Emmet
 Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
 Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors sublime like
 Plugin 'ryanoasis/vim-devicons'               " DevIcons
 Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
 Plugin 'StanAngeloff/php.vim'                 " PHP integration
-Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'easymotion/vim-easymotion'            " Fast move
 Plugin 'tmux-plugins/vim-tmux-focus-events'   " FocusLost for terminal
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
