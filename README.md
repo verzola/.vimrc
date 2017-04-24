@@ -19,29 +19,26 @@ $ curl -L https://goo.gl/10StQU | bash
 
 ## features
 - vundle to manage plugins
-- nice sensible defaults
+- opinative defaults (my preference)
 - detailed comments on almost every line of vimrc
 - organized in sections (plugins, settings, plugin settings, abbreviations, mappings & auto commands)
 - php integration
 - git integration
-- fast shortcuts with leader key
 - :w!! to save as sudo
 - 4 spaces indentation
 - abbreviations for typo in commands (:W, :Q, :X)
 - remove arrows to force use of hjkl
-- save on focus lost
-- :w!! to save as sudo
+- save on focus lost (gvim only)
 - easy paste
 
 ## Maps
 |    Map    |         Meaning         |
 |-----------|-------------------------|
 | ctrl+e    | toggle nerdtree         |
-| ctrl+e    | toggle nerdtree         |
 | gt        | next tab                |
 | gT        | prev tab                |
-| ctrl+p    | go to file              |
-| ctrl+n    | multiple cursors        |
+| ctrl+p    | open CtrlP              |
+| ctrl+n    | find next occurrence    |
 | ctrl+h    | go a split left         |
 | ctrl+l    | go a split right        |
 | ctrl+j    | go a split below        |
@@ -52,7 +49,7 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+x  | save&quit               |
 | leader+ev | edit vimrc              |
 | leader+sv | source vimrc            |
-| leader+pm | toggle paste mode       |
+| F12       | toggle paste mode       |
 | leader+h  | toggle search highlight |
 | leader+pi | plugin install          |
 | leader+nb | bookmark in nerdtree    |

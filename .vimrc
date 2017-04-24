@@ -37,9 +37,9 @@ set autoread                                  " Auto read if changes are detecte
 set autowrite                                 " Auto save when switch buffer
 set backspace=indent,eol,start                " Fix backspace
 set colorcolumn=80                            " Set column rule
-set complete-=i                               " ?
-set completeopt=longest,menuone               " ?
-set copyindent                                " ?
+set complete-=i                               " Disable complete from includes
+set completeopt=longest,menuone               " Show popup with completions
+set copyindent                                " Copy indentation from existing lines
 set cursorline                                " Hightlight current line
 set encoding=utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
@@ -55,8 +55,8 @@ set ignorecase                                " Ignore case in search
 set incsearch                                 " Incremental search
 set laststatus=2                              " Always show status bar
 set lazyredraw                                " Don't redraw while executing macros or registries
-set list                                      " Show whitespace
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
 set nobackup                                  " Disable backup file 
@@ -68,7 +68,7 @@ set nowrap                                    " Don't wrap lines
 set nowritebackup                             " Disable backup file
 set nrformats-=octal                          " ?
 set number                                    " Show line numbers
-set pastetoggle=<leader>pm                    " Shortcut for paste mode
+set pastetoggle=<F12>                         " Shortcut for paste mode
 set regexpengine=1                            " Regex in search
 set ruler                                     " Show ruler
 set shiftround                                " ?
@@ -80,10 +80,9 @@ set smarttab                                  " ?
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
 set tabstop=4                                 " show existing tab with 4 spaces width
-set timeoutlen=10                             " ?
-set title                                     " ?
+set timeoutlen=10                             " Lower timeout length
+set title                                     " Automatically set screen title
 set ttimeout                                  " ?
-set ttyfast                                   " ?
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmenu                                  " Autocomplete for commands
@@ -127,7 +126,7 @@ nnoremap <leader>q :q!<CR>
 " Shortcut to write and quit
 nnoremap <leader>x :x<CR>
 " Shortcut to edit my .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
