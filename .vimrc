@@ -44,6 +44,7 @@ set copyindent                                " ?
 set cursorline                                " Hightlight current line
 set encoding=utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
+set guifont=Droid\ Sans\ Mono\ For\ Powerline\ 12  " Set gvim font
 set guioptions-=L                             " Remove left-hand scroll bar
 set guioptions-=T                             " Remove toolbar
 set guioptions-=m                             " Remove menu bar
@@ -86,7 +87,6 @@ set ttimeout                                  " ?
 set ttyfast                                   " ?
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
-set visualbell                                " Blink screen on bell
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 " never do this again --> :set paste <ctrl-v> :set no paste
@@ -184,6 +184,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " insert abbreviations
 iabbrev @@ verzola@gmail.com
+iabbrev :tick: ✔
+iabbrev :cross: ✘
 " command abbreviations
 cnoreabbrev W w
 cnoreabbrev Q q
