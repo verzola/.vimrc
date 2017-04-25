@@ -32,7 +32,7 @@ filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 colorscheme itg_flat                          " Colorscheme
 syntax enable                                 " Colored syntax
-set autoindent                                "  Auto indent
+set autoindent                                " Auto indent
 set autoread                                  " Auto read if changes are detected
 set autowrite                                 " Auto save when switch buffer
 set backspace=indent,eol,start                " Fix backspace
@@ -43,6 +43,8 @@ set copyindent                                " Copy indentation from existing l
 set cursorline                                " Hightlight current line
 set encoding=utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
+set formatoptions=qrn1
+set gdefault                                  " Defaults to global substitution
 set guifont=Droid\ Sans\ Mono\ For\ Powerline\ 12  " Set gvim font
 set guioptions-=L                             " Remove left-hand scroll bar
 set guioptions-=T                             " Remove toolbar
@@ -52,18 +54,17 @@ set hidden                                    " Hidden buffers
 set history=1000                              " Size of command history
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
-set incsearch                                 " Incremental search
+set incsearch                                 " Highlight while searching
 set laststatus=2                              " Always show status bar
 set lazyredraw                                " Don't redraw while executing macros or registries
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
+set listchars=tab:▸\ ,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
 set nobackup                                  " Disable backup file 
 set noerrorbells                              " No bell sound
 set noshowmode                                " Remove default statusbar
 set noswapfile                                " Disable swap file
-set timeout                                   " ?
 set nowrap                                    " Don't wrap lines
 set nowritebackup                             " Disable backup file
 set nrformats-=octal                          " ?
@@ -77,23 +78,30 @@ set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
 set smarttab                                  " ?
+set softtabstop=4
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
 set tabstop=4                                 " show existing tab with 4 spaces width
+set textwidth=79
+set timeout                                   " ?
 set timeoutlen=500                            " Lower timeout length
-set ttimeoutlen=100                           " Lower ttimeout length
 set title                                     " Automatically set screen title
 set ttimeout                                  " ?
+set ttimeoutlen=100                           " Lower ttimeout length
+set ttyfast                                   " ?
+" create undo-dir if it does not exists
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir                   " Set undofiles folder
+set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
-set ttyfast                                   " ?
-set softtabstop=4
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
-let g:mapleader = ","                         " Redefines leader key
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
@@ -197,6 +205,13 @@ inoremap jk <esc>
 cmap w!! w !sudo tee % >/dev/null
 " Toggle relativenumber
 nnoremap <leader>r :set relativenumber!<cr>
+" Map tab in normal and visual mode to match bracket
+nnoremap <tab> %
+vnoremap <tab> %
+" Map to sort in visual mode
+vnoremap <leader>s :'<,'>sort<cr>
+nnoremap j gj
+nnoremap k gk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Save on focus lost
 autocmd FocusLost * :wa
