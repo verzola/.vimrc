@@ -195,6 +195,8 @@ noremap gV `[v`]
 inoremap jk <esc>
 " Write as sudo
 cmap w!! w !sudo tee % >/dev/null
+" Toggle relativenumber
+nnoremap <leader>r :set relativenumber!<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Save on focus lost
 autocmd FocusLost * :wa

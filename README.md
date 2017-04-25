@@ -72,6 +72,7 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+d  | delete visual selection & copy to system clipboard |
 | leader+p  | paste from system clipboard |
 | leader+P  | paste from system clipboard |
+| leader+r  | toggle relative number  |
 | jk        | leave insert mode       |
 | space     | center screen           |
 | Y         | yank line               |
