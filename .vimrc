@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
 Plugin 'cdmedia/itg_flat_vim'                 " Colorscheme
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
-Plugin 'jistr/vim-nerdtree-tabs'              " Independent nerdtree
+Plugin 'jistr/vim-nerdtree-tabs'              " Independent NERDTree
 Plugin 'vim-airline/vim-airline'              " Status bar
 Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
 Plugin 'tpope/vim-fugitive'                   " Integration with Git
@@ -98,9 +98,10 @@ let mapleader = ","                           " Redefines leader key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let NERDTreeDirArrows=1                       " Simplify the directory tree arrows
 let NERDTreeQuitOnOpen=0                      " Autoclose when open file
-let NERDTreeShowBookmarks=1                   " show bookmarks on nerdtree
-let NERDTreeShowHidden=1                      " show hidden files on nerdtreee
-let NERDTreeShowLineNumbers=1                 " show line numbers on nerdtreee
+let NERDTreeShowBookmarks=1                   " Show bookmarks on NERDTree
+let NERDTreeShowHidden=1                      " Show hidden files on NERDTree
+let NERDTreeShowLineNumbers=1                 " Show line numbers on NERDTree
+let NERDTreeQuitOnOpen=1                      " Quit NERDTree after open file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
@@ -116,10 +117,10 @@ let g:ctrlp_switch_buffer = 'et'              " Jump to a file if it's open alre
 let g:ctrlp_use_caching = 1                   " Turn caching on
 let g:ctrlp_working_path_mode = 'ra'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-" Shortcut to open NerdTree
+" Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
 map <C-e> :NERDTreeMirrorToggle<CR>
-" Find current file on nerdtree
+" Find current file on NERDTree
 noremap <leader>nf :NERDTreeFind<cr>
 " Shortcut to write
 nnoremap <leader>w :w<CR>
@@ -137,7 +138,7 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>pi :PluginInstall<CR>
 " Clean removed plugins
 nnoremap <leader>pc :PluginClean<CR>
-" Bookmark in nerdtree
+" Bookmark in NERDTree
 nnoremap <leader>nb :Bookmark<CR>
 " Shortcut to navigate between splits
 nnoremap <C-h> <C-w>h
@@ -173,7 +174,7 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-"inoremap <Esc> <NOP>
+"inoremap <esc> <nop>
 " Trip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Copy and paste to system clipboard
@@ -194,10 +195,10 @@ cmap w!! w !sudo tee % >/dev/null
 autocmd FocusLost * :wa
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" Auto open nerdtree if no file specified
+" Auto open NERDTree if no file specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Auto close nerdtree if it is the only left
+" Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " insert abbreviations
