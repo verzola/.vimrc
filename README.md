@@ -73,12 +73,14 @@ $ curl -L https://goo.gl/10StQU | bash
 | leader+p  | paste from system clipboard |
 | leader+P  | paste from system clipboard |
 | leader+r  | toggle relative number  |
+| leader+s  | sort visual selection   |
 | jk        | leave insert mode       |
 | space     | center screen           |
 | Y         | yank line               |
 | gV        | visual select pasted    |
 | Up        | scroll up               |
 | Down      | scroll down             |
+| Tab       | match bracket           |
 
 ## plugins
 - VundleVim/Vundle.vim
