@@ -28,6 +28,7 @@ $ curl -L https://goo.gl/10StQU | bash
 - 4 spaces indentation
 - abbreviations for typo in commands (:W, :Q, :X)
 - remove arrows to force use of hjkl
+- arrow keys mapped to scroll
 - save on focus lost (gvim only)
 - easy paste
 
@@ -75,6 +76,8 @@ $ curl -L https://goo.gl/10StQU | bash
 | space     | center screen           |
 | Y         | yank line               |
 | gV        | visual select pasted    |
+| Up        | scroll up               |
+| Down      | scroll down             |
 
 ## plugins
 - VundleVim/Vundle.vim

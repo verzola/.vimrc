@@ -89,19 +89,20 @@ set virtualedit=onemore                       " Allow cursor to go to end of lin
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 set ttyfast                                   " ?
+set softtabstop=4
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
 let g:mapleader = ","                         " Redefines leader key
-let hlstate=0                                 " Disable hlsearch
+let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let NERDTreeDirArrows=1                       " Simplify the directory tree arrows
-let NERDTreeQuitOnOpen=0                      " Autoclose when open file
-let NERDTreeShowBookmarks=1                   " Show bookmarks on NERDTree
-let NERDTreeShowHidden=1                      " Show hidden files on NERDTree
-let NERDTreeShowLineNumbers=1                 " Show line numbers on NERDTree
-let NERDTreeQuitOnOpen=1                      " Quit NERDTree after open file
+let NERDTreeDirArrows = 1                     " Simplify the directory tree arrows
+let NERDTreeQuitOnOpen = 0                    " Autoclose when open file
+let NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
+let NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
+let NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
+let NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
@@ -110,12 +111,13 @@ let g:airline_theme = 'powerlineish'          " Airline theme
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp' " Cache folder
 let g:ctrlp_clear_cache_on_exit = 0           " Don't clear cache on exit
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_files=0                       " Do not limit the number of searchable files
+let g:ctrlp_max_files = 0                     " Do not limit the number of searchable files
 let g:ctrlp_max_height = 10                   " Maxiumum height of match window
-let g:ctrlp_mruf_max=450                      " Number of recently opened files
+let g:ctrlp_mruf_max = 450                    " Number of recently opened files
 let g:ctrlp_switch_buffer = 'et'              " Jump to a file if it's open already
 let g:ctrlp_use_caching = 1                   " Turn caching on
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
@@ -175,6 +177,9 @@ vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
 "inoremap <esc> <nop>
+" Remap arrow keys to scroll
+noremap <Down> <c-e>
+noremap <Up> <c-y>
 " Trip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Copy and paste to system clipboard
