@@ -29,7 +29,6 @@ $ curl -L https://goo.gl/10StQU | bash
 - abbreviations for typo in commands (:W, :Q, :X)
 - remove arrows to force use of hjkl
 - arrow keys mapped to scroll
-- save on focus lost (gvim only)
 - easy paste
 
 ## Maps
@@ -99,7 +98,8 @@ $ curl -L https://goo.gl/10StQU | bash
 - ryanoasis/vim-devicons
 - tpope/vim-repeat
 - StanAngeloff/php.vim
-- easymotion/vim-easymotion
+- eaymotion/vim-easymotion
+- kshenoy/vim-signature
 
 ## contributing
 if you find a problem or have a suggestion, please open an issue.

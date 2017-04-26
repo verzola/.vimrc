@@ -26,6 +26,7 @@ Plugin 'ryanoasis/vim-devicons'               " DevIcons
 Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
 Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
+Plugin 'kshenoy/vim-signature'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -213,8 +214,6 @@ vnoremap <leader>s :'<,'>sort<cr>
 nnoremap j gj
 nnoremap k gk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
-" Save on focus lost
-autocmd FocusLost * :wa
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Auto open NERDTree if no file specified
