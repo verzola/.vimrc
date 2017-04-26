@@ -100,6 +100,7 @@ set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
+set t_ut=
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
