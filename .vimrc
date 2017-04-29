@@ -172,6 +172,18 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
+
+let g:ascii = [
+    \"         __      __                _       ",
+    \"         \\ \\    / /               | |      ",
+    \"          \\ \\  / /__ _ __ _______ | | __ _ ",
+    \"           \\ \\/ / _ \\ '__|_  / _ \\| |/ _` |",
+    \"            \\  /  __/ |   / / (_) | | (_| |",
+    \"             \\/ \\___|_|  /___\\___/|_|\\\__,_|",
+    \"",
+\]
+let g:startify_custom_header = g:ascii + startify#fortune#boxed()
+
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
 map <C-e> :NERDTreeMirrorToggle<CR>
