@@ -34,6 +34,10 @@ Plugin 'mhinz/vim-startify'
 call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
+set termguicolors
+set t_ZH=[3m
+set t_ZR=[23m
+let g:gruvbox_italic=1
 colorscheme gruvbox
 syntax enable                                 " Colored syntax
 set autoindent                                " Auto indent
