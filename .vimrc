@@ -48,7 +48,8 @@ set cursorline                                " Hightlight current line
 set encoding=utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
 set formatoptions=qrn1
-set gdefault                                  " Defaults to global substitutionj
+set gdefault                                  " Defaults to global substitution
+set background=dark
 
 set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
 "set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
