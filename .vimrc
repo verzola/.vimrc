@@ -10,8 +10,8 @@ set rtp+=~/.vim/bundle/Vundle.vim             " set the runtime path to include 
 call vundle#begin()                           " initialize Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
-Plugin 'cdmedia/itg_flat_vim'                 " Colorscheme
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'jistr/vim-nerdtree-tabs'              " Independent NERDTree
 Plugin 'vim-airline/vim-airline'              " Status bar
@@ -27,11 +27,14 @@ Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
 Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
 Plugin 'kshenoy/vim-signature'
+Plugin 'morhetz/gruvbox'
+Plugin 'chriskempson/base16-vim'
+Plugin 'mhinz/vim-startify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-colorscheme itg_flat                          " Colorscheme
+colorscheme gruvbox
 syntax enable                                 " Colored syntax
 set autoindent                                " Auto indent
 set autoread                                  " Auto read if changes are detected
@@ -45,8 +48,23 @@ set cursorline                                " Hightlight current line
 set encoding=utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
 set formatoptions=qrn1
-set gdefault                                  " Defaults to global substitution
-set guifont=Droid\ Sans\ Mono\ For\ Powerline\ 12  " Set gvim font
+set gdefault                                  " Defaults to global substitutionj
+
+set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+"set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+"set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
+"set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
+"set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
+"set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
+"set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
+"set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
+"set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
+"set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
+"set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
+"set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
+"set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
+"set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
+
 set guioptions-=L                             " Remove left-hand scroll bar
 set guioptions-=T                             " Remove toolbar
 set guioptions-=m                             " Remove menu bar
@@ -91,8 +109,8 @@ set ttimeout                                  " ?
 set ttimeoutlen=100                           " Lower ttimeout length
 set ttyfast                                   " ?
 " create undo-dir if it does not exists
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+if !isdirectory($HOME."/vimfiles/undo-dir")
+    call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
 endif
 set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
@@ -107,16 +125,32 @@ let &t_SI .= "\<Esc>[?2004h"
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let NERDTreeDirArrows = 1                     " Simplify the directory tree arrows
-let NERDTreeQuitOnOpen = 0                    " Autoclose when open file
-let NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
-let NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
-let NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
-let NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
+let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
+let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
+let g:NERDTreeShowLineNumbers = 0               " Show line numbers on NERDTree
+let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
+let g:NERDTreeDirArrowExpandable="▸"
+let g:NERDTreeDirArrowCollapsible="▾"
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
-let g:airline_theme = 'powerlineish'          " Airline theme
+let g:airline_theme = 'gruvbox'          " Airline theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp' " Cache folder
 let g:ctrlp_clear_cache_on_exit = 0           " Don't clear cache on exit
@@ -128,6 +162,10 @@ let g:ctrlp_switch_buffer = 'et'              " Jump to a file if it's open alre
 let g:ctrlp_use_caching = 1                   " Turn caching on
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
@@ -141,7 +179,7 @@ nnoremap <leader>q :q!<CR>
 " Shortcut to write and quit
 nnoremap <leader>x :x<CR>
 " Shortcut to edit my .vimrc
-nnoremap <leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 " Shortcut to source my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " Shortcut to disable highlight search
@@ -217,11 +255,10 @@ nnoremap k gk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" Auto open NERDTree if no file specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" No bell
+autocmd GUIEnter * set vb t_vb=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " insert abbreviations
 iabbrev @@ verzola@gmail.com
