@@ -134,8 +134,8 @@ let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
 let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
 let g:NERDTreeShowLineNumbers = 0               " Show line numbers on NERDTree
 let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
-let g:NERDTreeDirArrowExpandable="▸"
-let g:NERDTreeDirArrowCollapsible="▾"
+let g:NERDTreeDirArrowExpandable=""
+let g:NERDTreeDirArrowCollapsible=""
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -182,6 +182,8 @@ let g:ascii = [
     \"             \\/ \\___|_|  /___\\___/|_|\\\__,_|",
     \"",
 \]
+
+
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
 
 " Shortcut to open NERDTree
