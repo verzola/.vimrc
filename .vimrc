@@ -109,8 +109,8 @@ set ttimeout                                  " ?
 set ttimeoutlen=100                           " Lower ttimeout length
 set ttyfast                                   " ?
 " create undo-dir if it does not exists
-if !isdirectory($HOME."/vimfiles/undo-dir")
-    call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
 endif
 set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
