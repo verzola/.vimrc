@@ -4,10 +4,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
-set nocompatible                              " be iMproved, required
-filetype off                                  " required
-set rtp+=~/.vim/bundle/Vundle.vim             " set the runtime path to include Vundle and initialize
-call vundle#begin()                           " initialize Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+if has('win32')
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+    call vundle#begin('$HOME/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()   
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
@@ -55,25 +63,31 @@ set formatoptions=qrn1
 set gdefault                                  " Defaults to global substitution
 set background=dark
 
-set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
-"set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
-"set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
-"set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
-"set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
+if has('win32')
+    set shell=$COMPSEC
+endif
 
-set guioptions-=L                             " Remove left-hand scroll bar
-set guioptions-=T                             " Remove toolbar
-set guioptions-=m                             " Remove menu bar
-set guioptions-=r                             " Remove right-hand scroll bar
+if has('gui_running')
+    set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+    set guioptions-=L                             " Remove left-hand scroll bar
+    set guioptions-=T                             " Remove toolbar
+    set guioptions-=m                             " Remove menu bar
+    set guioptions-=r                             " Remove right-hand scroll bar
+    "set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
+    "set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
+    "set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
+    "set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
+    "set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
+endif
+
 set hidden                                    " Hidden buffers
 set history=1000                              " Size of command history
 set hlsearch                                  " Highlight search
@@ -113,11 +127,18 @@ set title                                     " Automatically set screen title
 set ttimeout                                  " ?
 set ttimeoutlen=100                           " Lower ttimeout length
 set ttyfast                                   " ?
-" create undo-dir if it does not exists
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+" create undo-dir if it does not exists and set undodir
+if has('win32')
+    if !isdirectory($HOME."/vimfiles/undo-dir")
+        call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
+        set undodir=~/vimfiles/undo-dir                   " Set undofiles folder
+    endif
+else
+    if !isdirectory($HOME."/.vim/undo-dir")
+        call mkdir($HOME."/.vim/undo-dir", "", 0700)
+        set undodir=~/.vim/undo-dir                   " Set undofiles folder
+    endif
 endif
-set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
