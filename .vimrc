@@ -131,13 +131,13 @@ set ttyfast                                   " ?
 if has('win32')
     if !isdirectory($HOME."/vimfiles/undo-dir")
         call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
-        set undodir=~/vimfiles/undo-dir                   " Set undofiles folder
     endif
+    set undodir=~/vimfiles/undo-dir               " Set undofiles folder
 else
     if !isdirectory($HOME."/.vim/undo-dir")
         call mkdir($HOME."/.vim/undo-dir", "", 0700)
-        set undodir=~/.vim/undo-dir                   " Set undofiles folder
     endif
+    set undodir=~/.vim/undo-dir                   " Set undofiles folder
 endif
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
