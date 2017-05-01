@@ -30,6 +30,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
 Plugin 'mhinz/vim-startify'
+Plugin 'mxw/vim-jsx'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -136,6 +137,7 @@ let g:NERDTreeShowLineNumbers = 0               " Show line numbers on NERDTree
 let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
 let g:NERDTreeDirArrowExpandable=""
 let g:NERDTreeDirArrowCollapsible=""
+let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -169,7 +171,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 
