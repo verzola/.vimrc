@@ -4,10 +4,29 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
-set nocompatible                              " be iMproved, required
-filetype off                                  " required
-set rtp+=~/.vim/bundle/Vundle.vim             " set the runtime path to include Vundle and initialize
-call vundle#begin()                           " initialize Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+if has("win32") || has("win64") || has("win16")
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+    call vundle#begin('$HOME/vimfiles/bundle/')
+  if &shell=~#'bash$'
+    set shell=$COMSPEC " sets shell to correct path for cmd.exe
+  endif
+    if !isdirectory($HOME."/vimfiles/undo-dir")
+        call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
+    endif
+    set undodir=~/vimfiles/undo-dir               " Set undofiles folder
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " create undo-dir if it does not exists
+    if !isdirectory($HOME."/.vim/undo-dir")
+        call mkdir($HOME."/.vim/undo-dir", "", 0700)
+    endif
+    set undodir=~/.vim/undo-dir                   " Set undofiles folder
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
@@ -35,7 +54,29 @@ Plugin 'mxw/vim-jsx'
 call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-set termguicolors
+if has('gui_running')
+    set guioptions-=L                             " Remove left-hand scroll bar
+    set guioptions-=T                             " Remove toolbar
+    set guioptions-=m                             " Remove menu bar
+    set guioptions-=r                             " Remove right-hand scroll bar
+    "set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+    set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
+    "set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
+    "set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
+    "set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
+    "set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
+    "set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
+    "set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
+else
+    set termguicolors
+endif
+
 set t_ZH=[3m
 set t_ZR=[23m
 let g:gruvbox_italic=1
@@ -55,26 +96,6 @@ set expandtab                                 " On pressing tab, insert 4 spaces
 set formatoptions=qrn1
 set gdefault                                  " Defaults to global substitution
 set background=dark
-
-set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
-"set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
-"set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
-"set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
-"set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
-"set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
-"set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
-
-set guioptions-=L                             " Remove left-hand scroll bar
-set guioptions-=T                             " Remove toolbar
-set guioptions-=m                             " Remove menu bar
-set guioptions-=r                             " Remove right-hand scroll bar
 set hidden                                    " Hidden buffers
 set history=1000                              " Size of command history
 set hlsearch                                  " Highlight search
@@ -114,11 +135,6 @@ set title                                     " Automatically set screen title
 set ttimeout                                  " ?
 set ttimeoutlen=100                           " Lower ttimeout length
 set ttyfast                                   " ?
-" create undo-dir if it does not exists
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-endif
-set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
@@ -176,13 +192,12 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 
 let g:ascii = [
-    \"   __      __                _       ",
-    \"   \\ \\    / /               | |      ",
-    \"    \\ \\  / /__ _ __ _______ | | __ _ ",
-    \"     \\ \\/ / _ \\ '__|_  / _ \\| |/ _` |",
-    \"      \\  /  __/ |   / / (_) | | (_| |",
-    \"       \\/ \\___|_|  /___\\___/|_|\\\__,_|",
-    \"",
+\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
+\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
+\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
+\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
+\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
+\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
 \]
 
 

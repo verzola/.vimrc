@@ -1,7 +1,7 @@
 # verzola's .vimrc
 my vimrc and 1 cmd auto installer
 
-![Image of my vim](https://raw.githubusercontent.com/verzola/.vimrc/master/vimux.png)
+![Image of my vim](https://raw.githubusercontent.com/verzola/.vimrc/master/vim.png)
 
 ## requirements
 - git
