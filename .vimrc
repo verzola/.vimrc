@@ -3,6 +3,15 @@
 """ released under the WTFPL v2 license, by Gustavo Verzola """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:ascii = [
+\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
+\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
+\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
+\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
+\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
+\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
+\]
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -47,9 +56,13 @@ Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
 Plugin 'kshenoy/vim-signature'
 Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'sjl/gundo.vim'
+Plugin 'othree/html5.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'editorconfig/editorconfig-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -172,6 +185,8 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
 let g:airline_theme = 'gruvbox'          " Airline theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
@@ -189,20 +204,9 @@ let g:ctrlp_show_hidden = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-
-let g:ascii = [
-\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
-\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
-\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
-\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
-\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
-\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
-\]
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
 map <C-e> :NERDTreeMirrorToggle<CR>
