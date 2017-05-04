@@ -154,6 +154,7 @@ set virtualedit=onemore                       " Allow cursor to go to end of lin
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 set t_ut=
+set autochdir
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
@@ -302,9 +303,9 @@ autocmd GUIEnter * set vb t_vb=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " insert abbreviations
 iabbrev @@ verzola@gmail.com
-iabbrev :tick: ✔
 iabbrev [OK] ✔
-iabbrev :cross: ✘
+iabbrev [ok] ✔
+iabbrev [X] ✘
 iabbrev [x] ✘
 " command abbreviations
 cnoreabbrev W w
