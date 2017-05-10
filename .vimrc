@@ -53,7 +53,6 @@ Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
 Plugin 'kshenoy/vim-signature'
 Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'mxw/vim-jsx'
 Plugin 'majutsushi/tagbar'
@@ -61,6 +60,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'              " Status bar
 Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
 Plugin 'ryanoasis/vim-devicons'               " DevIcons
+Plugin 'pangloss/vim-javascript'
+Plugin 'sjl/gundo.vim'
+Plugin 'othree/html5.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'editorconfig/editorconfig-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -153,6 +157,7 @@ set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 set t_ut=
 set path+=**
+set autochdir
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
@@ -184,6 +189,8 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
 let g:airline_theme = 'gruvbox'          " Airline theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
@@ -202,9 +209,7 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
-
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -214,7 +219,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
 map <C-e> :NERDTreeMirrorToggle<CR>
@@ -311,9 +316,9 @@ autocmd GUIEnter * set vb t_vb=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 " insert abbreviations
 iabbrev @@ verzola@gmail.com
-iabbrev :tick: ✔
 iabbrev [OK] ✔
-iabbrev :cross: ✘
+iabbrev [ok] ✔
+iabbrev [X] ✘
 iabbrev [x] ✘
 " command abbreviations
 cnoreabbrev W w
