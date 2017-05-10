@@ -3,6 +3,15 @@
 """ released under the WTFPL v2 license, by Gustavo Verzola """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:ascii = [
+\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
+\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
+\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
+\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
+\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
+\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
+\]
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -33,15 +42,12 @@ Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'jistr/vim-nerdtree-tabs'              " Independent NERDTree
-Plugin 'vim-airline/vim-airline'              " Status bar
-Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
 Plugin 'tpope/vim-fugitive'                   " Integration with Git
 Plugin 'tpope/vim-surround'                   " Surround
 Plugin 'airblade/vim-gitgutter'               " Git Gutter
 Plugin 'mattn/emmet-vim'                      " Emmet
 Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
 Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors sublime like
-Plugin 'ryanoasis/vim-devicons'               " DevIcons
 Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
 Plugin 'StanAngeloff/php.vim'                 " PHP integration
 Plugin 'easymotion/vim-easymotion'            " Fast move
@@ -50,6 +56,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'mxw/vim-jsx'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'              " Status bar
+Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
+Plugin 'ryanoasis/vim-devicons'               " DevIcons
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
@@ -107,7 +118,7 @@ set list
 set listchars=tab:▸\ ,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
-set nobackup                                  " Disable backup file 
+set nobackup                                  " Disable backup file
 set noerrorbells                              " No bell sound
 set noshowmode                                " Remove default statusbar
 set noswapfile                                " Disable swap file
@@ -141,6 +152,7 @@ set virtualedit=onemore                       " Allow cursor to go to end of lin
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 set t_ut=
+set path+=**
 " never do this again --> :set paste <ctrl-v> :set no paste
 let &t_EI .= "\<Esc>[?2004l"
 let &t_SI .= "\<Esc>[?2004h"
@@ -189,19 +201,19 @@ let g:ctrlp_show_hidden = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-
-let g:ascii = [
-\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
-\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
-\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
-\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
-\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
-\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
-\]
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
 
 let g:startify_custom_header = g:ascii + startify#fortune#boxed()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Shortcut to open NERDTree
 "map <C-e> :NERDTreeToggle<CR>
@@ -286,8 +298,9 @@ nnoremap <tab> %
 vnoremap <tab> %
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<cr>
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
+nmap <F8> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
