@@ -275,4 +275,13 @@ if has('nvim')
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
