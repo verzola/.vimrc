@@ -2,7 +2,6 @@
 """""""""""""" https://github.com/verzola/.vimrc """"""""""""""
 """ released under the WTFPL v2 license, by Gustavo Verzola """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:ascii = [
 \" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
 \" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
@@ -11,114 +10,66 @@ let g:ascii = [
 \"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
 \"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
 \]
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-if has("win32") || has("win64") || has("win16")
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$HOME/vimfiles/bundle/')
-  if &shell=~#'bash$'
-    set shell=$COMSPEC " sets shell to correct path for cmd.exe
-  endif
-    if !isdirectory($HOME."/vimfiles/undo-dir")
-        call mkdir($HOME."/vimfiles/undo-dir", "", 0700)
-    endif
-    set undodir=~/vimfiles/undo-dir               " Set undofiles folder
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " create undo-dir if it does not exists
-    if !isdirectory($HOME."/.vim/undo-dir")
-        call mkdir($HOME."/.vim/undo-dir", "", 0700)
-    endif
-    set undodir=~/.vim/undo-dir                   " Set undofiles folder
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin("~/.config/nvim/bundle")
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
+" create undo-dir if it does not exists
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
 endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (+ used)
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
+Plugin 'morhetz/gruvbox'                      " Colorscheme
+Plugin 'mhinz/vim-startify'                   " Welcome screen
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/nerdcommenter'             " Fast commenter
-Plugin 'jistr/vim-nerdtree-tabs'              " Independent NERDTree
-Plugin 'tpope/vim-fugitive'                   " Integration with Git
-Plugin 'tpope/vim-surround'                   " Surround
-Plugin 'airblade/vim-gitgutter'               " Git Gutter
-Plugin 'mattn/emmet-vim'                      " Emmet
-Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
-Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors sublime like
-Plugin 'tpope/vim-repeat'                     " Repeat plugin maps
-Plugin 'StanAngeloff/php.vim'                 " PHP integration
-Plugin 'easymotion/vim-easymotion'            " Fast move
-Plugin 'kshenoy/vim-signature'
-Plugin 'morhetz/gruvbox'
-Plugin 'mhinz/vim-startify'
-Plugin 'mxw/vim-jsx'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+Plugin 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plugin 'vim-airline/vim-airline'              " Status bar
 Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
-Plugin 'ryanoasis/vim-devicons'               " DevIcons
-Plugin 'pangloss/vim-javascript'
-Plugin 'sjl/gundo.vim'
-Plugin 'othree/html5.vim'
-Plugin 'tpope/vim-markdown'
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
+Plugin 'mattn/emmet-vim'                      " Emmet
+Plugin 'airblade/vim-gitgutter'               " Git marks
+Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
+Plugin 'scrooloose/nerdcommenter'             " Fast commenter
+Plugin 'tpope/vim-fugitive'                   " Git Integration
+Plugin 'tpope/vim-surround'                   " Fast surround change
+Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plugin 'kshenoy/vim-signature'                " Show letters marked
+Plugin 'easymotion/vim-easymotion'            " Fast move
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-if has('gui_running')
-    set guioptions-=L                             " Remove left-hand scroll bar
-    set guioptions-=T                             " Remove toolbar
-    set guioptions-=m                             " Remove menu bar
-    set guioptions-=r                             " Remove right-hand scroll bar
-    "set guifont=DejaVuSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-    set guifont=FantasqueSansMono_NF:h10:cANSI:qDRAFT " Set gvim font
-    "set guifont=Iosevka_NF:h12:cANSI:qDRAFT " Set gvim font
-    "set guifont=Knack_NF:h10:cANSI:qDRAFT " Set gvim font
-    "set guifont=LiterationMonoPowerline_NF:h10:cANSI:qDRAFT " Set gvim font
-    "set guifont=MonofurForPowerline_NF:h12:cANSI:qDRAFT " Set gvim font
-    "set guifont=Monoid_NF:h9:cANSI:qDRAFT " Set gvim font
-    "set guifont=mononoki_NF:h12:cANSI:qDRAFT " Set gvim font
-    "set guifont=ProggyCleanTT_NF:h12:cANSI:qDRAFT " Set gvim font
-    "set guifont=RobotoMono_NF:h10:cANSI:qDRAFT    " Set gvim font
-    "set guifont=SauceCodePro\ NF:h10:cANSI:qDRAFT " Set gvim font
-    "set guifont=ShureTechMono\ NF:h11:cANSI:qDRAFT" Set gvim font
-    "set guifont=SpaceMono_NF:h10:cANSI:qDRAFT     " Set gvim font
-    "set guifont=UbuntuMono_NF:h12:cANSI:qDRAFT     " Set gvim font
-else
-    set termguicolors
-endif
-
-set t_ZH=[3m
-set t_ZR=[23m
-let g:gruvbox_italic=1
-colorscheme gruvbox
-syntax enable                                 " Colored syntax
+colorscheme gruvbox                           " Set colorscheme
+let &t_EI .= "\<Esc>[?2004l"                  " Auto paste mod
+let &t_SI .= "\<Esc>[?2004h"                  " Auto paste mod
+let g:gruvbox_italic=1                        " Italic on gruvbox
+let hlstate = 0                               " Disable hlsearch
+let mapleader = ","                           " Redefines leader key
+set autochdir                                 " ?
 set autoindent                                " Auto indent
 set autoread                                  " Auto read if changes are detected
-set autowrite                                 " Auto save when switch buffer
+set background=dark                           " Dark background
 set backspace=indent,eol,start                " Fix backspace
 set colorcolumn=80                            " Set column rule
 set complete-=i                               " Disable complete from includes
 set completeopt=longest,menuone               " Show popup with completions
 set copyindent                                " Copy indentation from existing lines
 set cursorline                                " Hightlight current line
-set encoding=utf8
+set encoding=utf8                             " Set encoding to utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
-set formatoptions=qrn1
+set formatoptions=qrn1                        " ?
 set gdefault                                  " Defaults to global substitution
-set background=dark
 set hidden                                    " Hidden buffers
 set history=1000                              " Size of command history
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
 set incsearch                                 " Highlight while searching
 set laststatus=2                              " Always show status bar
-set lazyredraw                                " Don't redraw while executing macros or registries
-set list
+set list                                      " ?
 set listchars=tab:▸\ ,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
@@ -130,7 +81,7 @@ set nowrap                                    " Don't wrap lines
 set nowritebackup                             " Disable backup file
 set nrformats-=octal                          " ?
 set number                                    " Show line numbers
-set pastetoggle=<F12>                         " Shortcut for paste mode
+set path+=**                                  " ?
 set regexpengine=1                            " Regex in search
 set ruler                                     " Show ruler
 set shiftround                                " ?
@@ -139,34 +90,32 @@ set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
 set smarttab                                  " ?
-set softtabstop=4
+set softtabstop=4                             " ?
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
+set t_ZH=[3m                                " ?
+set t_ZR=[23m                               " ?
+set t_ut=                                     " ?
 set tabstop=4                                 " show existing tab with 4 spaces width
-set textwidth=79
+set termguicolors                             " Set gui colors on terminal
+set textwidth=79                              " ?
 set timeout                                   " ?
 set timeoutlen=500                            " Lower timeout length
 set title                                     " Automatically set screen title
 set ttimeout                                  " ?
 set ttimeoutlen=100                           " Lower ttimeout length
 set ttyfast                                   " ?
+set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
-set t_ut=
-set path+=**
-set autochdir
-" never do this again --> :set paste <ctrl-v> :set no paste
-let &t_EI .= "\<Esc>[?2004l"
-let &t_SI .= "\<Esc>[?2004h"
-let hlstate = 0                               " Disable hlsearch
-let mapleader = ","                           " Redefines leader key
+syntax enable                                 " Colored syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
 let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
-let g:NERDTreeShowLineNumbers = 0               " Show line numbers on NERDTree
+let g:NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
 let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
 let g:NERDTreeDirArrowExpandable=""
 let g:NERDTreeDirArrowCollapsible=""
@@ -191,68 +140,38 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:airline#extensions#tabline#enabled = 1  " Enable tabs
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#bufferline#overwrite_variables = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1             " Powerline fonts on airline
 let g:airline_theme = 'gruvbox'          " Airline theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp' " Cache folder
-let g:ctrlp_clear_cache_on_exit = 0           " Don't clear cache on exit
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_files = 0                     " Do not limit the number of searchable files
-let g:ctrlp_max_height = 10                   " Maxiumum height of match window
-let g:ctrlp_mruf_max = 450                    " Number of recently opened files
-let g:ctrlp_switch_buffer = 'et'              " Jump to a file if it's open already
-let g:ctrlp_use_caching = 1                   " Turn caching on
-let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
-let g:startify_custom_header = g:ascii + startify#fortune#boxed()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:startify_custom_header = g:ascii
+let g:startify_bookmarks = [
+        \ { 'v': '~/.vimrc' },
+        \ { 'z': '~/.zshrc' },
+        \ { 's': '~/.ssh/config' },
+        \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-" Shortcut to open NERDTree
-"map <C-e> :NERDTreeToggle<CR>
-map <C-e> :NERDTreeMirrorToggle<CR>
-" Find current file on NERDTree
-noremap <leader>nf :NERDTreeFind<cr>
-" Shortcut to write
-nnoremap <leader>w :w<CR>
-" Shortcut to quit
-nnoremap <leader>q :q!<CR>
-" Shortcut to write and quit
-nnoremap <leader>x :x<CR>
-" Shortcut to edit my .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-" Shortcut to source my .vimrc
-nnoremap <leader>sv :source $MYVIMRC<CR>
-" Shortcut to disable highlight search
-nnoremap <leader>h :set hlsearch! hlsearch?<CR>
-" Install plugins
-nnoremap <leader>pi :PluginInstall<CR>
-" Clean removed plugins
-nnoremap <leader>pc :PluginClean<CR>
-" Bookmark in NERDTree
-nnoremap <leader>nb :Bookmark<CR>
-" Shortcut to navigate between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-" Center the screen
-nnoremap <space> zz
-" Act like D and C
-nnoremap Y y$ "
-" Fugitive mappings
+"""""""""""""""""""""""""""""""" Remap arrow keys
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+vnoremap <Up> <nop>
+vnoremap <Down> <nop>
+vnoremap <Left> <nop>
+vnoremap <Right> <nop>
+noremap <Down> <c-e>
+noremap <Up> <c-y>
+noremap <Right> <c-e>
+noremap <Left> <c-y>
+"""""""""""""""""""""""""""""""" Git shortcuts
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
@@ -264,65 +183,96 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-" Remove arrow keys to force to use hjkl
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
-"inoremap <esc> <nop>
-" Remap arrow keys to scroll
-noremap <Down> <c-e>
-noremap <Up> <c-y>
-" Trip all trailing whitespace in the current file
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" Copy and paste to system clipboard
+"""""""""""""""""""""""""""""""" System clipboard
 vmap <leader>y "+y
 vmap <leader>d "+d
 vmap <leader>p "+p
 vmap <leader>P "+P
 nmap <leader>p "+p
 nmap <leader>P "+P
-" Select what you've just pasted
-noremap gV `[v`]
+"""""""""""""""""""""""""""""""" Write & quit
+" Fast write
+nnoremap <leader>w :w<CR>
+" Trip all trailing whitespace in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" Fast quit
+nnoremap <leader>q :q!<CR>
+" Fast write & quit
+nnoremap <leader>x :x<CR>
+" Force write as sudo
+cmap w!! w !sudo tee % >/dev/null
+"""""""""""""""""""""""""""""""" Buffer mappings
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+" Search in open buffers
+noremap <C-b> :CtrlPBuffer<CR>
+"""""""""""""""""""""""""""""""" NerdTree
+" Toggle NERDtree
+noremap <C-e> :NERDTreeMirrorToggle<CR>
+" Bookmark file/folder in NERDTree
+nnoremap <leader>nb :Bookmark<CR>
+" Find current file on NERDTree
+noremap <leader>nf :NERDTreeFind<cr>
+"""""""""""""""""""""""""""""""" Vundle
+" Install plugins
+nnoremap <leader>pi :PluginInstall<CR>
+" Update plugins
+nnoremap <leader>pu :PluginUpdate<CR>
+" Clean removed plugins
+nnoremap <leader>pc :PluginClean<CR>
+"""""""""""""""""""""""""""""""" My vimrc source & edit
+" Edit my .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+" Source my .vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+"""""""""""""""""""""""""""""""" Tab match bracket
+" Remap tab to bracket in normal mode
+nnoremap <tab> %
+" Remap tab to match in visual mode
+vnoremap <tab> %
+"""""""""""""""""""""""""""""""" Split terminal
+" Open terminal horizontally
+nmap <leader>t :split term://zsh<cr>
+" Open terminal vertically
+nmap <leader>vt :vsplit term://zsh<cr>
+"""""""""""""""""""""""""""""""" Other
 " Shortcut to fast exit insert mode
 inoremap jk <esc>
-" Write as sudo
-cmap w!! w !sudo tee % >/dev/null
-" Toggle relativenumber
+" Relative numbering
 nnoremap <leader>r :set relativenumber!<cr>
-" Map tab in normal and visual mode to match bracket
-nnoremap <tab> %
-vnoremap <tab> %
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<cr>
-"nnoremap j gj
-"nnoremap k gk
-nmap <F8> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" No bell
-autocmd GUIEnter * set vb t_vb=
+" Startify on new tab
+au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-" insert abbreviations
-iabbrev @@ verzola@gmail.com
-iabbrev [OK] ✔
-iabbrev [ok] ✔
-iabbrev [X] ✘
+iabbrev [k] ✔
 iabbrev [x] ✘
-" command abbreviations
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev WQ wq
-cnoreabbrev X x
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NeoVim
+if has('nvim')
+    " Map Esc to leave terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    " Navigate splits with Alt+hjkl
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    inoremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
