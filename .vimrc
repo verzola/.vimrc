@@ -247,13 +247,6 @@ inoremap jk <esc>
 nnoremap <leader>r :set relativenumber!<cr>
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<cr>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
-" Remember last line on file
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" Auto close NERDTree if it is the only left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Startify on new tab
-au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev [k] ✔
 iabbrev [x] ✘
@@ -275,7 +268,14 @@ if has('nvim')
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Python
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
+" Remember last line on file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Auto close NERDTree if it is the only left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Startify on new tab
+au! TabNew * Startify
+" Python
 au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
@@ -284,4 +284,10 @@ au BufNewFile,BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+" HTML/CSS/JS
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
