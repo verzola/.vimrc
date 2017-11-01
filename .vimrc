@@ -32,6 +32,7 @@ Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
 Plugin 'mattn/emmet-vim'                      " Emmet
 Plugin 'airblade/vim-gitgutter'               " Git marks
 Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
+Plugin 'davidhalter/jedi-vim'                 " Python integration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'tpope/vim-fugitive'                   " Git Integration
@@ -112,52 +113,25 @@ set virtualedit=onemore                       " Allow cursor to go to end of lin
 set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
 syntax enable                                 " Colored syntax
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
-let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
-let g:NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
-let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
-let g:NERDTreeDirArrowExpandable=""
-let g:NERDTreeDirArrowCollapsible=""
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
-let g:airline#extensions#tabline#enabled = 1  " Enable tabs
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#bufferline#overwrite_variables = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1             " Powerline fonts on airline
-let g:airline_theme = 'gruvbox'          " Airline theme
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp' " Cache folder
-let g:ctrlp_show_hidden = 1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
-let g:startify_custom_header = g:ascii
-let g:startify_bookmarks = [
-        \ { 'v': '~/.vimrc' },
-        \ { 'z': '~/.zshrc' },
-        \ { 's': '~/.ssh/config' },
-        \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
+"""""""""""""""""""""""""""""""" NeoVim Alt + hjkl
+if has('nvim')
+    " Map Esc to leave terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    " Navigate splits with Alt+hjkl
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    inoremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
+endif
 """""""""""""""""""""""""""""""" Remap arrow keys
 inoremap <Up> <nop>
 inoremap <Down> <nop>
@@ -250,24 +224,6 @@ vnoremap <leader>s :'<,'>sort<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev [k] ✔
 iabbrev [x] ✘
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NeoVim
-if has('nvim')
-    " Map Esc to leave terminal mode
-    tnoremap <Esc> <C-\><C-n>
-    " Navigate splits with Alt+hjkl
-    tnoremap <A-h> <C-\><C-N><C-w>h
-    tnoremap <A-j> <C-\><C-N><C-w>j
-    tnoremap <A-k> <C-\><C-N><C-w>k
-    tnoremap <A-l> <C-\><C-N><C-w>l
-    inoremap <A-h> <C-\><C-N><C-w>h
-    inoremap <A-j> <C-\><C-N><C-w>j
-    inoremap <A-k> <C-\><C-N><C-w>k
-    inoremap <A-l> <C-\><C-N><C-w>l
-    nnoremap <A-h> <C-w>h
-    nnoremap <A-j> <C-w>j
-    nnoremap <A-k> <C-w>k
-    nnoremap <A-l> <C-w>l
-endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -275,19 +231,49 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Startify on new tab
 au! TabNew * Startify
-" Python
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-" HTML/CSS/JS
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
+let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
+let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
+let g:NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
+let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
+let g:NERDTreeDirArrowExpandable=""
+let g:NERDTreeDirArrowCollapsible=""
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#bufferline#overwrite_variables = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'gruvbox'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_show_hidden = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
+let g:startify_custom_header = g:ascii
+let g:startify_bookmarks = [
+        \ { 'v': '~/.vimrc' },
+        \ { 'z': '~/.zshrc' },
+        \ { 's': '~/.ssh/config' },
+        \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
