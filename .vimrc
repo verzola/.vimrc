@@ -37,6 +37,7 @@ Plugin 'davidhalter/jedi-vim'                 " Python integration
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'tpope/vim-fugitive'                   " Git Integration
 Plugin 'tpope/vim-surround'                   " Fast surround change
+Plugin 'tpope/vim-repeat'                     " Repeat integration plugins
 Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plugin 'kshenoy/vim-signature'                " Show letters marked
 Plugin 'easymotion/vim-easymotion'            " Fast move
@@ -252,7 +253,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Deleted"   : "✖",
     \ "Dirty"     : "✗",
     \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
+    \ 'Ignored'   : "☒",
     \ "Unknown"   : "?"
     \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
