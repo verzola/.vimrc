@@ -1,18 +1,5 @@
 #!/bin/bash
 
-echo "Installing dependencies..."
-sudo apt install ncurses-dev jq curl wget git
-echo "✓"
-
-echo "Compiling Vim..."
-VIM_LATEST_TAG=$(curl https://api.github.com/repos/vim/vim/tags -s | jq -r '.[0].name')
-wget https://github.com/vim/vim/archive/$VIM_LATEST_TAG.zip
-unzip $VIM_LATEST_TAG.zip
-cd vim-${VIM_LATEST_TAG:1}/src
-./configure && make
-sudo make install
-echo "✓"
-
 echo "Installing Vundle..."
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
