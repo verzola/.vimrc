@@ -33,6 +33,8 @@ Plugin 'mattn/emmet-vim'                      " Emmet
 Plugin 'airblade/vim-gitgutter'               " Git marks
 Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
 Plugin 'davidhalter/jedi-vim'                 " Python integration
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
 Plugin 'scrooloose/nerdcommenter'             " Fast commenter
 Plugin 'tpope/vim-fugitive'                   " Git Integration
@@ -46,8 +48,6 @@ call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 colorscheme gruvbox                           " Set colorscheme
-let &t_EI .= "\<Esc>[?2004l"                  " Auto paste mod
-let &t_SI .= "\<Esc>[?2004h"                  " Auto paste mod
 let g:gruvbox_italic=1                        " Italic on gruvbox
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
@@ -230,6 +230,9 @@ iabbrev [x] ✘
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 " Startify on new tab
 au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
