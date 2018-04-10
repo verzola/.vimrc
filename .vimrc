@@ -22,7 +22,7 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (+ used)
 Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
-Plugin 'morhetz/gruvbox'                      " Colorscheme
+Plugin 'morhetz/gruvbox'                      " Gruvbox colorscheme
 Plugin 'mhinz/vim-startify'                   " Welcome screen
 Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plugin 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
@@ -31,27 +31,25 @@ Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
 Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
 Plugin 'mattn/emmet-vim'                      " Emmet
 Plugin 'airblade/vim-gitgutter'               " Git marks
-Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
-Plugin 'davidhalter/jedi-vim'                 " Python integration
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
-Plugin 'scrooloose/nerdcommenter'             " Fast commenter
-Plugin 'tpope/vim-fugitive'                   " Git Integration
-Plugin 'tpope/vim-surround'                   " Fast surround change
 Plugin 'tpope/vim-repeat'                     " Repeat integration plugins
-Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
 Plugin 'kshenoy/vim-signature'                " Show letters marked
-Plugin 'easymotion/vim-easymotion'            " Fast move
+Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plugin 'leafgarland/typescript-vim'           " Typescript
+Plugin 'peitalin/vim-jsx-typescript'          " JSX + Typescript
+Plugin 'w0rp/ale'                             " Async Lint Engine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
+Plugin 'tpope/vim-fugitive'                   " Git Integration
+Plugin 'scrooloose/nerdcommenter'             " Fast commenter
+Plugin 'tpope/vim-surround'                   " Fast surround change
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
 call vundle#end()                             " required
 filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 colorscheme gruvbox                           " Set colorscheme
-let g:gruvbox_italic=1                        " Italic on gruvbox
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
-set autochdir                                 " ?
+set autochdir                                 " Change directory to directory of file editing
 set autoindent                                " Auto indent
 set autoread                                  " Auto read if changes are detected
 set background=dark                           " Dark background
@@ -63,7 +61,7 @@ set copyindent                                " Copy indentation from existing l
 set cursorline                                " Hightlight current line
 set encoding=utf8                             " Set encoding to utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
-set formatoptions=qrn1                        " ?
+set formatoptions=qrn1                        " Describe how automatic formatting is to be done
 set gdefault                                  " Defaults to global substitution
 set hidden                                    " Hidden buffers
 set history=1000                              " Size of command history
@@ -71,7 +69,7 @@ set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
 set incsearch                                 " Highlight while searching
 set laststatus=2                              " Always show status bar
-set list                                      " ?
+set list                                      " Hightlight unwanted spaces
 set listchars=tab:▸\ ,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
@@ -81,13 +79,11 @@ set noshowmode                                " Remove default statusbar
 set noswapfile                                " Disable swap file
 set nowrap                                    " Don't wrap lines
 set nowritebackup                             " Disable backup file
-set nrformats-=octal                          " ?
 set number                                    " Show line numbers
-set path+=**                                  " ?
 set regexpengine=1                            " Regex in search
 set ruler                                     " Show ruler
-set shiftround                                " ?
-set shiftwidth=4                              " when indenting with '>', use 4 spaces width
+set shiftround                                " Round indent to multiple of shiftwidth
+set shiftwidth=4                              " When indenting with '>', use 4 spaces width
 set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
@@ -95,18 +91,18 @@ set smarttab                                  " ?
 set softtabstop=4                             " ?
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
-set t_ZH=[3m                                " ?
-set t_ZR=[23m                               " ?
-set t_ut=                                     " ?
-set tabstop=4                                 " show existing tab with 4 spaces width
+"set t_ZH=[3m                                " ?
+"set t_ZR=[23m                               " ?
+"set t_ut=                                     " ?
+set tabstop=4                                 " Show existing tab with 4 spaces width
 set termguicolors                             " Set gui colors on terminal
-set textwidth=79                              " ?
+set textwidth=79                              " Wrap text to line below when exceed 79 characters
 set timeout                                   " ?
-set timeoutlen=500                            " Lower timeout length
-set title                                     " Automatically set screen title
-set ttimeout                                  " ?
-set ttimeoutlen=100                           " Lower ttimeout length
-set ttyfast                                   " ?
+"set timeoutlen=500                            " Lower timeout length
+"set title                                     " Automatically set screen title
+"set ttimeout                                  " ?
+"set ttimeoutlen=100                           " Lower ttimeout length
+"set ttyfast                                   " ?
 set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
@@ -133,7 +129,7 @@ if has('nvim')
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
 endif
-"""""""""""""""""""""""""""""""" Remap arrow keys
+"""""""""""""""""""""""""""""""" Remove arrow keys mappings
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
@@ -160,9 +156,9 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """""""""""""""""""""""""""""""" System clipboard
 vmap <leader>y "+y
-vmap <leader>d "+d
 vmap <leader>p "+p
 vmap <leader>P "+P
+vmap <leader>d "+d
 nmap <leader>p "+p
 nmap <leader>P "+P
 """""""""""""""""""""""""""""""" Write & quit
