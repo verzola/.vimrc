@@ -19,7 +19,6 @@ Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plug 'vim-airline/vim-airline'              " Status bar
 Plug 'vim-airline/vim-airline-themes'       " Status bar themes
-Plug 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
 Plug 'mattn/emmet-vim'                      " Emmet
 Plug 'airblade/vim-gitgutter'               " Git marks
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
@@ -34,6 +33,8 @@ Plug 'scrooloose/nerdcommenter'             " Fast commenter
 Plug 'tpope/vim-surround'                   " Fast surround change
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " create undo-dir if it does not exists
@@ -165,8 +166,8 @@ nmap <leader>h :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
-" Search in open buffers
-noremap <C-b> :CtrlPBuffer<CR>
+"""""""""""""""""""""""""""""""" FZF
+nmap <C-p> :Files .<CR>
 """""""""""""""""""""""""""""""" NerdTree
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
@@ -251,9 +252,6 @@ let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" CTRLP
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_show_hidden = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
