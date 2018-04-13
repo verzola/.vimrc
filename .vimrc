@@ -10,105 +10,90 @@ let g:ascii = [
 \"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
 \"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
 \]
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin("~/.config/nvim/bundle")
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'tpope/vim-sensible'                   " Vundle itself
+Plug 'morhetz/gruvbox'                      " Gruvbox colorscheme
+Plug 'mhinz/vim-startify'                   " Welcome screen
+Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
+Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
+Plug 'vim-airline/vim-airline'              " Status bar
+Plug 'vim-airline/vim-airline-themes'       " Status bar themes
+Plug 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
+Plug 'mattn/emmet-vim'                      " Emmet
+Plug 'airblade/vim-gitgutter'               " Git marks
+Plug 'tpope/vim-repeat'                     " Repeat integration plugins
+Plug 'ryanoasis/vim-devicons'               " Sidebar icons
+Plug 'kshenoy/vim-signature'                " Show letters marked
+Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plug 'leafgarland/typescript-vim'           " Typescript
+Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
+Plug 'w0rp/ale'                             " Async Lint Engine
+Plug 'tpope/vim-fugitive'                   " Git Integration
+Plug 'scrooloose/nerdcommenter'             " Fast commenter
+Plug 'tpope/vim-surround'                   " Fast surround change
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " create undo-dir if it does not exists
 if !isdirectory($HOME."/.vim/undo-dir")
     call mkdir($HOME."/.vim/undo-dir", "", 0700)
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (+ used)
-Plugin 'VundleVim/Vundle.vim'                 " Vundle itself
-Plugin 'morhetz/gruvbox'                      " Gruvbox colorscheme
-Plugin 'mhinz/vim-startify'                   " Welcome screen
-Plugin 'scrooloose/nerdtree'                  " Sidebar to browse files
-Plugin 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
-Plugin 'vim-airline/vim-airline'              " Status bar
-Plugin 'vim-airline/vim-airline-themes'       " Status bar themes
-Plugin 'ctrlpvim/ctrlp.vim'                   " CTRL+P (Goto file)
-Plugin 'mattn/emmet-vim'                      " Emmet
-Plugin 'airblade/vim-gitgutter'               " Git marks
-Plugin 'tpope/vim-repeat'                     " Repeat integration plugins
-Plugin 'ryanoasis/vim-devicons'               " Sidebar icons
-Plugin 'kshenoy/vim-signature'                " Show letters marked
-Plugin 'terryma/vim-multiple-cursors'         " Multiple cursors
-Plugin 'leafgarland/typescript-vim'           " Typescript
-Plugin 'peitalin/vim-jsx-typescript'          " JSX + Typescript
-Plugin 'w0rp/ale'                             " Async Lint Engine
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins (- used)
-Plugin 'tpope/vim-fugitive'                   " Git Integration
-Plugin 'scrooloose/nerdcommenter'             " Fast commenter
-Plugin 'tpope/vim-surround'                   " Fast surround change
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vundle
-call vundle#end()                             " required
-filetype plugin indent on                     " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 colorscheme gruvbox                           " Set colorscheme
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
 set autochdir                                 " Change directory to directory of file editing
-set autoindent                                " Auto indent
-set autoread                                  " Auto read if changes are detected
 set background=dark                           " Dark background
-set backspace=indent,eol,start                " Fix backspace
-set colorcolumn=80                            " Set column rule
-set complete-=i                               " Disable complete from includes
+set colorcolumn=120                           " Set column rule
 set completeopt=longest,menuone               " Show popup with completions
 set copyindent                                " Copy indentation from existing lines
 set cursorline                                " Hightlight current line
-set encoding=utf8                             " Set encoding to utf8
 set expandtab                                 " On pressing tab, insert 4 spaces
+set foldcolumn=1                              " Add small space on the left of line numbers
 set formatoptions=qrn1                        " Describe how automatic formatting is to be done
 set gdefault                                  " Defaults to global substitution
-set hidden                                    " Hidden buffers
-set history=1000                              " Size of command history
+set hidden                                    " Hide buffer if you o
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
-set incsearch                                 " Highlight while searching
-set laststatus=2                              " Always show status bar
+set lazyredraw                                " Do not draw in macro
+set lbr
 set list                                      " Hightlight unwanted spaces
-set listchars=tab:▸\ ,trail:.,extends:#,nbsp:. " Replace trailling spaces with a character
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
 set nobackup                                  " Disable backup file
 set noerrorbells                              " No bell sound
 set noshowmode                                " Remove default statusbar
 set noswapfile                                " Disable swap file
-set nowrap                                    " Don't wrap lines
+set novisualbell                              " No bell sound
 set nowritebackup                             " Disable backup file
 set number                                    " Show line numbers
-set regexpengine=1                            " Regex in search
-set ruler                                     " Show ruler
+set pastetoggle=<F2>                          " Key to toggle F2
 set shiftround                                " Round indent to multiple of shiftwidth
 set shiftwidth=4                              " When indenting with '>', use 4 spaces width
 set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
-set smarttab                                  " ?
+set smartindent                               " Smart indent
 set softtabstop=4                             " ?
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
-"set t_ZH=[3m                                " ?
-"set t_ZR=[23m                               " ?
-"set t_ut=                                     " ?
+set t_vb=
 set tabstop=4                                 " Show existing tab with 4 spaces width
 set termguicolors                             " Set gui colors on terminal
-set textwidth=79                              " Wrap text to line below when exceed 79 characters
 set timeout                                   " ?
-"set timeoutlen=500                            " Lower timeout length
-"set title                                     " Automatically set screen title
-"set ttimeout                                  " ?
-"set ttimeoutlen=100                           " Lower ttimeout length
-"set ttyfast                                   " ?
+set timeoutlen=500                            " Lower timeout length
+set title                                     " Automatically set screen title
+set tm=500
+set ttyfast                                   " ?
+set tw=500
 set undodir=~/.vim/undo-dir                   " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
-set wildmenu                                  " Autocomplete for commands
 set wildmode=list:longest,full                " Autocomplete for commands
+set wrap                                      " ?
 syntax enable                                 " Colored syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" NeoVim Alt + hjkl
@@ -163,7 +148,7 @@ nmap <leader>p "+p
 nmap <leader>P "+P
 """""""""""""""""""""""""""""""" Write & quit
 " Fast write
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :w!<CR>
 " Trip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Fast quit
@@ -191,11 +176,11 @@ nnoremap <leader>nb :Bookmark<CR>
 noremap <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""" Vundle
 " Install plugins
-nnoremap <leader>pi :PluginInstall<CR>
+nnoremap <leader>pi :PlugInstall<CR>
 " Update plugins
-nnoremap <leader>pu :PluginUpdate<CR>
+nnoremap <leader>pu :PlugUpdate<CR>
 " Clean removed plugins
-nnoremap <leader>pc :PluginClean<CR>
+nnoremap <leader>pc :PlugClean<CR>
 """""""""""""""""""""""""""""""" My vimrc source & edit
 " Edit my .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
@@ -220,7 +205,11 @@ nnoremap <leader>r :set relativenumber!<cr>
 vnoremap <leader>s :'<,'>sort<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev [k] ✔
+iabbrev [K] ✔
+iabbrev [ok] ✔
+iabbrev [OK] ✔
 iabbrev [x] ✘
+iabbrev [X] ✘
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

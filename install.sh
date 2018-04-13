@@ -1,23 +1,27 @@
 #!/bin/bash
 
-echo "Installing Vundle..."
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo "Installing vim-plug..."
+if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 echo "✓"
 
-echo "Downloading vimrc..."
 if [ ! -d "~/projects" ]; then
+  echo "Creating ~/projects/ folder..."
   mkdir ~/projects
+  echo "✓"
 fi
 if [ ! -d ~/projects/vimrc/ ]; then
+    echo "Cloning verzola's .vimrc..."
     git clone https://github.com/verzola/.vimrc.git ~/projects/vimrc
+    echo "✓"
 else
+    echo "Updating verzola's .vimrc..."
     cd ~/projects/vimrc
     git pull origin master
     cd ~
+    echo "✓"
 fi
-echo "✓"
 
 echo "Linking vimrc..."
 if [ ! -L ~/.vimrc ]; then
@@ -26,5 +30,5 @@ fi
 echo "✓"
 
 echo "Installing plugins..."
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 echo "✓"
