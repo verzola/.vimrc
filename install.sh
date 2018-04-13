@@ -7,7 +7,7 @@ fi
 echo "✓"
 
 if [ ! -d "~/projects" ]; then
-  echo "Creating ~/projects/ folder..."
+  echo "Creating ~/projects folder..."
   mkdir ~/projects
   echo "✓"
 fi

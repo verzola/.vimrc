@@ -37,8 +37,8 @@ Plug 'plasticboy/vim-markdown'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " create undo-dir if it does not exists
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+if !isdirectory($HOME."/.vim-undo")
+    call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 colorscheme gruvbox                           " Set colorscheme
@@ -88,7 +88,7 @@ set title                                     " Automatically set screen title
 set tm=500
 set ttyfast                                   " ?
 set tw=500
-set undodir=~/.vim/undo-dir                   " Set undofiles folder
+set undodir=~/.vim-undo                       " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
