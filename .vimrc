@@ -12,7 +12,7 @@ let g:ascii = [
 \]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tpope/vim-sensible'                   " Vundle itself
+Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'morhetz/gruvbox'                      " Gruvbox colorscheme
 Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
@@ -174,7 +174,7 @@ nmap <leader>h :bprevious<CR>
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
 """""""""""""""""""""""""""""""" FZF
-nmap <C-p> :Files .<CR>
+nmap <C-p> :Files<CR>
 """""""""""""""""""""""""""""""" NerdTree
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
@@ -182,7 +182,7 @@ noremap <C-e> :NERDTreeMirrorToggle<CR>
 nnoremap <leader>nb :Bookmark<CR>
 " Find current file on NERDTree
 noremap <leader>nf :NERDTreeFind<cr>
-"""""""""""""""""""""""""""""""" Vundle
+"""""""""""""""""""""""""""""""" Vim-Plug
 " Install plugins
 nnoremap <leader>pi :PlugInstall<CR>
 " Update plugins
