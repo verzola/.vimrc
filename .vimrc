@@ -13,28 +13,28 @@ let g:ascii = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
-Plug 'morhetz/gruvbox'                      " Gruvbox colorscheme
+Plug 'tpope/vim-repeat'                     " Repeat integration plugins
+Plug 'tpope/vim-fugitive'                   " Git Integration
+Plug 'tpope/vim-surround'                   " Fast surround change
+Plug 'joshdick/onedark.vim'                 " Onedark theme
 Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plug 'vim-airline/vim-airline'              " Status bar
 Plug 'vim-airline/vim-airline-themes'       " Status bar themes
+Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
 Plug 'mattn/emmet-vim'                      " Emmet
 Plug 'airblade/vim-gitgutter'               " Git marks
-Plug 'tpope/vim-repeat'                     " Repeat integration plugins
 Plug 'ryanoasis/vim-devicons'               " Sidebar icons
 Plug 'kshenoy/vim-signature'                " Show letters marked
 Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plug 'pangloss/vim-javascript'              " JavaScript
 Plug 'leafgarland/typescript-vim'           " Typescript
 Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
+Plug 'mxw/vim-jsx'                          " JSX
+Plug 'alampros/vim-styled-jsx'              " Styled jsx support
+Plug 'easymotion/vim-easymotion'            " Fast motion
 Plug 'w0rp/ale'                             " Async Lint Engine
-Plug 'tpope/vim-fugitive'                   " Git Integration
-Plug 'scrooloose/nerdcommenter'             " Fast commenter
-Plug 'tpope/vim-surround'                   " Fast surround change
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " create undo-dir if it does not exists
@@ -42,10 +42,9 @@ if !isdirectory($HOME."/.vim-undo")
     call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-colorscheme gruvbox                           " Set colorscheme
+colorscheme onedark                           " Set colorscheme
 let hlstate = 0                               " Disable hlsearch
 let mapleader = ","                           " Redefines leader key
-set autochdir                                 " Change directory to directory of file editing
 set background=dark                           " Dark background
 set colorcolumn=120                           " Set column rule
 set completeopt=longest,menuone               " Show popup with completions
@@ -162,12 +161,10 @@ cmap w!! w !sudo tee % >/dev/null
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
-nmap <leader>h :bprevious<CR>
+nmap <leader>k :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
-"""""""""""""""""""""""""""""""" FZF
-nmap <C-p> :Files<CR>
 """""""""""""""""""""""""""""""" NerdTree
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
@@ -217,8 +214,10 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " set filetypes as typescript.jsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+"autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+"autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 " Startify on new tab
 au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
@@ -251,7 +250,7 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#bufferline#overwrite_variables = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'onedark'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
