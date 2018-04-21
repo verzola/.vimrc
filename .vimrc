@@ -52,7 +52,6 @@ set copyindent                                " Copy indentation from existing l
 set cursorline                                " Hightlight current line
 set expandtab                                 " On pressing tab, insert 4 spaces
 set foldcolumn=1                              " Add small space on the left of line numbers
-set formatoptions=qrn1                        " Describe how automatic formatting is to be done
 set gdefault                                  " Defaults to global substitution
 set hidden                                    " Hide buffer if you o
 set hlsearch                                  " Highlight search
@@ -85,16 +84,13 @@ set termguicolors                             " Set gui colors on terminal
 set timeout                                   " ?
 set timeoutlen=500                            " Lower timeout length
 set title                                     " Automatically set screen title
-set tm=500
 set ttyfast                                   " ?
-set tw=500
 set undodir=~/.vim-undo                       " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmode=list:longest,full                " Autocomplete for commands
 set wrap                                      " ?
-syntax enable                                 " Colored syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" NeoVim Alt + hjkl
 if has('nvim')
