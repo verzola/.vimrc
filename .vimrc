@@ -76,41 +76,28 @@ set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
 set smartindent                               " Smart indent
-set softtabstop=4                             " ?
-set tabstop=4                                 " Show existing tab with 4 spaces width
+set softtabstop=4                             " Indentation setting
+set tabstop=4                                 " Indentation setting
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
-set t_vb=
 set termguicolors                             " Set gui colors on terminal
-"set timeoutlen=500                           " Lower timeout length
 set title                                     " Automatically set screen title
-set ttyfast                                   " ?
 set undodir=~/.vim-undo                       " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmode=list:longest,full                " Autocomplete for commands
-set wrap                                      " ?
+set wrap                                      " Wrap to next line
+" Vim only settings
+set t_vb=
+set ttyfast                                   " Fast terminal connection (only for vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-"""""""""""""""""""""""""""""""" NeoVim Alt + hjkl
-if has('nvim')
-    " Map Esc to leave terminal mode
-    tnoremap <Esc> <C-\><C-n>
-    " Navigate splits with Alt+hjkl
-    tnoremap <A-h> <C-\><C-N><C-w>h
-    tnoremap <A-j> <C-\><C-N><C-w>j
-    tnoremap <A-k> <C-\><C-N><C-w>k
-    tnoremap <A-l> <C-\><C-N><C-w>l
-    inoremap <A-h> <C-\><C-N><C-w>h
-    inoremap <A-j> <C-\><C-N><C-w>j
-    inoremap <A-k> <C-\><C-N><C-w>k
-    inoremap <A-l> <C-\><C-N><C-w>l
-    nnoremap <A-h> <C-w>h
-    nnoremap <A-j> <C-w>j
-    nnoremap <A-k> <C-w>k
-    nnoremap <A-l> <C-w>l
-endif
-"""""""""""""""""""""""""""""""" Remove arrow keys mappings
+"""""""""""""""""""""""""""""""" My vimrc source & edit
+" Edit my .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+" Source my .vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+"""""""""""""""""""""""""""""""" Remove arrow keys
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 inoremap <Left> <nop>
@@ -123,18 +110,6 @@ noremap <Down> <c-e>
 noremap <Up> <c-y>
 noremap <Right> <c-e>
 noremap <Left> <c-y>
-"""""""""""""""""""""""""""""""" Git shortcuts
-nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gu :Gpull<CR>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>gbl :Gblame<CR>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """""""""""""""""""""""""""""""" System clipboard
 vmap <leader>y "+y
 vmap <leader>p "+p
@@ -161,35 +136,11 @@ nmap <leader>k :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
-"""""""""""""""""""""""""""""""" NerdTree
-" Toggle NERDtree
-noremap <C-e> :NERDTreeMirrorToggle<CR>
-" Bookmark file/folder in NERDTree
-nnoremap <leader>nb :Bookmark<CR>
-" Find current file on NERDTree
-noremap <leader>nf :NERDTreeFind<cr>
-"""""""""""""""""""""""""""""""" Vim-Plug
-" Install plugins
-nnoremap <leader>pi :PlugInstall<CR>
-" Update plugins
-nnoremap <leader>pu :PlugUpdate<CR>
-" Clean removed plugins
-nnoremap <leader>pc :PlugClean<CR>
-"""""""""""""""""""""""""""""""" My vimrc source & edit
-" Edit my .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-" Source my .vimrc
-nnoremap <leader>sv :source $MYVIMRC<CR>
 """""""""""""""""""""""""""""""" Tab match bracket
 " Remap tab to bracket in normal mode
 nnoremap <tab> %
 " Remap tab to match in visual mode
 vnoremap <tab> %
-"""""""""""""""""""""""""""""""" Split terminal
-" Open terminal horizontally
-nmap <leader>t :split term://zsh<cr>
-" Open terminal vertically
-nmap <leader>vt :vsplit term://zsh<cr>
 """""""""""""""""""""""""""""""" Other
 " Shortcut to fast exit insert mode
 inoremap jk <esc>
@@ -197,6 +148,57 @@ inoremap jk <esc>
 nnoremap <leader>r :set relativenumber!<cr>
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<cr>
+"""""""""""""""""""""""""""""""" NerdTree
+" Toggle NERDtree
+noremap <C-e> :NERDTreeMirrorToggle<CR>
+" Bookmark file/folder in NERDTree
+nnoremap <leader>nb :Bookmark<CR>
+" Find current file on NERDTree
+noremap <leader>nf :NERDTreeFind<cr>
+"""""""""""""""""""""""""""""""" Fugitive mappings
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gu :Gpull<CR>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+"""""""""""""""""""""""""""""""" Vim-Plug
+" Install plugins
+nnoremap <leader>pi :PlugInstall<CR>
+" Update plugins
+nnoremap <leader>pu :PlugUpdate<CR>
+" Clean removed plugins
+nnoremap <leader>pc :PlugClean<CR>
+"""""""""""""""""""""""""""""""" Alt + hjkl (nvim only)
+if has('nvim')
+    " Map Esc to leave terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    " Navigate splits with Alt+hjkl
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    inoremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
+endif
+"""""""""""""""""""""""""""""""" Split terminal (nvim only)
+if has('nvim')
+    " Open terminal horizontally
+    nmap <leader>t :split term://zsh<cr>
+    " Open terminal vertically
+    nmap <leader>vt :vsplit term://zsh<cr>
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev [k] ✔
 iabbrev [K] ✔
@@ -210,10 +212,9 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
-"autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
-"autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 " Startify on new tab
 au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
