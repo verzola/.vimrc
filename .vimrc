@@ -51,14 +51,13 @@ set colorcolumn=120                           " Set column rule
 set completeopt=longest,menuone               " Show popup with completions
 set copyindent                                " Copy indentation from existing lines
 set cursorline                                " Hightlight current line
-set expandtab                                 " On pressing tab, insert 4 spaces
 set foldcolumn=1                              " Add small space on the left of line numbers
 set gdefault                                  " Defaults to global substitution
 set hidden                                    " Hide buffer if you o
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
 set lazyredraw                                " Do not draw in macro
-set linebreak
+set linebreak                                 " Don't break lines in the middle of words
 set list                                      " Hightlight unwanted spaces
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
@@ -71,13 +70,14 @@ set nowritebackup                             " Disable backup file
 set number                                    " Show line numbers
 set pastetoggle=<F2>                          " Key to toggle F2
 set shiftround                                " Round indent to multiple of shiftwidth
-set shiftwidth=4                              " When indenting with '>', use 4 spaces width
 set showcmd                                   " Show commands being executed
 set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
 set smartindent                               " Smart indent
-set softtabstop=4                             " Indentation setting
+set expandtab                                 " On pressing tab, insert spaces
 set tabstop=4                                 " Indentation setting
+set softtabstop=4                             " Indentation setting
+set shiftwidth=4                              " When indenting with '>', use 4 spaces width
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
 set termguicolors                             " Set gui colors on terminal
@@ -88,6 +88,8 @@ set undolevels=1000                           " Size of undo history
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set wildmode=list:longest,full                " Autocomplete for commands
 set wrap                                      " Wrap to next line
+set scrolloff=5                               " Keep cursor 5 lines away from border
+set updatetime=250                            " The length of time Vim waits after you stop typing before it triggers the plugin
 " Vim only settings
 set t_vb=
 set ttyfast                                   " Fast terminal connection (only for vim)
@@ -126,7 +128,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>q :q!<CR>
 " Fast write & quit
 nnoremap <leader>x :x<CR>
-" Force write as sudo
+" Force save as sudo
 cmap w!! w !sudo tee % >/dev/null
 """""""""""""""""""""""""""""""" Buffer mappings
 " Move to the next buffer
@@ -199,6 +201,9 @@ if has('nvim')
     " Open terminal vertically
     nmap <leader>vt :vsplit term://zsh<cr>
 endif
+"""""""""""""""""""""""""""""""" Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
 iabbrev [k] ✔
 iabbrev [K] ✔
@@ -209,6 +214,9 @@ iabbrev [X] ✘
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " set filetypes as typescript.jsx
