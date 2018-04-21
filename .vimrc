@@ -16,24 +16,25 @@ Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
 Plug 'tpope/vim-fugitive'                   " Git Integration
 Plug 'tpope/vim-surround'                   " Fast surround change
-Plug 'joshdick/onedark.vim'                 " Onedark theme
-Plug 'mhinz/vim-startify'                   " Welcome screen
+Plug 'tpope/vim-commentary'                 " Fast comments
 Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
-Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plug 'vim-airline/vim-airline'              " Status bar
 Plug 'vim-airline/vim-airline-themes'       " Status bar themes
-Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
-Plug 'mattn/emmet-vim'                      " Emmet
 Plug 'airblade/vim-gitgutter'               " Git marks
-Plug 'ryanoasis/vim-devicons'               " Sidebar icons
-Plug 'kshenoy/vim-signature'                " Show letters marked
-Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
-Plug 'pangloss/vim-javascript'              " JavaScript
-Plug 'leafgarland/typescript-vim'           " Typescript
-Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
-Plug 'mxw/vim-jsx'                          " JSX
 Plug 'alampros/vim-styled-jsx'              " Styled jsx support
+Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
 Plug 'easymotion/vim-easymotion'            " Fast motion
+Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
+Plug 'joshdick/onedark.vim'                 " Onedark theme
+Plug 'kshenoy/vim-signature'                " Show letters marked
+Plug 'leafgarland/typescript-vim'           " Typescript
+Plug 'mattn/emmet-vim'                      " Emmet
+Plug 'mhinz/vim-startify'                   " Welcome screen
+Plug 'mxw/vim-jsx'                          " JSX
+Plug 'pangloss/vim-javascript'              " JavaScript
+Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
+Plug 'ryanoasis/vim-devicons'               " Sidebar icons
+Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plug 'w0rp/ale'                             " Async Lint Engine
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -57,7 +58,7 @@ set hidden                                    " Hide buffer if you o
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
 set lazyredraw                                " Do not draw in macro
-set lbr
+set linebreak
 set list                                      " Hightlight unwanted spaces
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
@@ -76,13 +77,12 @@ set showmatch                                 " Show matching delimitator
 set smartcase                                 " Intelligent case in search
 set smartindent                               " Smart indent
 set softtabstop=4                             " ?
+set tabstop=4                                 " Show existing tab with 4 spaces width
 set splitbelow                                " Create horizontal split on the bottom
 set splitright                                " Create vertical split on the right
 set t_vb=
-set tabstop=4                                 " Show existing tab with 4 spaces width
 set termguicolors                             " Set gui colors on terminal
-set timeout                                   " ?
-set timeoutlen=500                            " Lower timeout length
+"set timeoutlen=500                           " Lower timeout length
 set title                                     " Automatically set screen title
 set ttyfast                                   " ?
 set undodir=~/.vim-undo                       " Set undofiles folder
