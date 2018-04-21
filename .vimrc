@@ -96,13 +96,6 @@ set virtualedit=onemore                       " Allow cursor to go to end of lin
 set wildmode=list:longest,full                " Autocomplete for commands
 set wrap                                      " ?
 syntax enable                                 " Colored syntax
-""""""""""""""""""""" GUI
-if has('gui_running')
-    if has('vim_starting') 
-        set guioptions=
-        set guifont=FantasqueSansMono\ Nerd\ Font\ Mono\ 12
-    endif
-endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" NeoVim Alt + hjkl
 if has('nvim')
