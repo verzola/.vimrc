@@ -223,6 +223,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " Startify on new tab
 au! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
