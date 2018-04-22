@@ -2,50 +2,43 @@
 """""""""""""" https://github.com/verzola/.vimrc """"""""""""""
 """ released under the WTFPL v2 license, by Gustavo Verzola """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ascii = [
-\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
-\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
-\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
-\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
-\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
-\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
-\]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'mhinz/vim-startify'                   " Welcome screen
-Plug 'tpope/vim-repeat'                     " Repeat integration plugins
-Plug 'tpope/vim-fugitive'                   " Git Integration
-Plug 'tpope/vim-surround'                   " Fast surround change
-Plug 'tpope/vim-commentary'                 " Fast comments
-Plug 'tpope/vim-speeddating'                " Fast incr/decr
-Plug 'scrooloose/nerdcommenter'             " Fast comments
-Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
-Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
-Plug 'xuyuanp/nerdtree-git-plugin'          " Git markers on nerdtree
-Plug 'easymotion/vim-easymotion'            " Fast motion
-Plug 'airblade/vim-gitgutter'               " Git marks
-Plug 'kshenoy/vim-signature'                " Show letters marked
-Plug 'ryanoasis/vim-devicons'               " Sidebar icons
-Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
-Plug 'othree/html5.vim'                     " Better HTML5 Support
-Plug 'docunext/closetag.vim'                " Close html tag automatically
-Plug 'mattn/emmet-vim'                      " Emmet
-Plug 'alampros/vim-styled-jsx'              " Styled jsx support
-Plug 'mxw/vim-jsx'                          " JSX
-Plug 'pangloss/vim-javascript'              " JavaScript
-Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
-Plug 'w0rp/ale'                             " Async Lint Engine
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-Plug 'junegunn/fzf.vim'                                           " Fuzzy finder
-Plug 'yggdroot/indentline'
+Plug 'mhinz/vim-startify'                   " The fancy start screen for Vim
+Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
+Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-speeddating'                " Use CTRL-A/CTRL-X to increment dates, times, and more
+Plug 'scrooloose/nerdcommenter'             " Vim plugin for intensely orgasmic commenting
+Plug 'scrooloose/nerdtree'                  " A tree explorer plugin for vim
+Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim, painlessly
+Plug 'xuyuanp/nerdtree-git-plugin'          " A plugin of NERDTree showing git status
+Plug 'easymotion/vim-easymotion'            " Vim motions on speed!
+Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
+Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
+Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
+Plug 'othree/html5.vim'                     " HTML5 omnicomplete and syntax
+Plug 'docunext/closetag.vim'                " Auto close (X)HTML tags
+Plug 'mattn/emmet-vim'                      " emmet for vim
+Plug 'alampros/vim-styled-jsx'              " Vim syntax for [styled-jsx]
+Plug 'mxw/vim-jsx'                          " React JSX syntax highlighting and indenting for vim
+Plug 'pangloss/vim-javascript'              " Vastly improved Javascript indentation and syntax support in Vim
+Plug 'peitalin/vim-jsx-typescript'          " React JSX syntax highlighting for vim and Typescript
+Plug 'w0rp/ale'                             " Asynchronous Lint Engine
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
+Plug 'junegunn/fzf.vim'                                           " fzf vim integration
+Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
 
 " Plugins that are already in Oni or conflict with a Oni funcionality
 if !exists('g:gui_oni')
-    Plug 'leafgarland/typescript-vim'           " Typescript
-    Plug 'joshdick/onedark.vim'                 " Onedark theme
-    Plug 'vim-airline/vim-airline'              " Status bar
-    Plug 'vim-airline/vim-airline-themes'       " Status bar themes
-    Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
+    Plug 'joshdick/onedark.vim'           " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme
+    Plug 'vim-airline/vim-airline'        " Lean & mean status/tabline for vim that's light as air
+    Plug 'vim-airline/vim-airline-themes' " A collection of themes for vim-airline
+    Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, etc finder
+    Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
+    Plug 'tpope/vim-commentary'           " Comment stuff out
+    Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
+    Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
 endif
 
 call plug#end()
@@ -56,80 +49,80 @@ if !isdirectory($HOME."/.vim-undo")
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colors
-colorscheme onedark                           " Set colorscheme
-set background=dark                           " Dark background
-set termguicolors                             " Set gui colors on terminal
+colorscheme onedark                         " Set colorscheme
+set background=dark                         " Dark background
+set termguicolors                           " Set gui colors on terminal
 syntax enable
 " Basic
-set number                                    " Show line numbers
+set number                                  " Show line numbers
 filetype plugin indent on
-set encoding=utf-8
+set encoding=utf-8                          " Set encoding to utf-8
 " Maps
-let mapleader = ","                           " Redefines leader key
-set pastetoggle=<F2>                          " Key to toggle F2
+let mapleader = ","                         " Redefines leader key
+set pastetoggle=<F2>                        " Key to toggle F2
 " Autocomplete
-set wildmenu
-set wildmode=list:longest,full                " Autocomplete for commands
-set completeopt=longest,menuone               " Show popup with completions
+set wildmenu                                " Autocomplete menu
+set wildmode=list:longest,full              " Autocomplete for commands
+set completeopt=longest,menuone             " Show popup with completions
 " Editting
-set scrolloff=5                               " Keep cursor 5 lines away from border
+set scrolloff=5                             " Keep cursor 5 lines away from border
 set sidescrolloff=5
-set virtualedit=onemore                       " Allow cursor to go to end of line
-set list                                      " Hightlight unwanted spaces
-set hidden                                    " Hide buffer if you
-set cursorline                                " Hightlight current line
-set showmatch                                 " Show matching delimitator
-set colorcolumn=120                           " Set column rule
-set backspace=indent,eol,start
-set complete-=i
-set nrformats-=octal
+set virtualedit=onemore                     " Allow cursor to go to end of line
+set list                                    " Hightlight unwanted spaces
+set hidden                                  " Hide buffer if you
+set cursorline                              " Hightlight current line
+set showmatch                               " Show matching delimitator
+set colorcolumn=120                         " Set column rule
+set backspace=indent,eol,start              " Improved backspace
+set complete-=i                             " 
+set nrformats-=octal                        " 
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set formatoptions+=j                          " Delete comment character when joining commented lines
-set autoread
+set formatoptions+=j                        " Delete comment character when joining commented lines
+set autoread                                " Auto read if file has changes
 " Status bar
-set noshowmode                                " 
-set noruler                                   " 
-set laststatus=0                              " 
-set noshowcmd                                 " Show commands being executed
+set noshowmode                              " 
+set noruler                                 " 
+set laststatus=0                            " 
+set noshowcmd                               " Show commands being executed
 " Backup
-set nobackup                                  " Disable backup file
-set nowritebackup                             " Disable backup file
-set noswapfile                                " Disable swap file
+set nobackup                                " Disable backup file
+set nowritebackup                           " Disable backup file
+set noswapfile                              " Disable swap file
 " Undo
-set undodir=~/.vim-undo                       " Set undofiles folder
-set undofile                                  " Create undo file to allow undo across exits
-set undolevels=1000                           " Size of undo history
+set undodir=~/.vim-undo                     " Set undofiles folder
+set undofile                                " Create undo file to allow undo across exits
+set undolevels=1000                         " Size of undo history
 " History
 set history=1000
 " Mouse
-set mouse=a                                   " Toggle mouse on
-set mousehide                                 " Hide mouse when typing
+set mouse=a                                 " Toggle mouse on
+set mousehide                               " Hide mouse when typing
 " Split
-set splitbelow                                " Create horizontal split on the bottom
-set splitright                                " Create vertical split on the right
+set splitbelow                              " Create horizontal split on the bottom
+set splitright                              " Create vertical split on the right
 " Indentation
-set copyindent                                " Copy indentation from existing lines
-set shiftround                                " Round indent to multiple of shiftwidth
-set smartindent                               " Smart indent
+set copyindent                              " Copy indentation from existing lines
+set shiftround                              " Round indent to multiple of shiftwidth
+set smartindent                             " Smart indent
 set smarttab
-set expandtab                                 " On pressing tab, insert spaces
-set tabstop=4                                 " Indentation setting
-set softtabstop=4                             " Indentation setting
-set shiftwidth=4                              " When indenting with '>', use 4 spaces width
-set linebreak                                 " Don't break lines in the middle of words
-set wrap                                      " Wrap to next line
-set autoindent                                " 
+set expandtab                               " On pressing tab, insert spaces
+set tabstop=4                               " Indentation setting
+set softtabstop=4                           " Indentation setting
+set shiftwidth=4                            " When indenting with '>', use 4 spaces width
+set linebreak                               " Don't break lines in the middle of words
+set wrap                                    " Wrap to next line
+set autoindent                              " 
 " Search
-let hlstate = 0                               " Disable hlsearch
-set smartcase                                 " Intelligent case in search
-set hlsearch                                  " Highlight search
-set ignorecase                                " Ignore case in search
-set incsearch                                 " Show results as you type
+let hlstate = 0                             " Disable hlsearch
+set smartcase                               " Intelligent case in search
+set hlsearch                                " Highlight search
+set ignorecase                              " Ignore case in search
+set incsearch                               " Show results as you type
 " Performance
-set updatetime=250                            " The length of time Vim waits after you stop typing before it triggers the plugin
-set lazyredraw                                " Do not draw in macro
+set updatetime=250                          " The length of time Vim waits after you stop typing before it triggers the plugin
+set lazyredraw                              " Do not draw in macro
 " Vim only settings
-set ttyfast                                   " Fast terminal connection (only for vim)
+set ttyfast                                 " Fast terminal connection (only for vim)
 set ttimeout
 set ttimeoutlen=100
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
@@ -263,48 +256,33 @@ autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " Startify on new tab
-au! TabNew * Startify
+autocmd! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let g:NERDTreeShowBookmarks = 1                 " Show bookmarks on NERDTree
-let g:NERDTreeShowHidden = 1                    " Show hidden files on NERDTree
-let g:NERDTreeShowLineNumbers = 1               " Show line numbers on NERDTree
-let g:NERDTreeQuitOnOpen = 1                    " Quit NERDTree after open file
-let g:NERDTreeDirArrowExpandable=""
-let g:NERDTreeDirArrowCollapsible=""
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let NERDTreeAutoDeleteBuffer = 1
-
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : "☒",
-    \ "Unknown"   : "?"
-    \ }
+let g:NERDTreeAutoDeleteBuffer = 1          " 
+let g:NERDTreeDirArrows = 1                 " Show dir arrows
+let g:NERDTreeDirArrowCollapsible=""       " Improve NERDTree arrow
+let g:NERDTreeDirArrowExpandable=""        " Improve NERDTree arrow
+let g:NERDTreeMinimalUI = 1                 " Change to minimal UI
+let g:NERDTreeQuitOnOpen = 1                " Quit NERDTree after open file
+let g:NERDTreeShowBookmarks = 1             " Show bookmarks on NERDTree
+let g:NERDTreeShowHidden = 1                " Show hidden files on NERDTree
+let g:NERDTreeShowLineNumbers = 1           " Show line numbers on NERDTree
+let g:nerdtree_tabs_open_on_gui_startup = 0 " Do not show NERDTree on startup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#bufferline#overwrite_variables = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'onedark'
+let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
+let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
+let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
+let g:airline_theme = 'onedark'                  " Match airline theme with vim colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+let g:webdevicons_conceal_nerdtree_brackets = 0 " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
-let g:startify_custom_header = g:ascii
-let g:startify_bookmarks = [
-        \ { 'v': '~/.vimrc' },
-        \ { 'z': '~/.zshrc' },
-        \ { 's': '~/.ssh/config' },
-        \ ]
+let g:ascii = [
+\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
+\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
+\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
+\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
+\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
+\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
+\]
+let g:startify_custom_header = g:ascii " Add custom header to Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
