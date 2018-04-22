@@ -13,7 +13,6 @@ let g:ascii = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify'                   " Welcome screen
-Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
 Plug 'tpope/vim-fugitive'                   " Git Integration
 Plug 'tpope/vim-surround'                   " Fast surround change
@@ -60,29 +59,48 @@ endif
 colorscheme onedark                           " Set colorscheme
 set background=dark                           " Dark background
 set termguicolors                             " Set gui colors on terminal
+syntax enable
 " Basic
 set number                                    " Show line numbers
+filetype plugin indent on
+set encoding=utf-8
 " Maps
 let mapleader = ","                           " Redefines leader key
 set pastetoggle=<F2>                          " Key to toggle F2
 " Autocomplete
+set wildmenu
 set wildmode=list:longest,full                " Autocomplete for commands
 set completeopt=longest,menuone               " Show popup with completions
 " Editting
 set scrolloff=5                               " Keep cursor 5 lines away from border
+set sidescrolloff=5
 set virtualedit=onemore                       " Allow cursor to go to end of line
 set list                                      " Hightlight unwanted spaces
 set hidden                                    " Hide buffer if you
 set cursorline                                " Hightlight current line
 set showmatch                                 " Show matching delimitator
 set colorcolumn=120                           " Set column rule
+set backspace=indent,eol,start
+set complete-=i
+set nrformats-=octal
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set formatoptions+=j                          " Delete comment character when joining commented lines
+set autoread
 " Status bar
-set showcmd                                   " Show commands being executed
-set noshowmode                                " Remove default status bar
+set noshowmode                                " 
+set noruler                                   " 
+set laststatus=0                              " 
+set noshowcmd                                 " Show commands being executed
 " Backup
 set nobackup                                  " Disable backup file
 set nowritebackup                             " Disable backup file
 set noswapfile                                " Disable swap file
+" Undo
+set undodir=~/.vim-undo                       " Set undofiles folder
+set undofile                                  " Create undo file to allow undo across exits
+set undolevels=1000                           " Size of undo history
+" History
+set history=1000
 " Mouse
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
@@ -93,32 +111,35 @@ set splitright                                " Create vertical split on the rig
 set copyindent                                " Copy indentation from existing lines
 set shiftround                                " Round indent to multiple of shiftwidth
 set smartindent                               " Smart indent
+set smarttab
 set expandtab                                 " On pressing tab, insert spaces
 set tabstop=4                                 " Indentation setting
 set softtabstop=4                             " Indentation setting
 set shiftwidth=4                              " When indenting with '>', use 4 spaces width
 set linebreak                                 " Don't break lines in the middle of words
 set wrap                                      " Wrap to next line
+set autoindent                                " 
 " Search
 let hlstate = 0                               " Disable hlsearch
 set smartcase                                 " Intelligent case in search
 set hlsearch                                  " Highlight search
 set ignorecase                                " Ignore case in search
-" Undo
-set undodir=~/.vim-undo                       " Set undofiles folder
-set undofile                                  " Create undo file to allow undo across exits
-set undolevels=1000                           " Size of undo history
+set incsearch                                 " Show results as you type
 " Performance
 set updatetime=250                            " The length of time Vim waits after you stop typing before it triggers the plugin
 set lazyredraw                                " Do not draw in macro
 " Vim only settings
 set ttyfast                                   " Fast terminal connection (only for vim)
+set ttimeout
+set ttimeoutlen=100
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" My vimrc source & edit
 " Edit my .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 " Source my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
+"""""""""""""""""""""""""""""""" Clear search
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 """""""""""""""""""""""""""""""" Remove arrow keys
 inoremap <Up> <nop>
 inoremap <Down> <nop>
