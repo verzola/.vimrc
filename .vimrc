@@ -22,7 +22,6 @@ Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
 Plug 'vimwiki/vimwiki'                      " Personal Wiki for Vim
-Plug 'wellle/targets.vim'                   " Vim plugin that provides additional text objects
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
 Plug 'junegunn/fzf.vim'                                           " fzf vim integration
 " Languages support
@@ -35,13 +34,14 @@ Plug 'alampros/vim-styled-jsx'              " Vim syntax for [styled-jsx]
 " Plugins that are already in Oni or conflict with a Oni funcionality
 if !exists('g:gui_oni')
     Plug 'joshdick/onedark.vim'           " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme
+    Plug 'wellle/targets.vim'             " Vim plugin that provides additional text objects
     Plug 'vim-airline/vim-airline'        " Lean & mean status/tabline for vim that's light as air
     Plug 'vim-airline/vim-airline-themes' " A collection of themes for vim-airline
     Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, etc finder
-    Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
     Plug 'tpope/vim-commentary'           " Comment stuff out
     Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
     Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
+    Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
 endif
 
 call plug#end()
