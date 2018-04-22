@@ -71,10 +71,6 @@ set hidden                                    " Hide buffer if you
 set cursorline                                " Hightlight current line
 set showmatch                                 " Show matching delimitator
 set colorcolumn=120                           " Set column rule
-" Bell
-"set noerrorbells                              " No bell sound
-"set novisualbell                              " No bell sound
-"set t_vb=
 " Status bar
 set showcmd                                   " Show commands being executed
 set noshowmode                                " Remove default status bar
@@ -254,6 +250,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeAutoDeleteBuffer = 1
+
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
