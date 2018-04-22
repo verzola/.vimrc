@@ -48,82 +48,82 @@ if !isdirectory($HOME."/.vim-undo")
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colors
-colorscheme onedark                         " Set colorscheme
-set background=dark                         " Dark background
-set termguicolors                           " Set gui colors on terminal
-syntax enable
+colorscheme onedark                         " Change colorscheme
+set background=dark                         " Use colors that suit a dark background
+set termguicolors                           " Enable 24-bit colors on terminal
+syntax enable                               " Enable syntax highlighting
 " Basic
-set number                                  " Show line numbers
-filetype plugin indent on
+set display+=lastline                       " Always try to show a paragraph’s last line
 set encoding=utf-8                          " Set encoding to utf-8
+set number                                  " Show line numbers on the sidebar
 " Maps
 let mapleader = ","                         " Redefines leader key
-set pastetoggle=<F2>                        " Key to toggle F2
+set pastetoggle=<F2>                        " Key to toggle paste mode
 " Autocomplete
+set complete-=i                             " Limit the files searched for auto-completes
+set completeopt=longest,menuone             " Show popup with completions
 set wildmenu                                " Autocomplete menu
 set wildmode=list:longest,full              " Autocomplete for commands
-set completeopt=longest,menuone             " Show popup with completions
 " Editting
-set scrolloff=5                             " Keep cursor 5 lines away from border
-set sidescrolloff=5
-set virtualedit=onemore                     " Allow cursor to go to end of line
-set list                                    " Hightlight unwanted spaces
-set hidden                                  " Hide buffer if you
-set cursorline                              " Hightlight current line
-set showmatch                               " Show matching delimitator
+set autoread                                " Automatically re-read files if unmodified inside Vim
+set backspace=indent,eol,start              " Allow backspacing over indention, line breaks and insertion start
 set colorcolumn=120                         " Set column rule
-set backspace=indent,eol,start              " Improved backspace
-set complete-=i                             " 
-set nrformats-=octal                        " 
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set cursorline                              " Highlight the line currently under cursor
 set formatoptions+=j                        " Delete comment character when joining commented lines
-set autoread                                " Auto read if file has changes
+set hidden                                  " Hide files in the background instead of closing them
+set list                                    " Hightlight unwanted spaces
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set nrformats-=octal                        " Interpret octal as decimal when incrementing numbers
+set scrolloff=5                             " The number of screen lines to keep above and below the cursor
+set showmatch                               " Show matching delimitator
+set sidescrolloff=5                         " The number of screen columns to keep to the left and right of the cursor
+set virtualedit=onemore                     " Allow cursor to go to end of line
 " Status bar
-set noshowmode                              " 
-set noruler                                 " 
-set laststatus=0                            " 
-set noshowcmd                               " Show commands being executed
+set laststatus=0                            " Do not show default status bar
+set noruler                                 " Do not show cursor position
+set noshowcmd                               " Do not show commands letters
+set noshowmode                              " Do not show actual mode
 " Backup
-set nobackup                                " Disable backup file
-set nowritebackup                           " Disable backup file
-set noswapfile                              " Disable swap file
+set nobackup                                " Disable backup files
+set noswapfile                              " Disable swap files
+set nowritebackup                           " Disable backup files
 " Undo
 set undodir=~/.vim-undo                     " Set undofiles folder
 set undofile                                " Create undo file to allow undo across exits
 set undolevels=1000                         " Size of undo history
 " History
-set history=1000
+set history=1000                            " Increase the undo limit
 " Mouse
-set mouse=a                                 " Toggle mouse on
+set mouse=a                                 " Enable mouse for scrolling and resizing
 set mousehide                               " Hide mouse when typing
 " Split
 set splitbelow                              " Create horizontal split on the bottom
 set splitright                              " Create vertical split on the right
 " Indentation
+filetype plugin indent on                   " Enable indentation rules that are file-type specific
+set autoindent                              " New lines inherit the indentation of previous lines.
 set copyindent                              " Copy indentation from existing lines
-set shiftround                              " Round indent to multiple of shiftwidth
+set expandtab                               " Convert tabs to spaces
+set linebreak                               " Avoid wrapping a line in the middle of a word
+set shiftround                              " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
+set shiftwidth=4                            " When shifting, indent using four spaces
 set smartindent                             " Smart indent
-set smarttab
-set expandtab                               " On pressing tab, insert spaces
-set tabstop=4                               " Indentation setting
+set smarttab                                " Insert “tabstop” number of spaces when the “tab” key is pressed
 set softtabstop=4                           " Indentation setting
-set shiftwidth=4                            " When indenting with '>', use 4 spaces width
-set linebreak                               " Don't break lines in the middle of words
-set wrap                                    " Wrap to next line
-set autoindent                              " 
+set tabstop=4                               " Indent using four spaces
+set wrap                                    " Enable line wrapping
 " Search
-let hlstate = 0                             " Disable hlsearch
-set smartcase                               " Intelligent case in search
-set hlsearch                                " Highlight search
-set ignorecase                              " Ignore case in search
-set incsearch                               " Show results as you type
+set hlsearch                                " Enable search highlighting
+set ignorecase                              " Ignore case when searching
+set incsearch                               " Incremental search that shows partial matches
+set smartcase                               " Automatically switch search to case-sensitive when search query contains an uppercase letter
 " Performance
+set lazyredraw                              " Don’t update screen during macro and script execution
 set updatetime=250                          " The length of time Vim waits after you stop typing before it triggers the plugin
-set lazyredraw                              " Do not draw in macro
 " Vim only settings
-set ttyfast                                 " Fast terminal connection (only for vim)
 set ttimeout
 set ttimeoutlen=100
+set ttyfast                                 " Fast terminal connection (only for vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" My vimrc source & edit
 " Edit my .vimrc
