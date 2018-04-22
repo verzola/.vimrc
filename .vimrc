@@ -13,32 +13,37 @@ let g:ascii = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'joshdick/onedark.vim'                 " Onedark theme
+Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
 Plug 'tpope/vim-fugitive'                   " Git Integration
 Plug 'tpope/vim-surround'                   " Fast surround change
 Plug 'tpope/vim-commentary'                 " Fast comments
+Plug 'tpope/vim-speeddating'                " Fast incr/decr
+Plug 'scrooloose/nerdcommenter'             " Fast comments
 Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
+Plug 'xuyuanp/nerdtree-git-plugin'          " Git markers on nerdtree
+Plug 'easymotion/vim-easymotion'            " Fast motion
 Plug 'vim-airline/vim-airline'              " Status bar
 Plug 'vim-airline/vim-airline-themes'       " Status bar themes
 Plug 'airblade/vim-gitgutter'               " Git marks
-Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
-Plug 'easymotion/vim-easymotion'            " Fast motion
 Plug 'kshenoy/vim-signature'                " Show letters marked
-Plug 'docunext/closetag.vim'                " Close html tag automatically
+Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
 Plug 'ryanoasis/vim-devicons'               " Sidebar icons
 Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
+Plug 'othree/html5.vim'                     " Better HTML5 Support
+Plug 'docunext/closetag.vim'                " Close html tag automatically
 Plug 'mattn/emmet-vim'                      " Emmet
 Plug 'leafgarland/typescript-vim'           " Typescript
 Plug 'alampros/vim-styled-jsx'              " Styled jsx support
-Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'mxw/vim-jsx'                          " JSX
 Plug 'pangloss/vim-javascript'              " JavaScript
 Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
 Plug 'w0rp/ale'                             " Async Lint Engine
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'                                           " Fuzzy finder
+Plug 'yggdroot/indentline'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
@@ -175,13 +180,10 @@ noremap <leader>nf :NERDTreeFind<cr>
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gu :Gpull<CR>
-nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gbl :Gblame<CR>
-nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 """""""""""""""""""""""""""""""" Vim-Plug mappings
 " Install plugins
