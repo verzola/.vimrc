@@ -12,7 +12,6 @@ let g:ascii = [
 \]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'joshdick/onedark.vim'                 " Onedark theme
 Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
@@ -25,17 +24,13 @@ Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
 Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plug 'xuyuanp/nerdtree-git-plugin'          " Git markers on nerdtree
 Plug 'easymotion/vim-easymotion'            " Fast motion
-Plug 'vim-airline/vim-airline'              " Status bar
-Plug 'vim-airline/vim-airline-themes'       " Status bar themes
 Plug 'airblade/vim-gitgutter'               " Git marks
 Plug 'kshenoy/vim-signature'                " Show letters marked
-Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
 Plug 'ryanoasis/vim-devicons'               " Sidebar icons
 Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plug 'othree/html5.vim'                     " Better HTML5 Support
 Plug 'docunext/closetag.vim'                " Close html tag automatically
 Plug 'mattn/emmet-vim'                      " Emmet
-Plug 'leafgarland/typescript-vim'           " Typescript
 Plug 'alampros/vim-styled-jsx'              " Styled jsx support
 Plug 'mxw/vim-jsx'                          " JSX
 Plug 'pangloss/vim-javascript'              " JavaScript
@@ -44,6 +39,16 @@ Plug 'w0rp/ale'                             " Async Lint Engine
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'                                           " Fuzzy finder
 Plug 'yggdroot/indentline'
+
+" Plugins that are already in Oni or conflict with a Oni funcionality
+if !exists('g:gui_oni')
+    Plug 'leafgarland/typescript-vim'           " Typescript
+    Plug 'joshdick/onedark.vim'                 " Onedark theme
+    Plug 'vim-airline/vim-airline'              " Status bar
+    Plug 'vim-airline/vim-airline-themes'       " Status bar themes
+    Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
+endif
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
