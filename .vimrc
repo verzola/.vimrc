@@ -36,6 +36,8 @@ Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
 Plug 'ryanoasis/vim-devicons'               " Sidebar icons
 Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plug 'w0rp/ale'                             " Async Lint Engine
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " create undo-dir if it does not exists
