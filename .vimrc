@@ -1,19 +1,18 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""" https://github.com/verzola/.vimrc """"""""""""""
-""" released under the WTFPL v2 license, by Gustavo Verzola """
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" verzola's custom .vimrc
+" https://github.com/verzola/.vimrc
+" released under the WTFPL v2 license
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify'                   " The fancy start screen for Vim
+Plug 'scrooloose/nerdtree'                  " A tree explorer plugin for vim
+Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim, painlessly
+Plug 'xuyuanp/nerdtree-git-plugin'          " A plugin of NERDTree showing git status
+Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
 Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-speeddating'                " Use CTRL-A/CTRL-X to increment dates, times, and more
 Plug 'scrooloose/nerdcommenter'             " Vim plugin for intensely orgasmic commenting
-Plug 'scrooloose/nerdtree'                  " A tree explorer plugin for vim
-Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim, painlessly
-Plug 'xuyuanp/nerdtree-git-plugin'          " A plugin of NERDTree showing git status
 Plug 'easymotion/vim-easymotion'            " Vim motions on speed!
-Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
 Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
 Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
@@ -181,16 +180,16 @@ vnoremap <tab> %
 " Shortcut to fast exit insert mode
 inoremap jk <esc>
 " Relative numbering
-nnoremap <leader>r :set relativenumber!<cr>
+nnoremap <leader>r :set relativenumber!<CR>
 " Map to sort in visual mode
-vnoremap <leader>s :'<,'>sort<cr>
+vnoremap <leader>s :'<,'>sort<CR>
 """""""""""""""""""""""""""""""" NERDTree mappings
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
 " Bookmark file/folder in NERDTree
 nnoremap <leader>nb :Bookmark<CR>
 " Find current file on NERDTree
-noremap <leader>nf :NERDTreeFind<cr>
+noremap <silent> <leader>nf :NERDTreeFind<CR>
 """""""""""""""""""""""""""""""" Fugitive mappings
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -228,9 +227,9 @@ endif
 """""""""""""""""""""""""""""""" Split terminal (nvim only)
 if has('nvim')
     " Open terminal horizontally
-    nmap <leader>t :split term://zsh<cr>
+    nmap <leader>t :split term://zsh<CR>
     " Open terminal vertically
-    nmap <leader>vt :vsplit term://zsh<cr>
+    nmap <leader>vt :vsplit term://zsh<CR>
 endif
 """""""""""""""""""""""""""""""" Easier moving of code blocks
 vnoremap < <gv
@@ -245,36 +244,36 @@ iabbrev [X] ✘
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" Open NERDTree automatically when vim starts up on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" set filetypes as typescript.jsx
+" Set .tsx and .jsx as typescript.jsx syntax
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+" Set .ts and .js as typescript.jsx syntax
 autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
+" Indentation settings for typescript
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+" Auto insert mode if terminal
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " Startify on new tab
 autocmd! TabNew * Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let g:NERDTreeAutoDeleteBuffer = 1          " 
-let g:NERDTreeDirArrows = 1                 " Show dir arrows
-let g:NERDTreeDirArrowCollapsible=""       " Improve NERDTree arrow
-let g:NERDTreeDirArrowExpandable=""        " Improve NERDTree arrow
-let g:NERDTreeMinimalUI = 1                 " Change to minimal UI
-let g:NERDTreeQuitOnOpen = 1                " Quit NERDTree after open file
-let g:NERDTreeShowBookmarks = 1             " Show bookmarks on NERDTree
-let g:NERDTreeShowHidden = 1                " Show hidden files on NERDTree
-let g:NERDTreeShowLineNumbers = 1           " Show line numbers on NERDTree
-let g:nerdtree_tabs_open_on_gui_startup = 0 " Do not show NERDTree on startup
+let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
+let g:NERDTreeDirArrows = 1                      " Show dir arrows
+let g:NERDTreeDirArrowCollapsible=""            " Improve NERDTree arrow
+let g:NERDTreeDirArrowExpandable=""             " Improve NERDTree arrow
+let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
+let g:NERDTreeQuitOnOpen = 1                     " Quit NERDTree after open file
+let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
+let g:NERDTreeShowHidden = 1                     " Show hidden files on NERDTree
+let g:NERDTreeShowLineNumbers = 1                " Show line numbers on NERDTree
+let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on startup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
 let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
 let g:airline_theme = 'onedark'                  " Match airline theme with vim colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
-let g:webdevicons_conceal_nerdtree_brackets = 0 " Do not show brackets around icons in NERDTree
+let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
 let g:ascii = [
 \" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
@@ -284,5 +283,5 @@ let g:ascii = [
 \"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
 \"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
 \]
-let g:startify_custom_header = g:ascii " Add custom header to Startify
+let g:startify_custom_header = g:ascii           " Add custom header to Startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
