@@ -26,6 +26,7 @@ fi
 echo "Linking vimrc..."
 if [ ! -L ~/.vimrc ]; then
     ln -s ~/projects/vimrc/.vimrc ~/.vimrc
+    ln -s ~/projects/vimrc/.vimrc ~/.config/nvim/init.vim
 fi
 echo "✓"
 

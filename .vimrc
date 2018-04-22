@@ -12,88 +12,100 @@ let g:ascii = [
 \]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'joshdick/onedark.vim'                 " Onedark theme
 Plug 'tpope/vim-sensible'                   " Sensible defaults for vim
 Plug 'tpope/vim-repeat'                     " Repeat integration plugins
 Plug 'tpope/vim-fugitive'                   " Git Integration
 Plug 'tpope/vim-surround'                   " Fast surround change
 Plug 'tpope/vim-commentary'                 " Fast comments
 Plug 'scrooloose/nerdtree'                  " Sidebar to browse files
+Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
 Plug 'vim-airline/vim-airline'              " Status bar
 Plug 'vim-airline/vim-airline-themes'       " Status bar themes
 Plug 'airblade/vim-gitgutter'               " Git marks
-Plug 'alampros/vim-styled-jsx'              " Styled jsx support
 Plug 'ctrlpvim/ctrlp.vim'                   " Status bar themes
 Plug 'easymotion/vim-easymotion'            " Fast motion
-Plug 'jistr/vim-nerdtree-tabs'              " Open sidebar in all tabs
-Plug 'joshdick/onedark.vim'                 " Onedark theme
 Plug 'kshenoy/vim-signature'                " Show letters marked
-Plug 'leafgarland/typescript-vim'           " Typescript
+Plug 'docunext/closetag.vim'                " Close html tag automatically
+Plug 'ryanoasis/vim-devicons'               " Sidebar icons
+Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plug 'mattn/emmet-vim'                      " Emmet
+Plug 'leafgarland/typescript-vim'           " Typescript
+Plug 'alampros/vim-styled-jsx'              " Styled jsx support
 Plug 'mhinz/vim-startify'                   " Welcome screen
 Plug 'mxw/vim-jsx'                          " JSX
 Plug 'pangloss/vim-javascript'              " JavaScript
 Plug 'peitalin/vim-jsx-typescript'          " JSX + Typescript
-Plug 'ryanoasis/vim-devicons'               " Sidebar icons
-Plug 'terryma/vim-multiple-cursors'         " Multiple cursors
 Plug 'w0rp/ale'                             " Async Lint Engine
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+Plug 'junegunn/fzf.vim'                                           " Fuzzy finder
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
-" create undo-dir if it does not exists
+" Create undo-dir if it does not exists
 if !isdirectory($HOME."/.vim-undo")
     call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
+" Colors
 colorscheme onedark                           " Set colorscheme
-let hlstate = 0                               " Disable hlsearch
-let mapleader = ","                           " Redefines leader key
 set background=dark                           " Dark background
-set colorcolumn=120                           " Set column rule
+set termguicolors                             " Set gui colors on terminal
+" Basic
+set number                                    " Show line numbers
+" Maps
+let mapleader = ","                           " Redefines leader key
+set pastetoggle=<F2>                          " Key to toggle F2
+" Autocomplete
+set wildmode=list:longest,full                " Autocomplete for commands
 set completeopt=longest,menuone               " Show popup with completions
-set copyindent                                " Copy indentation from existing lines
-set cursorline                                " Hightlight current line
-set foldcolumn=1                              " Add small space on the left of line numbers
-set gdefault                                  " Defaults to global substitution
-set hidden                                    " Hide buffer if you o
-set hlsearch                                  " Highlight search
-set ignorecase                                " Ignore case in search
-set lazyredraw                                " Do not draw in macro
-set linebreak                                 " Don't break lines in the middle of words
+" Editting
+set scrolloff=5                               " Keep cursor 5 lines away from border
+set virtualedit=onemore                       " Allow cursor to go to end of line
 set list                                      " Hightlight unwanted spaces
+set hidden                                    " Hide buffer if you
+set cursorline                                " Hightlight current line
+set showmatch                                 " Show matching delimitator
+set colorcolumn=120                           " Set column rule
+" Bell
+"set noerrorbells                              " No bell sound
+"set novisualbell                              " No bell sound
+"set t_vb=
+" Status bar
+set showcmd                                   " Show commands being executed
+set noshowmode                                " Remove default status bar
+" Backup
+set nobackup                                  " Disable backup file
+set nowritebackup                             " Disable backup file
+set noswapfile                                " Disable swap file
+" Mouse
 set mouse=a                                   " Toggle mouse on
 set mousehide                                 " Hide mouse when typing
-set nobackup                                  " Disable backup file
-set noerrorbells                              " No bell sound
-set noshowmode                                " Remove default statusbar
-set noswapfile                                " Disable swap file
-set novisualbell                              " No bell sound
-set nowritebackup                             " Disable backup file
-set number                                    " Show line numbers
-set pastetoggle=<F2>                          " Key to toggle F2
+" Split
+set splitbelow                                " Create horizontal split on the bottom
+set splitright                                " Create vertical split on the right
+" Indentation
+set copyindent                                " Copy indentation from existing lines
 set shiftround                                " Round indent to multiple of shiftwidth
-set showcmd                                   " Show commands being executed
-set showmatch                                 " Show matching delimitator
-set smartcase                                 " Intelligent case in search
 set smartindent                               " Smart indent
 set expandtab                                 " On pressing tab, insert spaces
 set tabstop=4                                 " Indentation setting
 set softtabstop=4                             " Indentation setting
 set shiftwidth=4                              " When indenting with '>', use 4 spaces width
-set splitbelow                                " Create horizontal split on the bottom
-set splitright                                " Create vertical split on the right
-set termguicolors                             " Set gui colors on terminal
-set title                                     " Automatically set screen title
+set linebreak                                 " Don't break lines in the middle of words
+set wrap                                      " Wrap to next line
+" Search
+let hlstate = 0                               " Disable hlsearch
+set smartcase                                 " Intelligent case in search
+set hlsearch                                  " Highlight search
+set ignorecase                                " Ignore case in search
+" Undo
 set undodir=~/.vim-undo                       " Set undofiles folder
 set undofile                                  " Create undo file to allow undo across exits
 set undolevels=1000                           " Size of undo history
-set virtualedit=onemore                       " Allow cursor to go to end of line
-set wildmode=list:longest,full                " Autocomplete for commands
-set wrap                                      " Wrap to next line
-set scrolloff=5                               " Keep cursor 5 lines away from border
+" Performance
 set updatetime=250                            " The length of time Vim waits after you stop typing before it triggers the plugin
+set lazyredraw                                " Do not draw in macro
 " Vim only settings
-set t_vb=
 set ttyfast                                   " Fast terminal connection (only for vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 """""""""""""""""""""""""""""""" My vimrc source & edit
@@ -110,18 +122,19 @@ vnoremap <Up> <nop>
 vnoremap <Down> <nop>
 vnoremap <Left> <nop>
 vnoremap <Right> <nop>
+"""""""""""""""""""""""""""""""" Map arrow keys to scroll
 noremap <Down> <c-e>
 noremap <Up> <c-y>
 noremap <Right> <c-e>
 noremap <Left> <c-y>
-"""""""""""""""""""""""""""""""" System clipboard
+"""""""""""""""""""""""""""""""" System clipboard mappings
 vmap <leader>y "+y
 vmap <leader>p "+p
 vmap <leader>P "+P
 vmap <leader>d "+d
 nmap <leader>p "+p
 nmap <leader>P "+P
-"""""""""""""""""""""""""""""""" Write & quit
+"""""""""""""""""""""""""""""""" Write & quit mappings
 " Fast write
 nnoremap <leader>w :w!<CR>
 " Trip all trailing whitespace in the current file
@@ -138,21 +151,20 @@ nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>k :bprevious<CR>
 " Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
-"""""""""""""""""""""""""""""""" Tab match bracket
+"""""""""""""""""""""""""""""""" Map tab to match bracket
 " Remap tab to bracket in normal mode
 nnoremap <tab> %
 " Remap tab to match in visual mode
 vnoremap <tab> %
-"""""""""""""""""""""""""""""""" Other
+"""""""""""""""""""""""""""""""" Editing mappings
 " Shortcut to fast exit insert mode
 inoremap jk <esc>
 " Relative numbering
 nnoremap <leader>r :set relativenumber!<cr>
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<cr>
-"""""""""""""""""""""""""""""""" NerdTree
+"""""""""""""""""""""""""""""""" NERDTree mappings
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
 " Bookmark file/folder in NERDTree
@@ -171,7 +183,7 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-"""""""""""""""""""""""""""""""" Vim-Plug
+"""""""""""""""""""""""""""""""" Vim-Plug mappings
 " Install plugins
 nnoremap <leader>pi :PlugInstall<CR>
 " Update plugins
