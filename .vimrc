@@ -31,7 +31,8 @@ if !exists('g:gui_oni')
     Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
     Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
     Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
-    Plug 'peitalin/vim-jsx-typescript'          " React JSX syntax highlighting for vim and Typescript
+    Plug 'peitalin/vim-jsx-typescript'    " React JSX syntax highlighting for vim and Typescript
+    Plug 'mxw/vim-jsx'                    " React JSX syntax highlighting and indenting for vim.
 endif
 
 call plug#end()
@@ -105,7 +106,7 @@ set smartindent                             " Smart indent
 set smarttab                                " Insert “tabstop” number of spaces when the “tab” key is pressed
 set softtabstop=4                           " Indentation setting
 set tabstop=4                               " Indent using four spaces
-set wrap                                    " Enable line wrapping
+set nowrap                                  " Disable line wrapping
 " Search
 set hlsearch                                " Enable search highlighting
 set ignorecase                              " Ignore case when searching
@@ -244,6 +245,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Indentation settings for typescript
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 " Auto insert mode if terminal
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " Startify on new tab
