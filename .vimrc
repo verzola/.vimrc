@@ -173,6 +173,8 @@ cmap w!! w !sudo tee % >/dev/null
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>k :bprevious<CR>
+nnoremap <PageUp>   :bprevious<CR>
+nnoremap <PageDown> :bnext<CR>
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
 """""""""""""""""""""""""""""""" Map tab to match bracket
