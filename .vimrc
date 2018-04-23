@@ -6,29 +6,18 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify'                   " The fancy start screen for Vim
 Plug 'scrooloose/nerdtree'                  " A tree explorer plugin for vim
 Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim, painlessly
-Plug 'xuyuanp/nerdtree-git-plugin'          " A plugin of NERDTree showing git status
 Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
 Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-speeddating'                " Use CTRL-A/CTRL-X to increment dates, times, and more
-Plug 'tpope/vim-dispatch'                   " Asynchronous build and test dispatcher
 Plug 'scrooloose/nerdcommenter'             " Vim plugin for intensely orgasmic commenting
 Plug 'easymotion/vim-easymotion'            " Vim motions on speed!
 Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
 Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
 Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
-Plug 'docunext/closetag.vim'                " Auto close (X)HTML tags
 Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
-Plug 'vimwiki/vimwiki'                      " Personal Wiki for Vim
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
-Plug 'junegunn/fzf.vim'                                           " fzf vim integration
-" Languages support
-Plug 'othree/html5.vim'                     " HTML5 omnicomplete and syntax
 Plug 'pangloss/vim-javascript'              " Vastly improved Javascript indentation and syntax support in Vim
-Plug 'mxw/vim-jsx'                          " React JSX syntax highlighting and indenting for vim
-Plug 'peitalin/vim-jsx-typescript'          " React JSX syntax highlighting for vim and Typescript
 Plug 'alampros/vim-styled-jsx'              " Vim syntax for [styled-jsx]
 
 " Plugins that are already in Oni or conflict with a Oni funcionality
@@ -42,6 +31,7 @@ if !exists('g:gui_oni')
     Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
     Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
     Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
+    Plug 'peitalin/vim-jsx-typescript'          " React JSX syntax highlighting for vim and Typescript
 endif
 
 call plug#end()
@@ -252,10 +242,6 @@ iabbrev [X] ✘
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Set .tsx and .jsx as typescript.jsx syntax
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
-" Set .ts and .js as typescript.jsx syntax
-autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx
 " Indentation settings for typescript
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 " Auto insert mode if terminal
