@@ -16,6 +16,8 @@ Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple s
 Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
+Plug 'junegunn/fzf.vim' " A command-line fuzzy finder
 
 " Plugins that are already in Oni or conflict with a Oni funcionality
 if !exists('g:gui_oni')
@@ -114,6 +116,9 @@ set ttimeout
 set ttimeoutlen=100
 set ttyfast                                 " Fast terminal connection (only for vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
+nmap <C-p> :Files<CR>
+imap <C-p> <Esc>:Files<CR>
+vmap <C-p> <Esc>:Files<CR>
 """""""""""""""""""""""""""""""" My vimrc source & edit
 " Edit my .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
