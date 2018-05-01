@@ -9,7 +9,6 @@ Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim,
 Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
 Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
-Plug 'scrooloose/nerdcommenter'             " Vim plugin for intensely orgasmic commenting
 Plug 'easymotion/vim-easymotion'            " Vim motions on speed!
 Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
 Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
@@ -17,8 +16,6 @@ Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple s
 Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
-Plug 'pangloss/vim-javascript'              " Vastly improved Javascript indentation and syntax support in Vim
-Plug 'alampros/vim-styled-jsx'              " Vim syntax for [styled-jsx]
 
 " Plugins that are already in Oni or conflict with a Oni funcionality
 if !exists('g:gui_oni')
@@ -26,13 +23,10 @@ if !exists('g:gui_oni')
     Plug 'wellle/targets.vim'             " Vim plugin that provides additional text objects
     Plug 'vim-airline/vim-airline'        " Lean & mean status/tabline for vim that's light as air
     Plug 'vim-airline/vim-airline-themes' " A collection of themes for vim-airline
-    Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, etc finder
     Plug 'tpope/vim-commentary'           " Comment stuff out
-    Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
     Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
     Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
     Plug 'peitalin/vim-jsx-typescript'    " React JSX syntax highlighting for vim and Typescript
-    Plug 'mxw/vim-jsx'                    " React JSX syntax highlighting and indenting for vim.
 endif
 
 call plug#end()
