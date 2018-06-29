@@ -18,6 +18,7 @@ Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
 Plug 'junegunn/fzf.vim' " A command-line fuzzy finder
+Plug 'airblade/vim-rooter'
 
 " Plugins that are already in Oni or conflict with a Oni funcionality
 if !exists('g:gui_oni')
