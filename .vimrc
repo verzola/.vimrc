@@ -9,7 +9,6 @@ Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim,
 Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
 Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
-Plug 'easymotion/vim-easymotion'            " Vim motions on speed!
 Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
 Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
 Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
@@ -17,21 +16,18 @@ Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
-Plug 'junegunn/fzf.vim' " A command-line fuzzy finder
-Plug 'airblade/vim-rooter'
-
-" Plugins that are already in Oni or conflict with a Oni funcionality
-if !exists('g:gui_oni')
-    Plug 'joshdick/onedark.vim'           " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme
-    Plug 'wellle/targets.vim'             " Vim plugin that provides additional text objects
-    Plug 'vim-airline/vim-airline'        " Lean & mean status/tabline for vim that's light as air
-    Plug 'vim-airline/vim-airline-themes' " A collection of themes for vim-airline
-    Plug 'tpope/vim-commentary'           " Comment stuff out
-    Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple
-    Plug 'leafgarland/typescript-vim'     " Typescript syntax files for Vim
-    Plug 'peitalin/vim-jsx-typescript'    " React JSX syntax highlighting for vim and Typescript
-endif
-
+Plug 'junegunn/fzf.vim'                     " A command-line fuzzy finder
+Plug 'airblade/vim-rooter'                  " Find project root
+Plug 'editorconfig/editorconfig-vim'        " Use .editorconfig to configure vim
+Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
+Plug 'joshdick/onedark.vim'                 " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme
+Plug 'vim-airline/vim-airline'              " Lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline-themes'       " A collection of themes for vim-airline
+Plug 'tpope/vim-commentary'                 " Comment stuff out
+Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
+Plug 'pangloss/vim-javascript'              " Better JS support
+Plug 'mxw/vim-jsx'                          " JSX support
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
@@ -269,13 +265,3 @@ let g:airline_theme = 'onedark'                  " Match airline theme with vim 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
-let g:ascii = [
-\" ██╗   ██╗███████╗██████╗ ███████╗ ██████╗ ██╗      █████╗",
-\" ██║   ██║██╔════╝██╔══██╗╚══███╔╝██╔═══██╗██║     ██╔══██╗",
-\" ██║   ██║█████╗  ██████╔╝  ███╔╝ ██║   ██║██║     ███████║",
-\" ╚██╗ ██╔╝██╔══╝  ██╔══██╗ ███╔╝  ██║   ██║██║     ██╔══██║",
-\"  ╚████╔╝ ███████╗██║  ██║███████╗╚██████╔╝███████╗██║  ██║",
-\"   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝",
-\]
-"let g:startify_custom_header = g:ascii           " Add custom header to Startify
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" End
