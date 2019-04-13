@@ -9,7 +9,7 @@ Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim,
 Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
 Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
-Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
+"Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
 Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
 Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
 Plug 'mattn/emmet-vim'                      " Emmet for vim
@@ -19,7 +19,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-li
 Plug 'junegunn/fzf.vim'                     " A command-line fuzzy finder
 Plug 'airblade/vim-rooter'                  " Find project root
 Plug 'editorconfig/editorconfig-vim'        " Use .editorconfig to configure vim
-Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
+"Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
 Plug 'vim-airline/vim-airline'              " Lean & mean status/tabline for vim that's light as air
 Plug 'tpope/vim-commentary'                 " Comment stuff out
 Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
