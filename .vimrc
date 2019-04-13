@@ -20,14 +20,13 @@ Plug 'junegunn/fzf.vim'                     " A command-line fuzzy finder
 Plug 'airblade/vim-rooter'                  " Find project root
 Plug 'editorconfig/editorconfig-vim'        " Use .editorconfig to configure vim
 Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
-Plug 'joshdick/onedark.vim'                 " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme
 Plug 'vim-airline/vim-airline'              " Lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline-themes'       " A collection of themes for vim-airline
 Plug 'tpope/vim-commentary'                 " Comment stuff out
 Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
 Plug 'pangloss/vim-javascript'              " Better JS support
 Plug 'mxw/vim-jsx'                          " JSX support
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'hzchirs/vim-material'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
@@ -36,7 +35,8 @@ if !isdirectory($HOME."/.vim-undo")
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colors
-colorscheme onedark                         " Change colorscheme
+let g:material_style='palenight'
+colorscheme vim-material                    " Change colorscheme
 set background=dark                         " Use colors that suit a dark background
 set termguicolors                           " Enable 24-bit colors on terminal
 syntax enable                               " Enable syntax highlighting
@@ -55,7 +55,7 @@ set wildmode=list:longest,full              " Autocomplete for commands
 " Editting
 set autoread                                " Automatically re-read files if unmodified inside Vim
 set backspace=indent,eol,start              " Allow backspacing over indention, line breaks and insertion start
-set colorcolumn=120                         " Set column rule
+set colorcolumn=0                           " Set column rule
 set cursorline                              " Highlight the line currently under cursor
 set formatoptions+=j                        " Delete comment character when joining commented lines
 set hidden                                  " Hide files in the background instead of closing them
@@ -261,7 +261,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on start
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
 let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
-let g:airline_theme = 'onedark'                  " Match airline theme with vim colorscheme
+let g:airline_theme='material'                   " Match airline theme with vim colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
