@@ -26,7 +26,10 @@ Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
 Plug 'pangloss/vim-javascript'              " Better JS support
 Plug 'mxw/vim-jsx'                          " JSX support
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'hzchirs/vim-material'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
@@ -35,8 +38,7 @@ if !isdirectory($HOME."/.vim-undo")
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colors
-let g:material_style='palenight'
-colorscheme vim-material                    " Change colorscheme
+colorscheme dracula                         " Change colorscheme
 set background=dark                         " Use colors that suit a dark background
 set termguicolors                           " Enable 24-bit colors on terminal
 syntax enable                               " Enable syntax highlighting
@@ -261,7 +263,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on start
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
 let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
-let g:airline_theme='material'                   " Match airline theme with vim colorscheme
+let g:airline_theme='dracula '                   " Match airline theme with vim colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
