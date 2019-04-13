@@ -263,7 +263,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on start
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
 let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
-let g:airline_theme='dracula '                   " Match airline theme with vim colorscheme
+let g:airline_theme='dracula'                   " Match airline theme with vim colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
