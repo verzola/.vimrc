@@ -45,6 +45,8 @@ if has("gui_running")
   set guioptions-=L  "remove left-hand scroll bar
   set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT
 endif
+" Remove annoying bell
+set belloff=all
 " Colors
 colorscheme dracula                         " Change colorscheme
 set background=dark                         " Use colors that suit a dark background
