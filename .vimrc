@@ -1,41 +1,44 @@
-" verzola's custom .vimrc
+" verzola's .vimrc
 " https://github.com/verzola/.vimrc
 " released under the WTFPL v2 license
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'kshenoy/vim-signature'                " Plugin to toggle, display and navigate marks
-"Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
-Plug 'mhinz/vim-startify'                   " The fancy start screen for Vim
-Plug 'scrooloose/nerdtree'                  " A tree explorer plugin for vim
-Plug 'jistr/vim-nerdtree-tabs'              " NERDTree and tabs together in Vim, painlessly
-Plug 'airblade/vim-gitgutter'               " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
-Plug 'tpope/vim-repeat'                     " Enable repeating supported plugin maps with .
-Plug 'tpope/vim-fugitive'                   " A Git wrapper so awesome, it should be illegal
-Plug 'ryanoasis/vim-devicons'               " Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
-Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple selections for Vim
-Plug 'mattn/emmet-vim'                      " Emmet for vim
-Plug 'w0rp/ale'                             " Asynchronous Lint Engine
-Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
-Plug 'airblade/vim-rooter'                  " Find project root
-Plug 'editorconfig/editorconfig-vim'        " Use .editorconfig to configure vim
-Plug 'vim-airline/vim-airline'              " Lean & mean status/tabline for vim that's light as air
-Plug 'tpope/vim-commentary'                 " Comment stuff out
-Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
-Plug 'pangloss/vim-javascript'              " Better JS support
-Plug 'mxw/vim-jsx'                          " JSX support
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'easymotion/vim-easymotion'
-if has('unix')
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-    Plug 'junegunn/fzf.vim'                 " Fuzzy finder integration with vim
-endif
-if has('win32')
-    Plug 'kien/ctrlp.vim'                   " Use ctrlp on windows because fzf does not work
-endif
+  Plug 'airblade/vim-gitgutter'                          " Git diff in the gutter
+  Plug 'airblade/vim-rooter'                             " Find project root
+  Plug 'dart-lang/dart-vim-plugin'                       " Dart support
+  Plug 'dracula/vim', { 'as': 'dracula' }                " Dracula colorscheme
+  Plug 'easymotion/vim-easymotion'                       " Fast motion
+  Plug 'editorconfig/editorconfig-vim'                   " Editorconfig support
+  Plug 'jistr/vim-nerdtree-tabs'                         " NERDTree tabs
+  Plug 'mattn/emmet-vim'                                 " Emmet
+  Plug 'mhinz/vim-startify'                              " Fancy start screen for Vim
+  Plug 'mustache/vim-mustache-handlebars'                " Handlebars support
+  Plug 'mxw/vim-jsx'                                     " JSX support
+  Plug 'pangloss/vim-javascript'                         " Better JS support
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier support
+  Plug 'ryanoasis/vim-devicons'                          " Glyphs and icons
+  Plug 'scrooloose/nerdtree'                             " Tree explorer
+  Plug 'terryma/vim-multiple-cursors'                    " Multiple cursors support
+  Plug 'thosakwe/vim-flutter'                            " Flutter support
+  Plug 'tpope/vim-commentary'                            " Fast commenter
+  Plug 'tpope/vim-fugitive'                              " Git wrapper
+  Plug 'tpope/vim-repeat'                                " Repeat plugin actions
+  Plug 'tpope/vim-surround'                              " Fast surround
+  Plug 'vim-airline/vim-airline'                         " Light tabline
+  Plug 'w0rp/ale'                                        " Async linter
+  Plug 'yggdroot/indentline'                             " Display indention levels
+
+  " Fuzzy finder and vim integration
+  if has('unix')
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+  endif
+
+  " Use ctrlp on windows because fzf does not work
+  if has('win32')
+    Plug 'kien/ctrlp.vim'
+  endif
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -125,11 +128,11 @@ set copyindent                              " Copy indentation from existing lin
 set expandtab                               " Convert tabs to spaces
 set linebreak                               " Avoid wrapping a line in the middle of a word
 set shiftround                              " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
-set shiftwidth=4                            " When shifting, indent using four spaces
+set shiftwidth=2                            " When shifting, indent using four spaces
 set smartindent                             " Smart indent
 set smarttab                                " Insert “tabstop” number of spaces when the “tab” key is pressed
-set softtabstop=4                           " Indentation setting
-set tabstop=4                               " Indent using four spaces
+set softtabstop=2                           " Indentation setting
+set tabstop=2                               " Indent using four spaces
 set nowrap                                  " Disable line wrapping
 
 " Search
