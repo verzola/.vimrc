@@ -11,10 +11,13 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'easymotion/vim-easymotion'                       " Fast motion
   Plug 'editorconfig/editorconfig-vim'                   " Editorconfig support
   Plug 'jistr/vim-nerdtree-tabs'                         " NERDTree tabs
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'mattn/emmet-vim'                                 " Emmet
   Plug 'mhinz/vim-startify'                              " Fancy start screen for Vim
   Plug 'mustache/vim-mustache-handlebars'                " Handlebars support
   Plug 'mxw/vim-jsx'                                     " JSX support
+  Plug 'othree/html5.vim'                                " Better HTML5 support
   Plug 'pangloss/vim-javascript'                         " Better JS support
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier support
   Plug 'ryanoasis/vim-devicons'                          " Glyphs and icons
@@ -28,18 +31,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'                         " Light tabline
   Plug 'w0rp/ale'                                        " Async linter
   Plug 'yggdroot/indentline'                             " Display indention levels
-  Plug 'othree/html5.vim'                                " Better HTML5 support
-
-  " Fuzzy finder and vim integration
-  if has('unix')
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-  endif
-
-  " Use ctrlp on windows because fzf does not work
-  if has('win32')
-    Plug 'kien/ctrlp.vim'
-  endif
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
