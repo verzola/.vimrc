@@ -37,6 +37,14 @@ if !isdirectory($HOME."/.vim-undo")
     call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
+" GUI
+if has("gui_running")
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+  set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT
+endif
 " Colors
 colorscheme dracula                         " Change colorscheme
 set background=dark                         " Use colors that suit a dark background
