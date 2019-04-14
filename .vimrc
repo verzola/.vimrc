@@ -40,16 +40,6 @@ if !isdirectory($HOME."/.vim-undo")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
-" GUI-only options
-if has("gui_running")
-  set guioptions-=m                                 " Remove menu bar
-  set guioptions-=T                                 " Remove toolbar
-  set guioptions-=r                                 " Remove right-hand scroll bar
-  set guioptions-=L                                 " Remove left-hand scroll bar
-  set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT " Set font
-endif
-set belloff=all                                     " Remove annoying bell
-
 " Colors
 colorscheme dracula                                 " Change colorscheme
 set background=dark                                 " Use colors that suit a dark background
@@ -105,6 +95,9 @@ set undolevels=1000                                 " Size of undo history
 " History
 set history=1000                                    " Increase the undo limit
 
+" Bell
+set belloff=all                                     " Remove annoying bell
+
 " Mouse
 set mouse=a                                         " Enable mouse for scrolling and resizing
 set mousehide                                       " Hide mouse when typing
@@ -141,6 +134,15 @@ set updatetime=250                                  " The length of time Vim wai
 set ttimeout
 set ttimeoutlen=100
 set ttyfast                                         " Fast terminal connection (only for vim)
+
+" GUI-only options
+if has("gui_running")
+  set guioptions-=m                                 " Remove menu bar
+  set guioptions-=T                                 " Remove toolbar
+  set guioptions-=r                                 " Remove right-hand scroll bar
+  set guioptions-=L                                 " Remove left-hand scroll bar
+  set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT " Set font
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Edit my .vimrc
@@ -259,6 +261,7 @@ noremap <C-e> :NERDTreeMirrorToggle<CR>
 nnoremap <leader>nb :Bookmark<CR>
 " Find current file on NERDTree
 noremap <silent> <leader>nf :NERDTreeFind<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
