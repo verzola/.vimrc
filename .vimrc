@@ -15,8 +15,6 @@ Plug 'terryma/vim-multiple-cursors'         " True Sublime Text style multiple s
 Plug 'mattn/emmet-vim'                      " Emmet for vim
 Plug 'w0rp/ale'                             " Asynchronous Lint Engine
 Plug 'yggdroot/indentline'                  " A vim plugin to display the indention levels with thin vertical lines
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " A command-line fuzzy finder
-Plug 'junegunn/fzf.vim'                     " A command-line fuzzy finder
 Plug 'airblade/vim-rooter'                  " Find project root
 Plug 'editorconfig/editorconfig-vim'        " Use .editorconfig to configure vim
 "Plug 'mustache/vim-mustache-handlebars'     " Handlebars support
@@ -29,6 +27,14 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'easymotion/vim-easymotion'
+if has('unix')
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+endif
+if has('win32')
+    Plug 'kien/ctrlp.vim'
+endif
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
