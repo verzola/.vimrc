@@ -141,7 +141,14 @@ if has("gui_running")
   set guioptions-=T                                 " Remove toolbar
   set guioptions-=r                                 " Remove right-hand scroll bar
   set guioptions-=L                                 " Remove left-hand scroll bar
-  set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT " Set font
+
+  " Set font
+  if has('win32')
+    set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT
+  endif
+  if has('unix')
+    set guifont=FantasqueSansMono\ NF\ 12
+  endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
