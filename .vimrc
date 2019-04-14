@@ -4,6 +4,7 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'Valloric/YouCompleteMe'                                     " Auto complete
   Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
   Plug 'airblade/vim-rooter'                                        " Find project root
   Plug 'dart-lang/dart-vim-plugin'                                  " Dart support
