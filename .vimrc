@@ -14,6 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
   Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
+  Plug 'junegunn/goyo.vim'                                          " Distraction free mode
   Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
   Plug 'mustache/vim-mustache-handlebars'                           " Handlebars support
@@ -252,9 +253,6 @@ autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
-let g:NERDTreeDirArrows = 1                      " Show dir arrows
-let g:NERDTreeDirArrowCollapsible=""            " Improve NERDTree arrow
-let g:NERDTreeDirArrowExpandable=""             " Improve NERDTree arrow
 let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
 let g:NERDTreeQuitOnOpen = 1                     " Quit NERDTree after open file
 let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
