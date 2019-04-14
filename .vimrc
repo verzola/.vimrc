@@ -143,11 +143,6 @@ set ttimeoutlen=100
 set ttyfast                                         " Fast terminal connection (only for vim)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
-" Open fzf using ctrlp shortcut
-nmap <C-p> :Files<CR>
-imap <C-p> <Esc>:Files<CR>
-vmap <C-p> <Esc>:Files<CR>
-
 " Edit my .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 
@@ -222,16 +217,66 @@ nnoremap <leader>r :set relativenumber!<CR>
 " Map to sort in visual mode
 vnoremap <leader>s :'<,'>sort<CR>
 
+" Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
+iabbrev [k] ✔
+iabbrev [K] ✔
+iabbrev [ok] ✔
+iabbrev [OK] ✔
+iabbrev [x] ✘
+iabbrev [X] ✘
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
+" Remember last line on file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Indentation settings for typescript
+autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+
+" Auto insert mode if terminal
+autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
+let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
+let g:NERDTreeDirArrows = 1                      " Show dir arrows
+let g:NERDTreeDirArrowCollapsible=""            " Improve NERDTree arrow
+let g:NERDTreeDirArrowExpandable=""             " Improve NERDTree arrow
+let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
+let g:NERDTreeQuitOnOpen = 1                     " Quit NERDTree after open file
+let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
+let g:NERDTreeShowHidden = 1                     " Show hidden files on NERDTree
+let g:NERDTreeShowLineNumbers = 1                " Show line numbers on NERDTree
+let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on startup
+" Auto close NERDTree if it is the only left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
-
 " Bookmark file/folder in NERDTree
 nnoremap <leader>nb :Bookmark<CR>
-
 " Find current file on NERDTree
 noremap <silent> <leader>nf :NERDTreeFind<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
+let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
+let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
+let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
+let g:airline_theme='dracula'                    " Match airline theme with vim colorscheme
 
-" Fugitive maps
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
+let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emmet
+let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
@@ -241,16 +286,31 @@ nnoremap <leader>gu :Gpull<CR>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vim plug
 " Install plugins
 nnoremap <leader>pi :PlugInstall<CR>
-
 " Update plugins
 nnoremap <leader>pu :PlugUpdate<CR>
-
 " Clean removed plugins
 nnoremap <leader>pc :PlugClean<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fzf
+" Open fzf using ctrlp shortcut
+nmap <C-p> :Files<CR>
+imap <C-p> <Esc>:Files<CR>
+vmap <C-p> <Esc>:Files<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
+" Startify on new tab
+autocmd! TabNew * Startify
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Nvim
+" Split terminal (nvim only)
 if has('nvim')
+    " Open terminal horizontally
+    nmap <leader>t :split term://zsh<CR>
+    " Open terminal vertically
+    nmap <leader>vt :vsplit term://zsh<CR>
     " Map Esc to leave terminal mode
     tnoremap <Esc> <C-\><C-n>
     " Navigate splits with Alt+hjkl
@@ -268,67 +328,3 @@ if has('nvim')
     nnoremap <A-l> <C-w>l
 endif
 
-" Split terminal (nvim only)
-if has('nvim')
-    " Open terminal horizontally
-    nmap <leader>t :split term://zsh<CR>
-    " Open terminal vertically
-    nmap <leader>vt :vsplit term://zsh<CR>
-endif
-
-" Easier moving of code blocks
-vnoremap < <gv
-vnoremap > >gv
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-iabbrev [k] ✔
-iabbrev [K] ✔
-iabbrev [ok] ✔
-iabbrev [OK] ✔
-iabbrev [x] ✘
-iabbrev [X] ✘
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
-" Remember last line on file
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Auto close NERDTree if it is the only left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Indentation settings for typescript
-autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
-
-" Auto insert mode if terminal
-autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
-
-" Startify on new tab
-autocmd! TabNew * Startify
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
-let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
-let g:NERDTreeDirArrows = 1                      " Show dir arrows
-let g:NERDTreeDirArrowCollapsible=""            " Improve NERDTree arrow
-let g:NERDTreeDirArrowExpandable=""             " Improve NERDTree arrow
-let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
-let g:NERDTreeQuitOnOpen = 1                     " Quit NERDTree after open file
-let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
-let g:NERDTreeShowHidden = 1                     " Show hidden files on NERDTree
-let g:NERDTreeShowLineNumbers = 1                " Show line numbers on NERDTree
-let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on startup
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
-let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
-let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
-let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
-let g:airline_theme='dracula'                    " Match airline theme with vim colorscheme
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
-let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emmet
-let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
