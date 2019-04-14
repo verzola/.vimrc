@@ -259,12 +259,16 @@ let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
 let g:NERDTreeShowHidden = 1                     " Show hidden files on NERDTree
 let g:NERDTreeShowLineNumbers = 1                " Show line numbers on NERDTree
 let g:nerdtree_tabs_open_on_gui_startup = 0      " Do not show NERDTree on startup
+
 " Auto close NERDTree if it is the only left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Toggle NERDtree
 noremap <C-e> :NERDTreeMirrorToggle<CR>
+
 " Bookmark file/folder in NERDTree
 nnoremap <leader>nb :Bookmark<CR>
+
 " Find current file on NERDTree
 noremap <silent> <leader>nf :NERDTreeFind<CR>
 
@@ -318,10 +322,13 @@ autocmd! TabNew * Startify
 if has('nvim')
     " Open terminal horizontally
     nmap <leader>t :split term://zsh<CR>
+
     " Open terminal vertically
     nmap <leader>vt :vsplit term://zsh<CR>
+
     " Map Esc to leave terminal mode
     tnoremap <Esc> <C-\><C-n>
+
     " Navigate splits with Alt+hjkl
     tnoremap <A-h> <C-\><C-N><C-w>h
     tnoremap <A-j> <C-\><C-N><C-w>j
