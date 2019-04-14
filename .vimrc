@@ -4,33 +4,33 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'airblade/vim-gitgutter'                          " Git diff in the gutter
-  Plug 'airblade/vim-rooter'                             " Find project root
-  Plug 'dart-lang/dart-vim-plugin'                       " Dart support
-  Plug 'dracula/vim', { 'as': 'dracula' }                " Dracula colorscheme
-  Plug 'easymotion/vim-easymotion'                       " Fast motion
-  Plug 'editorconfig/editorconfig-vim'                   " Editorconfig support
-  Plug 'jistr/vim-nerdtree-tabs'                         " NERDTree tabs
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'mattn/emmet-vim'                                 " Emmet
-  Plug 'mhinz/vim-startify'                              " Fancy start screen for Vim
-  Plug 'mustache/vim-mustache-handlebars'                " Handlebars support
-  Plug 'mxw/vim-jsx'                                     " JSX support
-  Plug 'othree/html5.vim'                                " Better HTML5 support
-  Plug 'pangloss/vim-javascript'                         " Better JS support
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier support
-  Plug 'ryanoasis/vim-devicons'                          " Glyphs and icons
-  Plug 'scrooloose/nerdtree'                             " Tree explorer
-  Plug 'terryma/vim-multiple-cursors'                    " Multiple cursors support
-  Plug 'thosakwe/vim-flutter'                            " Flutter support
-  Plug 'tpope/vim-commentary'                            " Fast commenter
-  Plug 'tpope/vim-fugitive'                              " Git wrapper
-  Plug 'tpope/vim-repeat'                                " Repeat plugin actions
-  Plug 'tpope/vim-surround'                              " Fast surround
-  Plug 'vim-airline/vim-airline'                         " Light tabline
-  Plug 'w0rp/ale'                                        " Async linter
-  Plug 'yggdroot/indentline'                             " Display indention levels
+  Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
+  Plug 'airblade/vim-rooter'                                        " Find project root
+  Plug 'dart-lang/dart-vim-plugin'                                  " Dart support
+  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
+  Plug 'easymotion/vim-easymotion'                                  " Fast motion
+  Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
+  Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+  Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
+  Plug 'mattn/emmet-vim'                                            " Emmet
+  Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
+  Plug 'mustache/vim-mustache-handlebars'                           " Handlebars support
+  Plug 'mxw/vim-jsx'                                                " JSX support
+  Plug 'othree/html5.vim'                                           " Better HTML5 support
+  Plug 'pangloss/vim-javascript'                                    " Better JS support
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }            " Prettier support
+  Plug 'ryanoasis/vim-devicons'                                     " Glyphs and icons
+  Plug 'scrooloose/nerdtree'                                        " Tree explorer
+  Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors support
+  Plug 'thosakwe/vim-flutter'                                       " Flutter support
+  Plug 'tpope/vim-commentary'                                       " Fast commenter
+  Plug 'tpope/vim-fugitive'                                         " Git wrapper
+  Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
+  Plug 'tpope/vim-surround'                                         " Fast surround
+  Plug 'vim-airline/vim-airline'                                    " Light tabline
+  Plug 'w0rp/ale'                                                   " Async linter
+  Plug 'yggdroot/indentline'                                        " Display indention levels
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
