@@ -28,6 +28,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'                         " Light tabline
   Plug 'w0rp/ale'                                        " Async linter
   Plug 'yggdroot/indentline'                             " Display indention levels
+  Plug 'othree/html5.vim'                                " Better HTML5 support
 
   " Fuzzy finder and vim integration
   if has('unix')
@@ -333,3 +334,10 @@ let g:airline_theme='dracula'                    " Match airline theme with vim 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emmet
+let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
