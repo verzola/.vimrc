@@ -38,7 +38,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
 if !isdirectory($HOME."/.vim-undo")
-    call mkdir($HOME."/.vim-undo", "", 0700)
+  call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
@@ -55,7 +55,7 @@ set number                                          " Show line numbers on the s
 
 " Maps
 let mapleader = ","                                 " Redefines leader key
-set pastetoggle=<F2>                                " Key to toggle paste mode
+set pastetoggle=<F12>                                " Key to toggle paste mode
 
 " Autocomplete
 set complete-=i                                     " Limit the files searched for auto-completes
@@ -146,7 +146,7 @@ if has("gui_running")
 
   " Set font
   if has('win32')
-    set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT
+    set guifont=FantasqueSansMono_Nerd_Font_Mon:h11:cANSI:qDRAFT
   endif
   if has('unix')
     set guifont=FantasqueSansMono\ NF\ 12
@@ -178,8 +178,8 @@ noremap <Down> <c-e>
 noremap <Up> <c-y>
 noremap <Right> <c-e>
 noremap <Left> <c-y>
-"
-"System clipboard mappings
+
+" System clipboard mappings
 vmap <leader>y "+y
 vmap <leader>p "+p
 vmap <leader>P "+P
@@ -204,11 +204,11 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
+nnoremap <PageDown> :bnext<CR>
 
 " Move to the previous buffer
 nmap <leader>k :bprevious<CR>
 nnoremap <PageUp>   :bprevious<CR>
-nnoremap <PageDown> :bnext<CR>
 
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
@@ -342,5 +342,10 @@ if has('nvim')
     nnoremap <A-j> <C-w>j
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
+else
+  map <C-j> <C-W>j
+  map <C-k> <C-W>k
+  map <C-h> <C-W>h
+  map <C-l> <C-W>l
 endif
 
