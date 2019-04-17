@@ -283,9 +283,12 @@ let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around i
 let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_sign_error = '' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
+let g:ale_sign_warning = ''
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
