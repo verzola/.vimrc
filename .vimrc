@@ -47,10 +47,10 @@ endif
 colorscheme dracula                                 " Change colorscheme
 set background=dark                                 " Use colors that suit a dark background
 set termguicolors                                   " Enable 24-bit colors on terminal
-syntax enable                                       " Enable syntax highlighting
+"syntax enable                                       " Enable syntax highlighting
 
 " Basic
-set display+=lastline                               " Always try to show a paragraph’s last line
+"set display+=lastline                               " Always try to show a paragraph’s last line
 set encoding=utf-8                                  " Set encoding to utf-8
 set number                                          " Show line numbers on the sidebar
 
@@ -59,9 +59,9 @@ let mapleader = ","                                 " Redefines leader key
 set pastetoggle=<F12>                                " Key to toggle paste mode
 
 " Autocomplete
-set complete-=i                                     " Limit the files searched for auto-completes
+"set complete-=i                                     " Limit the files searched for auto-completes
 set completeopt=longest,menuone                     " Show popup with completions
-set wildmenu                                        " Autocomplete menu
+"set wildmenu                                        " Autocomplete menu
 set wildmode=list:longest,full                      " Autocomplete for commands
 
 " Editting
@@ -73,7 +73,7 @@ set formatoptions+=j                                " Delete comment character w
 set hidden                                          " Hide files in the background instead of closing them
 set list                                            " Hightlight unwanted spaces
 "set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
+"set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
 set scrolloff=5                                     " The number of screen lines to keep above and below the cursor
 set showmatch                                       " Show matching delimitator
 set sidescrolloff=5                                 " The number of screen columns to keep to the left and right of the cursor
@@ -96,7 +96,7 @@ set undofile                                        " Create undo file to allow 
 set undolevels=1000                                 " Size of undo history
 
 " History
-set history=1000                                    " Increase the undo limit
+"set history=1000                                    " Increase the undo limit
 
 " Bell
 set belloff=all                                     " Remove annoying bell
@@ -110,15 +110,15 @@ set splitbelow                                      " Create horizontal split on
 set splitright                                      " Create vertical split on the right
 
 " Indentation
-filetype plugin indent on                           " Enable indentation rules that are file-type specific
-set autoindent                                      " New lines inherit the indentation of previous lines.
+"filetype plugin indent on                           " Enable indentation rules that are file-type specific
+"set autoindent                                      " New lines inherit the indentation of previous lines.
 set copyindent                                      " Copy indentation from existing lines
 set expandtab                                       " Convert tabs to spaces
 set linebreak                                       " Avoid wrapping a line in the middle of a word
 set shiftround                                      " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
 set shiftwidth=2                                    " When shifting, indent using four spaces
 set smartindent                                     " Smart indent
-set smarttab                                        " Insert “tabstop” number of spaces when the “tab” key is pressed
+"set smarttab                                        " Insert “tabstop” number of spaces when the “tab” key is pressed
 set softtabstop=2                                   " Indentation setting
 set tabstop=2                                       " Indent using four spaces
 set nowrap                                          " Disable line wrapping
@@ -134,8 +134,8 @@ set lazyredraw                                      " Don’t update screen duri
 set updatetime=250                                  " The length of time Vim waits after you stop typing before it triggers the plugin
 
 " Vim only settings
-set ttimeout
-set ttimeoutlen=100
+"set ttimeout
+"set ttimeoutlen=100
 set ttyfast                                         " Fast terminal connection (only for vim)
 
 " GUI-only options
@@ -162,7 +162,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Clear search
-nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+"nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Remove arrow keys
 inoremap <Up> <nop>
