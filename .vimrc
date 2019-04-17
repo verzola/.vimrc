@@ -33,12 +33,13 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
+  Plug 'tpope/vim-sensible'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
 " Create undo-dir if it does not exists
 if !isdirectory($HOME."/.vim-undo")
-    call mkdir($HOME."/.vim-undo", "", 0700)
+  call mkdir($HOME."/.vim-undo", "", 0700)
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
@@ -46,33 +47,33 @@ endif
 colorscheme dracula                                 " Change colorscheme
 set background=dark                                 " Use colors that suit a dark background
 set termguicolors                                   " Enable 24-bit colors on terminal
-syntax enable                                       " Enable syntax highlighting
+"syntax enable                                       " Enable syntax highlighting
 
 " Basic
-set display+=lastline                               " Always try to show a paragraph’s last line
+"set display+=lastline                               " Always try to show a paragraph’s last line
 set encoding=utf-8                                  " Set encoding to utf-8
 set number                                          " Show line numbers on the sidebar
 
 " Maps
 let mapleader = ","                                 " Redefines leader key
-set pastetoggle=<F2>                                " Key to toggle paste mode
+set pastetoggle=<F12>                                " Key to toggle paste mode
 
 " Autocomplete
-set complete-=i                                     " Limit the files searched for auto-completes
+"set complete-=i                                     " Limit the files searched for auto-completes
 set completeopt=longest,menuone                     " Show popup with completions
-set wildmenu                                        " Autocomplete menu
+"set wildmenu                                        " Autocomplete menu
 set wildmode=list:longest,full                      " Autocomplete for commands
 
 " Editting
-set autoread                                        " Automatically re-read files if unmodified inside Vim
-set backspace=indent,eol,start                      " Allow backspacing over indention, line breaks and insertion start
+"set autoread                                        " Automatically re-read files if unmodified inside Vim
+"set backspace=indent,eol,start                      " Allow backspacing over indention, line breaks and insertion start
 set colorcolumn=0                                   " Set column rule
 set cursorline                                      " Highlight the line currently under cursor
 set formatoptions+=j                                " Delete comment character when joining commented lines
 set hidden                                          " Hide files in the background instead of closing them
 set list                                            " Hightlight unwanted spaces
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
+"set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+"set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
 set scrolloff=5                                     " The number of screen lines to keep above and below the cursor
 set showmatch                                       " Show matching delimitator
 set sidescrolloff=5                                 " The number of screen columns to keep to the left and right of the cursor
@@ -95,7 +96,7 @@ set undofile                                        " Create undo file to allow 
 set undolevels=1000                                 " Size of undo history
 
 " History
-set history=1000                                    " Increase the undo limit
+"set history=1000                                    " Increase the undo limit
 
 " Bell
 set belloff=all                                     " Remove annoying bell
@@ -109,15 +110,15 @@ set splitbelow                                      " Create horizontal split on
 set splitright                                      " Create vertical split on the right
 
 " Indentation
-filetype plugin indent on                           " Enable indentation rules that are file-type specific
-set autoindent                                      " New lines inherit the indentation of previous lines.
+"filetype plugin indent on                           " Enable indentation rules that are file-type specific
+"set autoindent                                      " New lines inherit the indentation of previous lines.
 set copyindent                                      " Copy indentation from existing lines
 set expandtab                                       " Convert tabs to spaces
 set linebreak                                       " Avoid wrapping a line in the middle of a word
 set shiftround                                      " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
 set shiftwidth=2                                    " When shifting, indent using four spaces
 set smartindent                                     " Smart indent
-set smarttab                                        " Insert “tabstop” number of spaces when the “tab” key is pressed
+"set smarttab                                        " Insert “tabstop” number of spaces when the “tab” key is pressed
 set softtabstop=2                                   " Indentation setting
 set tabstop=2                                       " Indent using four spaces
 set nowrap                                          " Disable line wrapping
@@ -125,7 +126,7 @@ set nowrap                                          " Disable line wrapping
 " Search
 set hlsearch                                        " Enable search highlighting
 set ignorecase                                      " Ignore case when searching
-set incsearch                                       " Incremental search that shows partial matches
+"set incsearch                                       " Incremental search that shows partial matches
 set smartcase                                       " Automatically switch search to case-sensitive when search query contains an uppercase letter
 
 " Performance
@@ -133,8 +134,8 @@ set lazyredraw                                      " Don’t update screen duri
 set updatetime=250                                  " The length of time Vim waits after you stop typing before it triggers the plugin
 
 " Vim only settings
-set ttimeout
-set ttimeoutlen=100
+"set ttimeout
+"set ttimeoutlen=100
 set ttyfast                                         " Fast terminal connection (only for vim)
 
 " GUI-only options
@@ -146,7 +147,7 @@ if has("gui_running")
 
   " Set font
   if has('win32')
-    set guifont=FantasqueSansMono_NF:h12:cANSI:qDRAFT
+    set guifont=FantasqueSansMono_Nerd_Font_Mon:h11:cANSI:qDRAFT
   endif
   if has('unix')
     set guifont=FantasqueSansMono\ NF\ 12
@@ -161,7 +162,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Clear search
-nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+"nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Remove arrow keys
 inoremap <Up> <nop>
@@ -178,8 +179,8 @@ noremap <Down> <c-e>
 noremap <Up> <c-y>
 noremap <Right> <c-e>
 noremap <Left> <c-y>
-"
-"System clipboard mappings
+
+" System clipboard mappings
 vmap <leader>y "+y
 vmap <leader>p "+p
 vmap <leader>P "+P
@@ -204,11 +205,11 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
+nnoremap <PageDown> :bnext<CR>
 
 " Move to the previous buffer
 nmap <leader>k :bprevious<CR>
 nnoremap <PageUp>   :bprevious<CR>
-nnoremap <PageDown> :bnext<CR>
 
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
@@ -233,12 +234,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-iabbrev [k] ✔
-iabbrev [K] ✔
-iabbrev [ok] ✔
-iabbrev [OK] ✔
-iabbrev [x] ✘
-iabbrev [X] ✘
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
@@ -345,5 +340,10 @@ if has('nvim')
     nnoremap <A-j> <C-w>j
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
+else
+  map <C-j> <C-W>j
+  map <C-k> <C-W>k
+  map <C-h> <C-W>h
+  map <C-l> <C-W>l
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Devicons
