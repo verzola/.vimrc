@@ -254,6 +254,9 @@ autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
 let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeQuitOnOpen = 1                     " Quit NERDTree after open file
 let g:NERDTreeShowBookmarks = 1                  " Show bookmarks on NERDTree
 let g:NERDTreeShowHidden = 1                     " Show hidden files on NERDTree
@@ -285,7 +288,7 @@ let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around i
 let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_error = '' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
@@ -343,4 +346,4 @@ if has('nvim')
     nnoremap <A-k> <C-w>k
     nnoremap <A-l> <C-w>l
 endif
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Devicons
