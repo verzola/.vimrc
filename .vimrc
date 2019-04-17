@@ -233,12 +233,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-iabbrev [k] ✔
-iabbrev [K] ✔
-iabbrev [ok] ✔
-iabbrev [OK] ✔
-iabbrev [x] ✘
-iabbrev [X] ✘
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
