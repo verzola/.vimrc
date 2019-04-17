@@ -33,6 +33,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
+  Plug 'tpope/vim-sensible'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -64,14 +65,14 @@ set wildmenu                                        " Autocomplete menu
 set wildmode=list:longest,full                      " Autocomplete for commands
 
 " Editting
-set autoread                                        " Automatically re-read files if unmodified inside Vim
-set backspace=indent,eol,start                      " Allow backspacing over indention, line breaks and insertion start
+"set autoread                                        " Automatically re-read files if unmodified inside Vim
+"set backspace=indent,eol,start                      " Allow backspacing over indention, line breaks and insertion start
 set colorcolumn=0                                   " Set column rule
 set cursorline                                      " Highlight the line currently under cursor
 set formatoptions+=j                                " Delete comment character when joining commented lines
 set hidden                                          " Hide files in the background instead of closing them
 set list                                            " Hightlight unwanted spaces
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+"set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
 set scrolloff=5                                     " The number of screen lines to keep above and below the cursor
 set showmatch                                       " Show matching delimitator
@@ -125,7 +126,7 @@ set nowrap                                          " Disable line wrapping
 " Search
 set hlsearch                                        " Enable search highlighting
 set ignorecase                                      " Ignore case when searching
-set incsearch                                       " Incremental search that shows partial matches
+"set incsearch                                       " Incremental search that shows partial matches
 set smartcase                                       " Automatically switch search to case-sensitive when search query contains an uppercase letter
 
 " Performance
