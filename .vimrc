@@ -33,7 +33,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
-  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-sensible'                                         " Better defaults
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -147,7 +147,7 @@ if has("gui_running")
 
   " Set font
   if has('win32')
-    set guifont=FantasqueSansMono_Nerd_Font_Mon:h11:cANSI:qDRAFT
+    set guifont=FantasqueSansMono\ Nerd\ Font\ Mon:h11:cANSI:qDRAFT
   endif
   if has('unix')
     set guifont=FantasqueSansMono\ NF\ 12
