@@ -34,6 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
   Plug 'tpope/vim-sensible'                                         " Better defaults
+  Plug 'jwalton512/vim-blade'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
