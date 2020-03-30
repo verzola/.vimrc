@@ -6,14 +6,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
   Plug 'airblade/vim-rooter'                                        " Find project root
-  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
   Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
   Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
-  Plug 'mxw/vim-jsx'                                                " JSX support
   Plug 'othree/html5.vim'                                           " Better HTML5 support
   Plug 'pangloss/vim-javascript'                                    " Better JS support
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }            " Prettier support
@@ -25,10 +23,21 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
   Plug 'tpope/vim-surround'                                         " Fast surround
   Plug 'vim-airline/vim-airline'                                    " Light tabline
+  Plug 'vim-airline/vim-airline-themes'                             " Light tabline themes
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
   Plug 'tpope/vim-sensible'                                         " Better defaults
-  Plug 'jwalton512/vim-blade'
+  Plug 'stephpy/vim-php-cs-fixer'
+  Plug 'lumiliet/vim-twig'
+  " Not always used plugins
+  Plug 'posva/vim-vue'
+  "Plug 'mxw/vim-jsx'                                                " JSX support
+  "Plug 'jwalton512/vim-blade'
+  " Colorschemes
+  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
+  Plug 'exitface/synthwave.vim'
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -39,10 +48,10 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Settings
 " Colors
-colorscheme dracula                                 " Change colorscheme
 set background=dark                                 " Use colors that suit a dark background
+colorscheme dracula                                 " Change colorscheme
 set termguicolors                                   " Enable 24-bit colors on terminal
-"syntax enable                                       " Enable syntax highlighting
+syntax enable                                       " Enable syntax highlighting
 
 " Basic
 "set display+=lastline                               " Always try to show a paragraph’s last line
@@ -278,7 +287,7 @@ let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around i
 let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
-let b:ale_fixers = ['prettier', 'eslint']
+let b:ale_fixers = ['eslint']
 let g:ale_sign_error = '' " Less aggressive than the default '>>'
 let g:ale_sign_warning = ''
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
