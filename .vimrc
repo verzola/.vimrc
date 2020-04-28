@@ -27,17 +27,15 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
   Plug 'tpope/vim-sensible'                                         " Better defaults
-  Plug 'stephpy/vim-php-cs-fixer'
-  Plug 'lumiliet/vim-twig'
   " Not always used plugins
+  Plug 'stephpy/vim-php-cs-fixer'
+  "Plug 'lumiliet/vim-twig'
   Plug 'posva/vim-vue'
   "Plug 'mxw/vim-jsx'                                                " JSX support
   "Plug 'jwalton512/vim-blade'
   " Colorschemes
   Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
-  Plug 'exitface/synthwave.vim'
-  Plug 'drewtempelmeyer/palenight.vim'
-  Plug 'rafi/awesome-vim-colorschemes'
+  Plug 'hashivim/vim-terraform'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -246,6 +244,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Indentation settings for typescript
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
 
 " Auto insert mode if terminal
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
@@ -287,12 +286,12 @@ let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around i
 let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
-let b:ale_fixers = ['eslint']
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
 let g:ale_sign_error = '' " Less aggressive than the default '>>'
 let g:ale_sign_warning = ''
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
