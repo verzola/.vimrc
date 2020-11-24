@@ -29,13 +29,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-sensible'                                         " Better defaults
   " Not always used plugins
   Plug 'stephpy/vim-php-cs-fixer'
-  "Plug 'lumiliet/vim-twig'
+  Plug 'lumiliet/vim-twig'
   Plug 'posva/vim-vue'
-  "Plug 'mxw/vim-jsx'                                                " JSX support
-  "Plug 'jwalton512/vim-blade'
+  Plug 'mxw/vim-jsx'                                                " JSX support
+  Plug 'jwalton512/vim-blade'
   " Colorschemes
   Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'hashivim/vim-terraform'
+  Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -358,3 +359,5 @@ else
   map <C-l> <C-W>l
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Devicons
+
+hi Normal guibg=NONE ctermbg=NONE
