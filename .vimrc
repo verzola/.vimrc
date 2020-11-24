@@ -249,6 +249,11 @@ autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
 " Auto insert mode if terminal
 autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
+" transparent bg
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" For Vim<8, replace EndOfBuffer by NonText
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
 let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
