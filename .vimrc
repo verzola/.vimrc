@@ -8,7 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-rooter'                                        " Find project root
   Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }               " Fuzzy finder
   Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
   Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
@@ -37,6 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'hashivim/vim-terraform'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'junegunn/vim-emoji'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -237,7 +238,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Abbreviations
-
+ab :ok: ✅
+ab :no: ❌
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Auto commands
 " Remember last line on file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -356,3 +358,12 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Devicons
 
 hi Normal guibg=NONE ctermbg=NONE
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emoji
+set completefunc=emoji#complete
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Git Gutter
+let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+let g:gitgutter_sign_modified_removed = emoji#for('collision')
