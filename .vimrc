@@ -22,6 +22,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-fugitive'                                         " Git wrapper
   Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
   Plug 'tpope/vim-surround'                                         " Fast surround
+  Plug 'tpope/vim-obsession'                                        " Sessions
   Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'vim-airline/vim-airline-themes'                             " Light tabline themes
   Plug 'w0rp/ale'                                                   " Async linter
