@@ -29,16 +29,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'yggdroot/indentline'                                        " Display indention levels
   Plug 'tpope/vim-sensible'                                         " Better defaults
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mxw/vim-jsx'                                                " JSX support
   " Colorschemes
   Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'junegunn/vim-emoji'
   " Not always used plugins
-  "Plug 'hashivim/vim-terraform'
-  "Plug 'jwalton512/vim-blade'
-  "Plug 'lumiliet/vim-twig'
-  "Plug 'mxw/vim-jsx'                                                " JSX support
-  "Plug 'posva/vim-vue'
   "Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
 
