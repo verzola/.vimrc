@@ -30,6 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-sensible'                                         " Better defaults
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'mxw/vim-jsx'                                                " JSX support
+  Plug 'vim-test/vim-test'
   " Colorschemes
   Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'nathanaelkane/vim-indent-guides'
@@ -254,7 +255,6 @@ autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 " For Vim<8, replace EndOfBuffer by NonText
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1               " Automatically delete the buffer of the file you just deleted with NERDTree:
 let g:NERDTreeMinimalUI = 1                      " Change to minimal UI
@@ -278,19 +278,15 @@ nnoremap <leader>nb :Bookmark<CR>
 
 " Find current file on NERDTree
 noremap <silent> <leader>nf :NERDTreeFind<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline#extensions#tabline#enabled = 1     " Enable airline because it is disabled by default
 let g:airline#extensions#tabline#fnamemod = ':t' " Show full file name instead of abbreviations
 let g:airline_powerline_fonts = 1                " Use powerline fonts for airline
 let g:airline_theme='dracula'                    " Match airline theme with vim colorscheme
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" DevIcons
 let g:webdevicons_conceal_nerdtree_brackets = 1  " Do not show brackets around icons in NERDTree
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emmet
 let g:user_emmet_leader_key='<Tab>' " Use tab to expand emmet expressions
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Ale
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
@@ -298,7 +294,6 @@ let g:ale_sign_error = '' " Less aggressive than the default '>>'
 let g:ale_sign_warning = ''
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_fix_on_save = 1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -308,7 +303,6 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gu :Gpull<CR>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vim plug
 " Install plugins
 nnoremap <leader>pi :PlugInstall<CR>
@@ -316,17 +310,14 @@ nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 " Clean removed plugins
 nnoremap <leader>pc :PlugClean<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Fzf
 " Open fzf using ctrlp shortcut
 nmap <C-p> :Files<CR>
 imap <C-p> <Esc>:Files<CR>
 vmap <C-p> <Esc>:Files<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Startify
 " Startify on new tab
 autocmd! TabNew * Startify
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Nvim
 " Split terminal (nvim only)
 if has('nvim')
@@ -359,17 +350,20 @@ else
   map <C-l> <C-W>l
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Devicons
-
 hi Normal guibg=NONE ctermbg=NONE
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Emoji
 set completefunc=emoji#complete
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Git Gutter
 let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
 let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
 let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
 let g:gitgutter_sign_modified_removed = emoji#for('collision')
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Vim Test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" COC
 " Give more space for displaying messages.
 set cmdheight=2
@@ -525,3 +519,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
