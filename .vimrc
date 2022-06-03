@@ -28,15 +28,17 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
   Plug 'tpope/vim-sensible'                                         " Better defaults
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
   Plug 'mxw/vim-jsx'                                                " JSX support
-  Plug 'vim-test/vim-test'
-  " Colorschemes
-  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
+  Plug 'vim-test/vim-test'                                          " Vim Test
+  Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'junegunn/vim-emoji'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   " Not always used plugins
   "Plug 'stephpy/vim-php-cs-fixer'
+  " Colorschemes
+  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
