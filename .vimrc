@@ -4,14 +4,20 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
   Plug 'airblade/vim-rooter'                                        " Find project root
+  Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
   Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }               " Fuzzy finder
   Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
+  Plug 'junegunn/vim-emoji'                                         " Emojis for Vim
   Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
+  Plug 'mxw/vim-jsx'                                                " JSX support
+  "Plug 'nathanaelkane/vim-indent-guides'                            " Indent Guides
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
   Plug 'othree/html5.vim'                                           " Better HTML5 support
   Plug 'pangloss/vim-javascript'                                    " Better JS support
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }            " Prettier support
@@ -20,21 +26,15 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors support
   Plug 'tpope/vim-commentary'                                       " Fast commenter
   Plug 'tpope/vim-fugitive'                                         " Git wrapper
-  Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
-  Plug 'tpope/vim-surround'                                         " Fast surround
   Plug 'tpope/vim-obsession'                                        " Sessions
+  Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
+  Plug 'tpope/vim-sensible'                                         " Better defaults
+  Plug 'tpope/vim-surround'                                         " Fast surround
   Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'vim-airline/vim-airline-themes'                             " Light tabline themes
+  Plug 'vim-test/vim-test'                                          " Vim Test
   Plug 'w0rp/ale'                                                   " Async linter
   Plug 'yggdroot/indentline'                                        " Display indention levels
-  Plug 'tpope/vim-sensible'                                         " Better defaults
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
-  Plug 'mxw/vim-jsx'                                                " JSX support
-  Plug 'vim-test/vim-test'                                          " Vim Test
-  Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'junegunn/vim-emoji'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
   " Not always used plugins
   "Plug 'stephpy/vim-php-cs-fixer'
   " Colorschemes
