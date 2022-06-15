@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
   Plug 'airblade/vim-rooter'                                        " Find project root
+  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
   Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
   Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
@@ -16,7 +17,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
   Plug 'mxw/vim-jsx'                                                " JSX support
-  "Plug 'nathanaelkane/vim-indent-guides'                            " Indent Guides
   Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
   Plug 'othree/html5.vim'                                           " Better HTML5 support
   Plug 'pangloss/vim-javascript'                                    " Better JS support
@@ -37,8 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'yggdroot/indentline'                                        " Display indention levels
   " Not always used plugins
   "Plug 'stephpy/vim-php-cs-fixer'
-  " Colorschemes
-  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
+  "Plug 'nathanaelkane/vim-indent-guides'                            " Indent Guides
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
