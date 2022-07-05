@@ -4,40 +4,44 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-  "Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
-  Plug 'airblade/vim-rooter'                                        " Find project root
-  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
-  "Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
-  Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
+  "Essentials
+  Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
+  Plug 'scrooloose/nerdtree'                                        " Tree explorer
   Plug 'jistr/vim-nerdtree-tabs'                                    " NERDTree tabs
+  Plug 'vim-airline/vim-airline'                                    " Light tabline
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }               " Fuzzy finder
   Plug 'junegunn/fzf.vim'                                           " Fuzzy finder vim integration
-  Plug 'junegunn/vim-emoji'                                         " Emojis for Vim
-  Plug 'mattn/emmet-vim'                                            " Emmet
-  Plug 'mhinz/vim-startify'                                         " Fancy start screen for Vim
-  Plug 'mxw/vim-jsx'                                                " JSX support
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
+  Plug 'editorconfig/editorconfig-vim'                              " Editorconfig support
+  "Themes
+  Plug 'dracula/vim', { 'as': 'dracula' }                           " Dracula colorscheme
+  Plug 'vim-airline/vim-airline-themes'                             " Light tabline themes
+  "Frontend
   Plug 'othree/html5.vim'                                           " Better HTML5 support
   Plug 'pangloss/vim-javascript'                                    " Better JS support
+  Plug 'mxw/vim-jsx'                                                " JSX support
+  Plug 'mattn/emmet-vim'                                            " Emmet
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }            " Prettier support
+  "Uncategorized
+  Plug 'airblade/vim-gitgutter'                                     " Git diff in the gutter
+  Plug 'junegunn/vim-emoji'                                         " Emojis for Vim
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Conqueror of Completion
   Plug 'ryanoasis/vim-devicons'                                     " Glyphs and icons
-  Plug 'scrooloose/nerdtree'                                        " Tree explorer
-  Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors support
   Plug 'tpope/vim-commentary'                                       " Fast commenter
   Plug 'tpope/vim-fugitive'                                         " Git wrapper
   Plug 'tpope/vim-obsession'                                        " Sessions
   Plug 'tpope/vim-repeat'                                           " Repeat plugin actions
   Plug 'tpope/vim-sensible'                                         " Better defaults
   Plug 'tpope/vim-surround'                                         " Fast surround
-  Plug 'vim-airline/vim-airline'                                    " Light tabline
-  Plug 'vim-airline/vim-airline-themes'                             " Light tabline themes
   Plug 'w0rp/ale'                                                   " Async linter
-  "Plug 'yggdroot/indentline'                                        " Display indention levels
   " Not always used plugins
+  "Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'easymotion/vim-easymotion'                                  " Vim EasyMotion
+  "Plug 'nathanaelkane/vim-indent-guides'                            " Indent Guides
   "Plug 'stephpy/vim-php-cs-fixer'
   "Plug 'vim-test/vim-test'                                          " Vim Test
-  "Plug 'nathanaelkane/vim-indent-guides'                            " Indent Guides
+  "Plug 'yggdroot/indentline'                                        " Display indention levels
+  "Plug 'airblade/vim-rooter'                                        " Find project root
+  "Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors support
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Checks
@@ -76,8 +80,6 @@ set cursorline                                      " Highlight the line current
 set formatoptions+=j                                " Delete comment character when joining commented lines
 set hidden                                          " Hide files in the background instead of closing them
 set list                                            " Hightlight unwanted spaces
-"set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-"set nrformats-=octal                                " Interpret octal as decimal when incrementing numbers
 set scrolloff=5                                     " The number of screen lines to keep above and below the cursor
 set showmatch                                       " Show matching delimitator
 set sidescrolloff=5                                 " The number of screen columns to keep to the left and right of the cursor
@@ -141,15 +143,6 @@ set updatetime=250                                  " The length of time Vim wai
 "set ttimeout
 "set ttimeoutlen=100
 "set ttyfast                                         " Fast terminal connection (only for vim)
-
-" GUI-only options
-if has("gui_running")
-  set guioptions-=m                                 " Remove menu bar
-  set guioptions-=T                                 " Remove toolbar
-  set guioptions-=r                                 " Remove right-hand scroll bar
-  set guioptions-=L                                 " Remove left-hand scroll bar
-  set guifont=FantasqueSansMono\ NF\ 12
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Mappings
 " Edit my .vimrc
